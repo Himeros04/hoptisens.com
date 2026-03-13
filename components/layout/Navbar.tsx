@@ -15,16 +15,42 @@ export function Navbar() {
   const { scrollY } = useScroll();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Scroll Animations
-  const paddingY = useTransform(scrollY, [0, 80], [20, 10]);
-  const logoScale = useTransform(scrollY, [0, 80], [1, 0.85]);
-  const bgOpacity = useTransform(scrollY, [0, 80], [0, 0.92]);
-  const backdropBlur = useTransform(scrollY, [0, 80], [0, 12]);
-  const shadowIntensity = useTransform(scrollY, [0, 80], [0, 1]);
+  // Scroll animations - Seuils très courts (0-150px) pour effet immédiat
+  const navMaxWidth = useTransform(scrollY, [0, 150], ["100%", "850px"]);
+  const navTop = useTransform(scrollY, [0, 150], [0, 16]);
+  const borderRadius = useTransform(scrollY, [0, 150], [0, 999]);
+  const bgOpacity = useTransform(scrollY, [0, 150], [0, 1]);
+  const backdropBlur = useTransform(scrollY, [0, 150], [0, 12]);
 
-  const backgroundColor = useTransform(bgOpacity, (op) => `rgba(250, 250, 249, ${op})`);
-  const filter = useTransform(backdropBlur, (blur) => `blur(${blur}px)`);
-  const boxShadow = useTransform(shadowIntensity, (val) => val === 1 ? `0 1px 0 var(--color-border)` : `none`);
+  // Échelle du logo
+  const logoScale = useTransform(scrollY, [0, 150], [1, 0.9]);
+
+  // Metallic background gradient
+  const metallicBg = useTransform(
+    bgOpacity,
+    (opacity) => opacity > 0.05
+      ? `linear-gradient(180deg, 
+          rgba(230, 230, 235, ${0.9 * opacity}) 0%, 
+          rgba(210, 210, 215, ${0.85 * opacity}) 50%, 
+          rgba(220, 220, 225, ${0.8 * opacity}) 100%)`
+      : "transparent"
+  );
+
+  // Box shadow
+  const boxShadow = useTransform(
+    bgOpacity,
+    (opacity) => opacity > 0.3
+      ? `0 10px 30px rgba(0, 0, 0, 0.1)`
+      : "none"
+  );
+
+  // Border dynamique
+  const borderStyle = useTransform(
+    bgOpacity,
+    (opacity) => opacity > 0.1
+      ? `1px solid rgba(180, 180, 190, ${0.3 * opacity})`
+      : "1px solid transparent"
+  );
 
   type RouteHref = "/" | "/a-propos" | "/offres" | "/contact";
   const links: { href: RouteHref, label: string }[] = [
@@ -38,25 +64,32 @@ export function Navbar() {
 
   return (
     <>
-      <motion.header
-        className="fixed top-0 left-0 right-0 z-50 transition-colors"
+      {/* Navbar Desktop & Conteneur Principal */}
+      <motion.div
+        className="fixed left-0 right-0 z-50 mx-auto flex items-center px-6 md:px-12"
         style={{
-          paddingTop: paddingY,
-          paddingBottom: paddingY,
-          backgroundColor,
-          backdropFilter: filter,
+          height: 72,
+          width: "100%", // <-- On force les 100% de base ici pour éviter les bugs au chargement
+          maxWidth: navMaxWidth,
+          top: navTop,
+          background: metallicBg,
+          backdropFilter: `blur(${backdropBlur.get()}px)`,
           boxShadow,
+          borderRadius,
+          border: borderStyle,
         }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
       >
-        <div className="mx-auto flex w-full max-w-[1200px] items-center justify-between px-6 md:px-12">
-          {/* Logo */}
-          <Link href="/" className="transition-opacity hover:opacity-80">
-            <motion.div style={{ scale: logoScale, originX: 0, originY: 0.5 }}>
+        {/* 1. Zone du Logo : flex-1 prend TOUT l'espace vide et pousse le reste à droite */}
+        <div className="flex-1 flex justify-start">
+          <motion.div style={{ scale: logoScale, originX: 0 }}>
+            <Link href="/" className="transition-opacity hover:opacity-80">
               <Logo />
-            </motion.div>
-          </Link>
+            </Link>
+          </motion.div>
+        </div>
 
+        {/* 2. Zone de Navigation : Reste à droite et prend juste la place dont elle a besoin */}
+        <div className="flex-shrink-0 flex items-center justify-end">
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
             <div className="flex items-center gap-6">
@@ -64,13 +97,13 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+                  className="text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors whitespace-nowrap"
                 >
                   {link.label}
                 </Link>
               ))}
             </div>
-            
+
             <div className="flex items-center gap-4 border-l border-[var(--color-border)] pl-4">
               <Link href={pathname} locale={switchLocale as any} className="text-xs font-semibold hover:text-[var(--color-accent)] transition-colors">
                 {switchLabel}
@@ -83,13 +116,13 @@ export function Navbar() {
 
           {/* Mobile Toggle */}
           <button
-            className="md:hidden p-2 text-[var(--color-text-primary)]"
+            className="md:hidden p-2 ml-4 text-[var(--color-text-primary)]"
             onClick={() => setIsMobileMenuOpen(true)}
           >
             <Menu size={24} />
           </button>
         </div>
-      </motion.header>
+      </motion.div>
 
       {/* Mobile Menu */}
       <AnimatePresence>
@@ -98,7 +131,7 @@ export function Navbar() {
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
-            transition={{ type: "spring", bounce: 0, duration: 0.4 }}
+            transition={{ type: "spring", bounce: 0, duration: 0.7 }}
             className="fixed inset-0 z-[60] bg-[var(--color-bg)] flex flex-col pt-6 px-6"
           >
             <div className="flex items-center justify-between mb-12">

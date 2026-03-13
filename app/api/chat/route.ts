@@ -1,11 +1,10 @@
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
-import { streamText } from 'ai';
+import { convertToModelMessages, streamText, UIMessage } from 'ai';
 
 const google = createGoogleGenerativeAI({
   apiKey: process.env.GEMINI_API_KEY || '',
 });
 
-// Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
 
 const SYSTEM_PROMPT = `Tu es Lucio, l'agent conversationnel d'Hoptisens, une agence d'automatisation et d'IA générative.
@@ -22,12 +21,17 @@ Garde un ton bienveillant et concis.
 
 export async function POST(req: Request) {
   try {
-    const { messages } = await req.json();
+    const { messages }: { messages: UIMessage[] } = await req.json();
+
+    const filteredMessages = messages.map(msg => ({
+      ...msg,
+      parts: msg.parts.filter(p => p.type === 'text'),
+    })).filter(msg => msg.parts.length > 0);
 
     const result = streamText({
-      model: google('models/gemini-2.5-flash'),
+      model: google('gemini-2.5-flash'),
       system: SYSTEM_PROMPT,
-      messages,
+      messages: await convertToModelMessages(filteredMessages),
       temperature: 0.7,
     });
 

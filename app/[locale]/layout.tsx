@@ -31,6 +31,9 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: 'Hoptisens',
   description: 'Agence IA & Automatisation',
+  icons: {
+    icon: '/favicon.svg',
+  },
 }
 
 export default async function RootLayout({
