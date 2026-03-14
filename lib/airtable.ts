@@ -1,15 +1,7 @@
 import Airtable from 'airtable';
 
-if (!process.env.AIRTABLE_API_KEY) {
-  throw new Error('Missing AIRTABLE_API_KEY');
-}
-
-if (!process.env.AIRTABLE_BASE_ID) {
-  throw new Error('Missing AIRTABLE_BASE_ID');
-}
-
-const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
-  process.env.AIRTABLE_BASE_ID
+const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY || 'missing' }).base(
+  process.env.AIRTABLE_BASE_ID || 'missing'
 );
 
 export const prospectsTable = base(process.env.AIRTABLE_TABLE_NAME || 'Prospects');
@@ -27,6 +19,9 @@ export interface ProspectData {
 }
 
 export async function createLead(data: ProspectData) {
+  if (!process.env.AIRTABLE_API_KEY || !process.env.AIRTABLE_BASE_ID) {
+    throw new Error('Missing Airtable configuration (AIRTABLE_API_KEY or AIRTABLE_BASE_ID).');
+  }
   try {
     const fields: any = {
       'First Name': data.firstName,
