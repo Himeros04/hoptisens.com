@@ -64,12 +64,12 @@ export function Navbar() {
 
   return (
     <>
-      {/* Navbar Desktop & Conteneur Principal */}
+      {/* Navbar Desktop & Conteneur Principal - Sans mx-auto pour forcer l'alignement à gauche */}
       <motion.div
-        className="fixed left-0 right-0 z-50 mx-auto flex items-center px-6 md:px-12"
+        className="fixed left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12"
         style={{
           height: 72,
-          width: "100%", // <-- On force les 100% de base ici pour éviter les bugs au chargement
+          width: "100%",
           maxWidth: navMaxWidth,
           top: navTop,
           background: metallicBg,
@@ -79,8 +79,8 @@ export function Navbar() {
           border: borderStyle,
         }}
       >
-        {/* 1. Zone du Logo : flex-1 prend TOUT l'espace vide et pousse le reste à droite */}
-        <div className="flex-1 flex justify-start">
+        {/* 1. Zone du Logo : flex-none empêche le rétrécissement */}
+        <div className="flex-none flex justify-start">
           <motion.div style={{ scale: logoScale, originX: 0 }}>
             <Link href="/" className="transition-opacity hover:opacity-80">
               <Logo />
@@ -88,8 +88,8 @@ export function Navbar() {
           </motion.div>
         </div>
 
-        {/* 2. Zone de Navigation : Reste à droite et prend juste la place dont elle a besoin */}
-        <div className="flex-shrink-0 flex items-center justify-end">
+        {/* 2. Zone de Navigation : justify-end pour aligner à droite */}
+        <div className="flex-none flex items-center justify-end">
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
             <div className="flex items-center gap-6">

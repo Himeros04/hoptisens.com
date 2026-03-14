@@ -12,6 +12,7 @@
     "@ai-sdk/google": "^3.0.43",
     "@ai-sdk/react": "^3.0.118",
     "ai": "^6.0.116",
+    "airtable": "^0.12.2",
     "clsx": "^2.1.1",
     "framer-motion": "^12.36.0",
     "geist": "^1.7.0",

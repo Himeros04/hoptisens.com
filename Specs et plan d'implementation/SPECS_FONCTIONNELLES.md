@@ -61,7 +61,7 @@ Permettre aux entreprises d'anticiper ce changement plutôt que de le subir, en 
 ### Personas principaux
 
 | Persona | Profil | Besoin principal |
-|---|---|---|
+| --- | --- | --- |
 | Le Dirigeant | PDG / Gérant, 40-55 ans | Gagner du temps, réduire les coûts opérationnels |
 | L'Opérationnel | DAF / Responsable ops | Automatiser les tâches répétitives, fiabiliser les données |
 | Le Visionnaire | CTO / DSI | Intégrer l'IA de façon responsable et mesurable |
@@ -77,7 +77,7 @@ Hoptisens ne vend pas un logiciel, ni une simple formation. Elle co-construit av
 
 ### Routing bilingue
 
-```
+```text
 /                        → Accueil (FR)
 /en                      → Home (EN)
 
@@ -99,7 +99,7 @@ Hoptisens ne vend pas un logiciel, ni une simple formation. Elle co-construit av
 
 ### Hiérarchie des composants
 
-```
+```text
 app/
 ├── [locale]/
 │   ├── layout.tsx           → Layout global (Navbar + Footer)
@@ -140,7 +140,7 @@ app/
 ### 4.1 Palette de couleurs
 
 | Token CSS | Valeur HEX | Usage |
-|---|---|---|
+| --- | --- | --- |
 | `--bg` | `#FAFAF9` | Fond principal (blanc chaud) |
 | `--surface` | `#F2F1EF` | Fonds de cartes, sections alternées |
 | `--surface-hover` | `#ECEAE6` | Hover sur cartes |
@@ -158,7 +158,7 @@ app/
 ### 4.2 Typographie
 
 | Rôle | Police | Poids | Taille | Notes |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | Hero titre | Geist | 800 | 72-96px | Tracking `-0.04em`, responsive |
 | Titre H2 | Geist | 700 | 40-56px | Tracking `-0.02em` |
 | Titre H3 | Geist | 600 | 28-36px | |
@@ -192,7 +192,7 @@ import { GeistSans, GeistMono } from 'geist/font'
 
 **Button variants :**
 
-```
+```text
 Primary   : bg-accent text-white, hover bg-accent-hover
 Secondary : bg-surface border-border text-primary, hover bg-surface-hover
 Ghost     : bg-transparent border-border text-primary, hover bg-surface
@@ -200,14 +200,14 @@ Ghost     : bg-transparent border-border text-primary, hover bg-surface
 
 **Badge / Tag :**
 
-```
+```text
 Default : bg-surface border-border text-muted, 11px uppercase
 Accent  : bg-accent-soft border-accent-border text-accent, 11px uppercase
 ```
 
 **Card :**
 
-```
+```text
 Base    : bg-surface border border-border rounded-xl p-6
 Hover   : shadow-md, translateY(-2px), border-color → accent-border
 Durée   : 200ms ease
@@ -221,14 +221,14 @@ Durée   : 200ms ease
 
 **Structure :**
 
-```
+```text
 [ Logo Hoptisens ]   [ Offres · À propos · Contact ]   [ FR|EN · Prendre RDV → ]
 ```
 
 **Comportement dynamique (Framer Motion `useScroll`) :**
 
 | Propriété | État initial (top) | État compact (scroll > 80px) |
-|---|---|---|
+| --- | --- | --- |
 | `padding-y` | `20px` | `10px` |
 | `background` | `transparent` | `rgba(250,250,249,0.92)` |
 | `backdrop-filter` | `none` | `blur(12px)` |
@@ -262,7 +262,7 @@ const logoHeight = useTransform(scrollY, [0, 80], [32, 24])
 
 **Colonnes :**
 
-```
+```text
 [ Logo + Tagline ]   [ Offres ]   [ Liens ]   [ Contact ]
 ```
 
@@ -306,7 +306,7 @@ Voir section 7 pour le détail complet.
 **Disposition** : Grille 4 colonnes (2 sur mobile)
 
 | Chiffre | Label |
-|---|---|
+| --- | --- |
 | `-80%` | temps de prospection |
 | `+3×` | ROI moyen constaté |
 | `10 jours` | pour un premier livrable |
@@ -320,7 +320,7 @@ Voir section 7 pour le détail complet.
 
 **Cartes :**
 
-```
+```text
 ┌─────────────────────────────┐
 │ [Tag] CATÉGORIE 1           │
 │                             │
@@ -382,7 +382,7 @@ Carrousel horizontal, 3 citations, auto-scroll toutes les 5s.
 
 **4 sections d'offres (une par catégorie) :**
 
-```
+```text
 Catégorie 1 : L'Étude & Les Plans
 ─────────────────────────────────
 Sous-titre : "L'analyse de l'existant pour concevoir une architecture solide."
@@ -490,7 +490,7 @@ Inspiré du style **makingsoftware.com** : un schéma SVG en position `sticky` q
 
 La section a une hauteur de `300vh` pour permettre un scroll lent. Le schéma SVG est en `position: sticky; top: 10%`.
 
-```
+```text
 Scroll  0% → 30%  : Phase 1 — L'entreprise avant
 Scroll 30% → 60%  : Phase 2 — L'intervention Hoptisens
 Scroll 60% → 100% : Phase 3 — L'entreprise augmentée
@@ -508,7 +508,7 @@ Scroll 60% → 100% : Phase 3 — L'entreprise augmentée
 
 **Labels des nœuds :**
 
-```
+```text
 [ Prospection manuelle ]  →→→  [ Saisie de données ]  →→→  [ Reporting Excel ]
 ```
 
@@ -544,7 +544,7 @@ Scroll 60% → 100% : Phase 3 — L'entreprise augmentée
 - Les flèches en tirets deviennent des **flèches pleines** et animées
 - 3 **nouveaux nœuds** apparaissent en bas du schéma :
 
-  ```
+  ```text
   [ Agent IA ]    [ CRM Automatisé ]    [ Dashboard Pilotage ]
   ```
 
@@ -609,7 +609,7 @@ const newNodesY       = useTransform(scrollYProgress, [0.65, 0.85], [20, 0])
 
 ### Flux de conversation (scénario type)
 
-```
+```text
 Agent  → "Bonjour ! Je suis l'assistant Hoptisens.
           Pour vous proposer la meilleure approche,
           j'ai besoin de vous poser 4 courtes questions.
@@ -653,7 +653,7 @@ Agent  → "Merci pour ces informations. Voici ce que
 ### Logique de recommandation dynamique
 
 | Profil détecté | Recommandation |
-|---|---|
+| --- | --- |
 | Première exploration + processus manuel clé | Sprint "Processus Performants" (490€) |
 | Besoin de leads / prospection | Le Prospecteur Augmenté |
 | Site web + besoin de qualification | Le Filtre IA |
@@ -699,7 +699,7 @@ Agent  → "Merci pour ces informations. Voici ce que
 #### Navbar
 
 | Déclencheur | Animation | Durée | Easing |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Scroll > 80px | Compactage (padding, bg, blur) | 300ms | easeInOut |
 | Hover lien nav | Underline slide-in | 200ms | ease |
 | Click CTA | Scale 0.97 → 1 | 150ms | spring |
@@ -707,7 +707,7 @@ Agent  → "Merci pour ces informations. Voici ce que
 #### Hero
 
 | Élément | Animation | Délai | Durée |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Badge pré-titre | fadeIn + slideDown | 0ms | 400ms |
 | Titre H1 (mot 1) | fadeIn + slideUp | 200ms | 500ms |
 | Titre H1 (mot 2) | fadeIn + slideUp | 280ms | 500ms |
@@ -719,7 +719,7 @@ Agent  → "Merci pour ces informations. Voici ce que
 #### Schéma animé (voir section 7)
 
 | Phase | Déclencheur | Type |
-|---|---|---|
+| --- | --- | --- |
 | Phase 1 | Entrée dans le viewport | stagger fadeIn + scaleIn |
 | Phase 2 | scroll 30-60% | pathLength drawing |
 | Phase 3 | scroll 60-100% | fadeIn + counter + flowDots |
@@ -727,7 +727,7 @@ Agent  → "Merci pour ces informations. Voici ce que
 #### Sections (scroll reveal)
 
 | Pattern | Propriétés | Durée | Easing |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `FadeInUp` | `y: 20→0`, `opacity: 0→1` | 500ms | easeOut |
 | `FadeIn` | `opacity: 0→1` | 400ms | easeOut |
 | `ScaleIn` | `scale: 0.95→1`, `opacity: 0→1` | 400ms | easeOut |
@@ -738,7 +738,7 @@ Tous déclenchés via `whileInView` avec `once: true` et `margin: "-10%"`.
 #### Cartes offres
 
 | Déclencheur | Animation | Durée |
-|---|---|---|
+| --- | --- | --- |
 | Hover | `translateY: -4px`, `shadow-md` | 200ms |
 | Hover bordure | `border-color → --accent-border` | 200ms |
 | Click | `scale: 0.98` | 100ms |
@@ -746,7 +746,7 @@ Tous déclenchés via `whileInView` avec `once: true` et `margin: "-10%"`.
 #### Boutons
 
 | Déclencheur | Animation | Durée |
-|---|---|---|
+| --- | --- | --- |
 | Hover primary | `bg → accent-hover`, légère luminosité | 150ms |
 | Hover ghost | `bg → surface` | 150ms |
 | Active/Click | `scale: 0.97` | 100ms |
@@ -766,7 +766,7 @@ Tous déclenchés via `whileInView` avec `once: true` et `margin: "-10%"`.
 #### Agent IA (chat)
 
 | Élément | Animation | Durée |
-|---|---|---|
+| --- | --- | --- |
 | Fenêtre chat | `scaleY: 0.95→1`, `opacity: 0→1` | 300ms |
 | Bulle message | `y: 8→0`, `opacity: 0→1` | 200ms |
 | Indicateur typing | 3 dots en `pulse` alterné | infini |
@@ -785,7 +785,7 @@ Tous déclenchés via `whileInView` avec `once: true` et `margin: "-10%"`.
 
 ### Structure des fichiers de traduction
 
-```
+```text
 messages/
 ├── fr.json    → Toutes les chaînes en français
 └── en.json    → Toutes les chaînes en anglais
@@ -830,7 +830,7 @@ messages/
 
 ### Structure Next.js 14 (App Router)
 
-```
+```text
 app/
 ├── [locale]/
 │   └── ...pages
@@ -888,14 +888,14 @@ module.exports = {
 ### Environnements
 
 | Environnement | URL | Branche Git |
-|---|---|---|
+| --- | --- | --- |
 | Production | hoptisens.com | `main` |
 | Preview | *.vercel.app | `develop` + PRs |
 
 ### Performance cibles (Core Web Vitals)
 
 | Métrique | Cible |
-|---|---|
+| --- | --- |
 | LCP (Largest Contentful Paint) | < 2.5s |
 | CLS (Cumulative Layout Shift) | < 0.1 |
 | INP (Interaction to Next Paint) | < 200ms |
@@ -921,7 +921,7 @@ module.exports = {
 ### Vue d'ensemble
 
 | Phase | Durée | Livrable |
-|---|---|---|
+| --- | --- | --- |
 | 1. Setup & fondations | Jour 1 | Projet initialisé, déployé sur Vercel |
 | 2. Design system | Jours 2-3 | Composants UI de base, tokens CSS |
 | 3. Pages statiques | Jours 4-7 | Toutes les pages sans animations |
@@ -1052,4 +1052,4 @@ npm install framer-motion next-intl ai geist \
 
 ---
 
-_Document rédigé en Mars 2026 — Hoptisens · hoptisens.com_
+Document rédigé en Mars 2026 — Hoptisens · hoptisens.com
