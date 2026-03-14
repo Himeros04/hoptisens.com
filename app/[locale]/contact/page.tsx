@@ -4,6 +4,7 @@ import { FadeInUp } from "@/components/ui/FadeInUp";
 import { Card } from "@/components/ui/Card";
 import { Mail, ArrowRight } from "lucide-react";
 import { ContactChat } from "@/components/agent/ContactChat";
+import { ContactForm } from "@/components/forms/ContactForm";
 
 export default function ContactPage() {
   return (
@@ -26,12 +27,12 @@ export default function ContactPage() {
         <Container>
           <div className="grid lg:grid-cols-5 gap-12">
             
-            {/* Colonne Chat Agent Placeholder (3 cols) */}
+            {/* Colonne Formulaire (3 cols) */}
             <div className="lg:col-span-3">
               <FadeInUp delay={0.1}>
-                <Card className="p-0 overflow-hidden h-[600px] flex flex-col border border-border bg-surface">
-                  <ContactChat />
-                </Card>
+                <div>
+                  <ContactForm />
+                </div>
               </FadeInUp>
             </div>
 
@@ -52,9 +53,9 @@ export default function ContactPage() {
                     
                     <div>
                       <p className="text-sm text-text-muted font-mono mb-2">RÉSEAUX</p>
-                      <a href="https://linkedin.com/company/hoptisens" target="_blank" rel="noopener noreferrer" className="group flex items-center text-lg font-medium text-text-primary hover:text-accent transition-colors">
+                      <a href="https://www.linkedin.com/in/hadrien-peyron/" target="_blank" rel="noopener noreferrer" className="group flex items-center text-lg font-medium text-text-primary hover:text-accent transition-colors cursor-pointer">
                         <ArrowRight className="w-5 h-5 mr-3 text-text-muted group-hover:text-accent transition-colors" />
-                        Suivez-nous sur LinkedIn
+                        Hadrien Peyron sur LinkedIn
                       </a>
                     </div>
 

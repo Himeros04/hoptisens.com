@@ -6,15 +6,20 @@ import { Link } from "@/lib/routing";
 
 export function Sprint() {
   return (
-    <Section className="py-24 relative overflow-hidden">
+    <Section id="sprint" className="py-24 relative overflow-hidden">
       {/* Background with slight dark accent theme for contrast */}
       <div className="absolute inset-0 bg-text-primary -z-10"></div>
       
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <FadeInUp className="text-white">
-            <div className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-sm text-white mb-6">
-              Offre Phare — 490€ HT
+            <div className="inline-flex flex-col items-start gap-1 mb-6">
+              <div className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-sm text-white">
+                Offre de lancement — 490€ <span className="ml-1 opacity-60 line-through text-xs">990€</span>
+              </div>
+              <div className="text-[var(--color-accent)] text-xs font-medium ml-1">
+                ⚠️ Valable pour les 7 prochains clients
+              </div>
             </div>
             <h2 className="text-3xl md:text-5xl font-serif mb-6">
               Le <span className="text-accent italic">Sprint Automobilisation</span>
@@ -25,9 +30,11 @@ export function Sprint() {
               test grandeur nature prouvant le ROI de l'IA dans votre entreprise.
             </p>
             <div className="flex gap-4">
-              <Button size="lg" className="bg-accent text-white hover:bg-white hover:text-accent border-none shadow-none">
-                <Link href="/offres/sprint">Voir le programme</Link>
-              </Button>
+              <a href="https://calendly.com/hoptisens/hoptisens-call" target="_blank" rel="noopener noreferrer" className="inline-block">
+                <Button size="lg" className="bg-accent text-white hover:bg-white hover:text-accent border-none shadow-none">
+                  Profiter de l'offre
+                </Button>
+              </a>
             </div>
           </FadeInUp>
           

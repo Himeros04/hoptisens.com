@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Link } from "@/lib/routing";
 import { ArrowRight, Brain, Zap, Workflow, Users, CheckCircle2 } from "lucide-react";
+import { ContactForm } from "@/components/forms/ContactForm";
 
 export default function OffresPage() {
   return (
@@ -27,13 +28,19 @@ export default function OffresPage() {
       </Section>
 
       {/* Détail par catégorie */}
-      <nav className="sticky top-20 z-40 bg-bg/80 backdrop-blur-md border-b border-border mb-16 py-4">
+      <nav className="sticky top-20 z-40 bg-bg/80 backdrop-blur-md border-b border-border mb-16 py-4 overflow-x-auto no-scrollbar">
         <Container>
-          <ul className="flex space-x-8 overflow-x-auto text-sm font-medium">
+          <ul className="flex space-x-8 text-sm font-medium min-w-max">
             <li><a href="#leads" className="text-text-secondary hover:text-accent whitespace-nowrap">Leads & CRM</a></li>
             <li><a href="#automatisation" className="text-text-secondary hover:text-accent whitespace-nowrap">Automatisation</a></li>
             <li><a href="#agents" className="text-text-secondary hover:text-accent whitespace-nowrap">Agents IA</a></li>
-            <li><a href="#sprint" className="text-accent font-bold whitespace-nowrap">Sprint Automobilisation</a></li>
+            <li><a href="#sprint" className="text-text-secondary hover:text-accent whitespace-nowrap">Sprint Automobilisation</a></li>
+            <li>
+              <a href="#contact-form" className="text-accent font-bold whitespace-nowrap flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
+                Nous Contacter
+              </a>
+            </li>
           </ul>
         </Container>
       </nav>
@@ -63,8 +70,10 @@ export default function OffresPage() {
                     </li>
                   ))}
                 </ul>
-                <Button>
-                  <Link href="/offres/sprint">Découvrir le Sprint</Link>
+                <Button variant="secondary" className="p-0 border-none hover:bg-transparent">
+                  <Link href="/offres/sprint" className="inline-flex items-center justify-center rounded-xl font-medium transition-all h-11 px-6 text-base bg-transparent border border-[var(--color-border)] text-[var(--color-text-primary)] hover:bg-[var(--color-surface)]">
+                    Découvrir le Sprint
+                  </Link>
                 </Button>
               </div>
               <div className="bg-surface rounded-3xl p-8 border border-border flex items-center justify-center aspect-video">
@@ -90,12 +99,29 @@ export default function OffresPage() {
                   Ne perdez plus de temps à chercher des prospects. Nos systèmes scrutent le web
                   et qualifient automatiquement les entreprises correspondant à votre profil idéal (ICP).
                 </p>
-                <Button variant="secondary">
-                  <Link href="/offres/leads">Voir la génération de Leads</Link>
+                <Button variant="secondary" className="p-0 border-none hover:bg-transparent">
+                  <Link href="/offres/leads" className="inline-flex items-center justify-center rounded-xl font-medium transition-all h-11 px-6 text-base bg-transparent border border-[var(--color-border)] text-[var(--color-text-primary)] hover:bg-[var(--color-surface)]">
+                    Voir la génération de Leads
+                  </Link>
                 </Button>
               </div>
             </div>
           </FadeInUp>
+        </Section>
+
+        {/* Formulaire de Contact Direct */}
+        <Section id="contact-form" className="scroll-mt-32 py-12">
+          <div className="max-w-3xl mx-auto">
+            <FadeInUp>
+              <div className="text-center mb-10">
+                <h2 className="text-3xl font-serif text-text-primary mb-3">Parlez-nous de votre projet</h2>
+                <p className="text-text-secondary text-sm">
+                  Remplissez le formulaire ci-dessous. Nous analysons votre besoin sous 24h.
+                </p>
+              </div>
+              <ContactForm />
+            </FadeInUp>
+          </div>
         </Section>
 
       </Container>

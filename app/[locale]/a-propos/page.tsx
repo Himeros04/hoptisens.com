@@ -104,7 +104,7 @@ export default function AboutPage() {
                   et documentons le système pour garantir son évolutivité.
                 </p>
                 <Button>
-                  <Link href="/contact">Parler à un expert</Link>
+                  <Link href="/contact">Parler à un consultant</Link>
                 </Button>
               </div>
             </FadeInUp>

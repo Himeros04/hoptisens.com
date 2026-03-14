@@ -108,9 +108,11 @@ export function Navbar() {
               <Link href={pathname} locale={switchLocale as any} className="text-xs font-semibold hover:text-[var(--color-accent)] transition-colors">
                 {switchLabel}
               </Link>
-              <Button size="sm" variant="primary">
-                {t("cta")}
-              </Button>
+              <a href="https://calendly.com/hoptisens/hoptisens-call" target="_blank" rel="noopener noreferrer" className="inline-block">
+                <Button size="sm" variant="primary" className="cursor-pointer">
+                  {t("cta")}
+                </Button>
+              </a>
             </div>
           </nav>
 
@@ -166,9 +168,11 @@ export function Navbar() {
                   Passer en {switchLabel}
                 </Link>
               </div>
-              <Button variant="primary" size="lg" className="w-full">
-                {t("cta")}
-              </Button>
+              <a href="https://calendly.com/hoptisens/hoptisens-call" target="_blank" rel="noopener noreferrer" className="w-full">
+                <Button variant="primary" size="lg" className="w-full cursor-pointer">
+                  {t("cta")}
+                </Button>
+              </a>
             </div>
           </motion.div>
         )}

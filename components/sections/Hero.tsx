@@ -2,6 +2,7 @@
 
 import { Section } from "../ui/Section";
 import { Container } from "../ui/Container";
+import { Link } from "@/lib/routing";
 import { Badge } from "../ui/Badge";
 import { Button } from "../ui/Button";
 import { FadeInUp } from "../ui/FadeInUp";
@@ -68,12 +69,12 @@ export function Hero() {
             évoluer leurs opérations quotidiennes.
           </motion.p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="w-full sm:w-auto">
-              Démarrer un Audit
-            </Button>
-            <Button variant="secondary" size="lg" className="w-full sm:w-auto">
-              Découvrir nos offres
-            </Button>
+            <a href="#sprint" className="w-full sm:w-auto">
+              <Button size="lg" className="w-full">Voir l'Offre de Lancement</Button>
+            </a>
+            <Link href="/contact" className="w-full sm:w-auto">
+              <Button variant="secondary" size="lg" className="w-full">Parler à un consultant</Button>
+            </Link>
           </div>
         </FadeInUp>
       </Container>

@@ -72,7 +72,8 @@ export async function POST(req: Request) {
                 email: leadInfo.email,
                 company: leadInfo.companyName,
                 questions: leadInfo.mainQuestion,
-                transcription: transcription
+                transcription: transcription,
+                source: 'Lucio'
               });
               console.log('Lead successfully saved to Airtable:', leadInfo.email);
             }

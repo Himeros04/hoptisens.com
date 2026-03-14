@@ -14,7 +14,9 @@ export default function SprintPage() {
         <Container>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <FadeInUp>
-              <Badge variant="accent" className="mb-6">Processus de 10 Jours</Badge>
+              <div className="flex flex-col items-start gap-2 mb-6">
+                <Badge variant="accent">Offre de lancement</Badge>
+              </div>
               <h1 className="text-4xl md:text-6xl font-serif text-text-primary mb-6">
                 Le <span className="italic text-accent">Sprint</span> Automobilisation
               </h1>
@@ -23,17 +25,25 @@ export default function SprintPage() {
                 deux semaines. Un investissement minimal pour un ROI démontré immédiatement.
               </p>
               <div className="flex gap-4">
-                <Button size="lg">
-                  <Link href="/contact">Réserver mon audit</Link>
-                </Button>
+                <a href="https://calendly.com/hoptisens/hoptisens-call" target="_blank" rel="noopener noreferrer" className="inline-block">
+                  <Button size="lg">
+                    Profiter de l'offre
+                  </Button>
+                </a>
               </div>
             </FadeInUp>
             <FadeInUp delay={0.2} className="relative">
+              <div className="text-[var(--color-accent)] text-sm font-medium animate-pulse mb-3 text-center bg-accent/5 py-1.5 rounded-xl border border-accent/10">
+                Valable pour les 7 prochains clients
+              </div>
               <div className="aspect-square bg-accent/5 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blur-3xl w-[120%] h-[120%] -z-10"></div>
               <Card className="p-8 border-accent/20">
                 <h3 className="text-2xl font-serif mb-4 flex justify-between items-center">
-                  <span>Tarif Unique</span>
-                  <span className="text-accent font-bold">490€ <span className="text-sm text-text-muted font-normal">HT</span></span>
+                  <span>Tarif de lancement</span>
+                  <div className="text-right">
+                    <span className="text-accent font-bold text-2xl">490€ <span className="text-sm text-text-muted font-normal">HT</span></span>
+                    <div className="text-text-muted text-xs line-through">990€ HT</div>
+                  </div>
                 </h3>
                 <ul className="space-y-4 mb-8">
                   <li className="flex items-start gap-3"><CheckCircle2 className="text-accent w-5 h-5 shrink-0" /> <span className="text-text-secondary">Note de synthèse détaillée</span></li>
