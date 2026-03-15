@@ -40,7 +40,7 @@ export function Hero() {
       
       <Container className="text-center relative z-10">
         <FadeInUp>
-          <Badge variant="accent" className="mb-6">L'Ère de l'Intelligence Artificielle</Badge>
+          <Badge variant="accent" className="mb-6">Agence IA & Automatisation pour TPE et PME (10 à 300 collaborateurs)</Badge>
           
           <motion.h1 
             initial="hidden"
@@ -48,14 +48,11 @@ export function Hero() {
             variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
             className="text-4xl md:text-6xl lg:text-7xl font-serif text-[var(--color-text-primary)] tracking-tight mb-8 max-w-4xl mx-auto flex flex-wrap justify-center gap-x-[0.25em]"
           >
-            {"Transformez votre entreprise avec".split(" ").map((word, i) => (
+            {"Ne subissez pas la révolution de l'IA. Transformez-la en avantage concurrentiel déloyal.".split(" ").map((word, i) => (
               <motion.span key={i} variants={wordVariants} className="inline-block">
                 {word}
               </motion.span>
             ))}
-            <motion.span variants={wordVariants} className="italic inline-block">
-              l'IA générative.
-            </motion.span>
           </motion.h1>
           
           <motion.p 
@@ -64,17 +61,15 @@ export function Hero() {
             transition={{ delay: 0.6, duration: 0.6 }}
             className="text-lg md:text-xl text-[var(--color-text-secondary)] max-w-2xl mx-auto mb-10"
           >
-            Hoptisens accompagne les dirigeants visionnaires dans l'intégration 
-            de solutions IA sur-mesure pour automatiser, optimiser et faire 
-            évoluer leurs opérations quotidiennes.
+            D'ici 2030, notre relation au travail va drastiquement changer. Nous concevons et déployons les architectures automatisées qui font gagner des milliers d'heures à vos équipes et génèrent des leads qualifiés en continu. Mission : Simplifier pour Amplifier.
           </motion.p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#sprint" className="w-full sm:w-auto">
-              <Button size="lg" className="w-full">Voir l'Offre de Lancement</Button>
-            </a>
             <Link href="/contact" className="w-full sm:w-auto">
-              <Button variant="secondary" size="lg" className="w-full">Parler à un consultant</Button>
+              <Button size="lg" className="w-full">🎯 Identifier mon potentiel ROI</Button>
             </Link>
+            <a href="#sprint" className="w-full sm:w-auto">
+              <Button variant="secondary" size="lg" className="w-full">⚡ Découvrir le Sprint 10 Jours</Button>
+            </a>
           </div>
         </FadeInUp>
       </Container>

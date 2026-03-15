@@ -8,26 +8,26 @@ import { Link } from "@/lib/routing";
 
 const offres = [
   {
-    title: "Leads Qualifiés & CRM",
-    description: "Système automatisé de prospection, captant les signaux d'intérêt pour alimenter vos commerciaux en rdv chauds.",
+    title: "Prospection & Inbound Augmentés",
+    description: "Protégez le temps de vos commerciaux. Notre \"Prospecteur Augmenté\" scrape, qualifie par l'IA et rédige des approches ultra-personnalisées. En Inbound, notre Filtre IA ne fait remonter dans votre CRM que les leads chauds.",
     icon: Users,
     href: "/offres/leads"
   },
   {
-    title: "Automatisation Processus",
-    description: "Connectez vos outils et supprimez la double-saisie. De la facture à l'onboarding, tout s'exécute seul.",
+    title: "Automatisation & CRM sur-mesure",
+    description: "La construction et l'assemblage de vos outils. Nous concevons des agents IA, interconnectons vos logiciels existants et développons des CRM semi-automatisés pour éradiquer les tâches chronophages.",
     icon: Workflow,
     href: "/offres"
   },
   {
-    title: "Agents IA Personnalisés",
-    description: "Développez des assistants experts sur votre base de connaissance pour le support client ou aide à la décision.",
+    title: "Audits, Stratégie & Transfert de Compétences",
+    description: "L'analyse de l'existant pour concevoir une architecture solide avant les travaux. Nous formons ensuite vos équipes via des ateliers pratiques et concevons des agents formateurs internes pour l'onboarding.",
     icon: Brain,
     href: "/offres"
   },
   {
-    title: "Sprint Automobilisation",
-    description: "En 10 jours, nous identifions, construisons et déployons votre première grande victoire IA.",
+    title: "Sprint \"Processus Performants\"",
+    description: "Ne devinez plus où intégrer l'IA. En 10 jours ouvrés, obtenez un plan d'action chiffré sur vos 2 processus les plus rentables à optimiser.",
     icon: Zap,
     href: "/offres/sprint",
     highlight: true
@@ -40,7 +40,7 @@ export function Offres() {
       <Container>
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16">
           <FadeInUp className="max-w-2xl">
-            <h2 className="text-3xl md:text-5xl font-serif text-text-primary mb-4">Nos Domaines d'Intervention</h2>
+            <h2 className="text-3xl md:text-5xl font-serif text-text-primary mb-4">Notre ingénierie au service de votre rentabilité</h2>
             <p className="text-text-secondary text-lg">
               De l'audit initial au déploiement technique, nous couvrons 
               l'ensemble des besoins de transformation digitale pour les PME.

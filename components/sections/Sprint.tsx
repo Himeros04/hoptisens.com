@@ -22,17 +22,29 @@ export function Sprint() {
               </div>
             </div>
             <h2 className="text-3xl md:text-5xl font-serif mb-6">
-              Le <span className="text-accent italic">Sprint Automobilisation</span>
+              Le Sprint "Processus Performants" — 490€ HT
             </h2>
-            <p className="text-white/80 text-lg mb-8 max-w-lg">
-              Un accompagnement intensif de 10 jours pour analyser vos flux, 
-              définir un plan d'action opérationnel et déployer un pipeline 
-              test grandeur nature prouvant le ROI de l'IA dans votre entreprise.
+            <p className="text-[var(--color-accent)] font-medium text-lg mb-4">
+              On ne vous propose pas un service, on initie votre transformation.
             </p>
+            <ul className="space-y-4 mb-8 text-white/80 max-w-lg">
+              <li className="flex items-start gap-3">
+                <span className="text-lg">🕒</span>
+                <div><span className="font-semibold text-white">10 jours ouvrés</span> chronomètre : Nous ciblons les 2 processus de votre entreprise où l'optimisation aura un ROI rapide.</div>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-lg">📄</span>
+                <div><span className="font-semibold text-white">Livrable actionnable</span> : Une synthèse claire du problème, 2 fiches détaillées avec le plan d'action, les outils préconisés et un devis d'implémentation.</div>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-lg">🛡️</span>
+                <div><span className="font-semibold text-white">Garantie Zéro Risque</span> ($100M Offer) : Le montant du sprint se transforme intégralement en avoir, déductible du coût de l'implémentation si vous continuez avec nous.</div>
+              </li>
+            </ul>
             <div className="flex gap-4">
               <a href="https://calendly.com/hoptisens/hoptisens-call" target="_blank" rel="noopener noreferrer" className="inline-block">
                 <Button size="lg" className="bg-accent text-white hover:bg-white hover:text-accent border-none shadow-none">
-                  Profiter de l'offre
+                  🚀 Réserver mon Sprint maintenant
                 </Button>
               </a>
             </div>
