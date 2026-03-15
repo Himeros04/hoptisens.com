@@ -14,7 +14,7 @@ export function Footer() {
           <div className="flex flex-col gap-4">
             <Logo />
             <p className="text-sm text-[var(--color-text-muted)] mt-2">
-              Simplifier pour amplifier. Agence IA & Automatisation pour les entreprises.
+              Simplifier pour amplifier. Agence IA & Automatisation pour dirigeants lucides.
             </p>
           </div>
 

@@ -9,172 +9,168 @@ import { FadeInUp } from "../ui/FadeInUp";
 export function SchemaAnime() {
   const containerRef = useRef<HTMLDivElement>(null);
   const shouldReduceMotion = useReducedMotion();
+  
+  // Plage de scroll élargie pour ralentir la complétion (start 85% -> start 15%)
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 80%", "end center"]
+    offset: ["start 85%", "start 10%"]
   });
 
-  const staticProgress = 1;
+  // Layer 1 : Diagnostics (Y=100)
+  const layer1Opacity = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
+  const layer1Y = useTransform(scrollYProgress, [0, 0.2], [-20, 0]);
 
-  // Lignes d'entrée : de 0.1 à 0.4
-  const inPathLength = useTransform(scrollYProgress, [0.1, 0.4], [0, 1]);
-  const inPathOpacity = useTransform(scrollYProgress, [0.1, 0.2], [0, 1]);
+  // Bridge 1 -> 2
+  const bridge1Length = useTransform(scrollYProgress, [0.2, 0.4], [0, 1]);
 
-  // HOPTISENS Pulse : de 0.3 à 0.6 puis 1
-  const hoptisensScale = useTransform(scrollYProgress, [0.3, 0.5, 0.7, 1], [1, 1.15, 1.15, 1]);
-  const glowFilter = useTransform(scrollYProgress, [0.3, 0.5, 0.7, 1], [
-    "drop-shadow(0 0 0px var(--color-accent))", 
-    "drop-shadow(0 0 20px var(--color-accent))", 
-    "drop-shadow(0 0 20px var(--color-accent))", 
-    "drop-shadow(0 0 0px var(--color-accent))"
-  ]);
+  // Layer 2 : Infrastructure (Y=260)
+  const layer2Opacity = useTransform(scrollYProgress, [0.4, 0.6], [0, 1]);
+  const layer2Y = useTransform(scrollYProgress, [0.4, 0.6], [-20, 0]);
 
-  // Lignes de sortie (vers Synergie) : de 0.5 à 0.8
-  const outPathLength = useTransform(scrollYProgress, [0.5, 0.8], [0, 1]);
-  const outPathOpacity = useTransform(scrollYProgress, [0.5, 0.6], [0, 1]);
+  // Bridge 2 -> 3
+  const bridge2Length = useTransform(scrollYProgress, [0.6, 0.7], [0, 1]);
 
-  // Noeuds cibles (Agent IA & Humain) s'allument : de 0.7 à 0.9
-  const targetColor = useTransform(scrollYProgress, [0.7, 0.9], ["var(--color-bg)", "var(--color-accent)"]);
-  const targetTextColor = useTransform(scrollYProgress, [0.7, 0.9], ["var(--color-text-secondary)", "var(--color-bg)"]);
-  const targetBorderColor = useTransform(scrollYProgress, [0.7, 0.9], ["var(--color-border)", "var(--color-accent)"]);
+  // Layer 3 : Agent IA interactif (Y=460)
+  const layer3Opacity = useTransform(scrollYProgress, [0.7, 0.85], [0, 1]);
   
-  // Boucle de synergie : de 0.8 à 1.0
-  const synergyPathLength = useTransform(scrollYProgress, [0.8, 1], [0, 1]);
+  // Branches du Cluster (Y=460+)
+  const branchesLength = useTransform(scrollYProgress, [0.85, 1.0], [0, 1]);
+
+  const flowDash = useTransform(scrollYProgress, [0, 1], [0, -40]);
 
   return (
-    <Section className="bg-[var(--color-surface)] py-24">
+    <Section className="bg-surface/30 py-24 border-y border-border">
       <Container>
         <FadeInUp>
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-serif text-[var(--color-text-primary)] mb-4">La Synergie Hoptisens</h2>
-            <p className="text-[var(--color-text-secondary)] max-w-2xl mx-auto">
-              Nous transformons vos fondations existantes en un écosystème performant où la <strong>Data</strong>, les <strong>Process</strong> et les <strong>Outils</strong> alimentent une synergie parfaite entre l'<strong>Agent IA</strong> et l'<strong>Humain</strong>.
+            <h2 className="text-3xl md:text-5xl font-serif text-text-primary mb-4">
+              L'Architecture de votre Transformation.
+            </h2>
+            <p className="text-text-secondary max-w-2xl mx-auto">
+              Hoptisens connecte l'expertise humaine à la puissance algorithmique. 
+              Découvrez comment notre Agent IA s'intègre au cœur de votre écosystème.
             </p>
           </div>
         </FadeInUp>
 
-        <div ref={containerRef} className="relative w-full aspect-[4/3] md:aspect-[21/9] bg-[var(--color-bg)] rounded-3xl border border-[var(--color-border)] flex items-center justify-center overflow-hidden p-4 md:p-8">
-          <svg className="w-full h-full" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet">
+        <div ref={containerRef} className="relative w-full aspect-[4/3] md:aspect-[16/10] bg-bg rounded-3xl border border-border flex items-center justify-center overflow-hidden p-6 md:p-8 shadow-2xl">
+          <svg className="w-full h-full max-w-4xl" viewBox="0 0 1000 750" fill="none">
             
-            {/* --- ZONES ARRIÈRE-PLAN --- */}
-            
-            {/* Boîte Entreprise Cliente */}
-            <rect x="50" y="50" width="200" height="400" rx="16" fill="var(--color-surface)" stroke="var(--color-border)" strokeWidth="2" strokeDasharray="6 6" opacity="0.6" />
-            <text x="150" y="80" textAnchor="middle" fill="var(--color-text-muted)" fontSize="14" fontWeight="600" letterSpacing="1" className="font-sans uppercase">Votre Entreprise</text>
+            {/* Grid de fond technique léger */}
+            <pattern id="grid-home-dense" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="var(--color-border)" strokeWidth="0.5" opacity="0.1" />
+            </pattern>
+            <rect width="1000" height="750" fill="url(#grid-home-dense)" />
 
-            {/* Boîte Synergie */}
-            <rect x="730" y="50" width="240" height="400" rx="16" fill="var(--color-surface)" stroke="var(--color-accent)" strokeWidth="1" strokeDasharray="6 6" opacity="0.3" />
-            <text x="850" y="80" textAnchor="middle" fill="var(--color-accent)" fontSize="14" fontWeight="600" letterSpacing="1" className="font-sans uppercase opacity-80">Synergie Opérationnelle</text>
+            {/* --- BRIDGES (CENTRAL LINE FLOW) --- */}
 
-            {/* --- PATHS (LIGNES DE FLUX) --- */}
-            
-            {/* Lignes Entreprise -> Hoptisens */}
+            {/* Bridge 1 -> 2 (Descending) */}
             <motion.path 
-              d="M 190 150 C 300 150, 400 250, 440 250" 
+              d="M 500 160 L 500 250" 
               stroke="var(--color-accent)" 
-              strokeWidth="3" 
-              fill="none" 
-              style={{ pathLength: shouldReduceMotion ? staticProgress : inPathLength, opacity: shouldReduceMotion ? 1 : inPathOpacity }}
+              strokeWidth="4" 
+              opacity="0.8"
+              style={{ pathLength: bridge1Length }} 
             />
             <motion.path 
-              d="M 190 250 L 440 250" 
+              d="M 500 160 L 500 250" 
               stroke="var(--color-accent)" 
-              strokeWidth="3" 
-              fill="none" 
-              style={{ pathLength: shouldReduceMotion ? staticProgress : inPathLength, opacity: shouldReduceMotion ? 1 : inPathOpacity }}
+              strokeWidth="2" 
+              strokeDasharray="4 8"
+              style={{ strokeDashoffset: flowDash }}
+              opacity={useTransform(scrollYProgress, [0.3, 1], [0, 0.8])}
             />
+
+            {/* Bridge 2 -> 3 (Descending) */}
             <motion.path 
-              d="M 190 350 C 300 350, 400 250, 440 250" 
+              d="M 500 330 L 500 420" 
               stroke="var(--color-accent)" 
-              strokeWidth="3" 
-              fill="none" 
-              style={{ pathLength: shouldReduceMotion ? staticProgress : inPathLength, opacity: shouldReduceMotion ? 1 : inPathOpacity }}
+              strokeWidth="4" 
+              opacity="0.8"
+              style={{ pathLength: bridge2Length }} 
             />
 
-            {/* Lignes Hoptisens -> IA & Humain */}
-            <motion.path 
-              d="M 560 250 C 650 250, 750 160, 810 160" 
-              stroke="var(--color-accent)" 
-              strokeWidth="3" 
-              fill="none" 
-              style={{ pathLength: shouldReduceMotion ? staticProgress : outPathLength, opacity: shouldReduceMotion ? 1 : outPathOpacity }}
-            />
-            <motion.path 
-              d="M 560 250 C 650 250, 750 340, 810 340" 
-              stroke="var(--color-accent)" 
-              strokeWidth="3" 
-              fill="none" 
-              style={{ pathLength: shouldReduceMotion ? staticProgress : outPathLength, opacity: shouldReduceMotion ? 1 : outPathOpacity }}
-            />
+            {/* --- LAYERS (NODES) --- */}
 
-            {/* Synergie IA <-> Humain */}
-            <motion.path 
-              d="M 830 210 C 780 250, 780 250, 830 290" 
-              stroke="var(--color-accent)" 
-              strokeWidth="3" 
-              strokeDasharray="6 6"
-              fill="none" 
-              animate={{ strokeDashoffset: [0, -24] }}
-              transition={{ repeat: Infinity, ease: "linear", duration: 2 }}
-              style={{ pathLength: shouldReduceMotion ? staticProgress : synergyPathLength, opacity: synergyPathLength }}
-            />
-            <motion.path 
-              d="M 870 290 C 920 250, 920 250, 870 210" 
-              stroke="var(--color-accent)" 
-              strokeWidth="3" 
-              strokeDasharray="6 6"
-              fill="none" 
-              animate={{ strokeDashoffset: [0, -24] }}
-              transition={{ repeat: Infinity, ease: "linear", duration: 2 }}
-              style={{ pathLength: shouldReduceMotion ? staticProgress : synergyPathLength, opacity: synergyPathLength }}
-            />
-
-
-            {/* --- NŒUDS --- */}
-            
-            {/* Nœuds Entreprise Cliente */}
-            <g>
-              <circle cx="150" cy="150" r="40" fill="var(--color-bg)" stroke="var(--color-border)" strokeWidth="2" />
-              <text x="150" y="155" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="14" fontWeight="500" className="font-sans">Data</text>
-
-              <circle cx="150" cy="250" r="40" fill="var(--color-bg)" stroke="var(--color-border)" strokeWidth="2" />
-              <text x="150" y="255" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="14" fontWeight="500" className="font-sans">Process</text>
-
-              <circle cx="150" cy="350" r="40" fill="var(--color-bg)" stroke="var(--color-border)" strokeWidth="2" />
-              <text x="150" y="355" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="14" fontWeight="500" className="font-sans">Outils</text>
-            </g>
-
-            {/* Nœud Central Hoptisens */}
-            <motion.g style={{ scale: shouldReduceMotion ? 1 : hoptisensScale, transformOrigin: "500px 250px" }}>
-              <motion.circle 
-                cx="500" cy="250" r="60" 
-                fill="var(--color-surface)" 
-                stroke="var(--color-accent)" 
-                strokeWidth="4"
-                style={{ filter: shouldReduceMotion ? "none" : glowFilter }}
-              />
-              <circle cx="500" cy="250" r="50" fill="var(--color-accent)" />
-              <text x="500" y="255" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold" className="font-sans tracking-wide">HOPTISENS</text>
+            {/* STEP 1 : AUDIT (Y=100) */}
+            <motion.g style={{ opacity: layer1Opacity, y: layer1Y }}>
+              <rect x="350" y="100" width="300" height="60" rx="12" fill="var(--color-surface)" stroke="var(--color-border)" strokeWidth="1.5" />
+              <text x="500" y="130" textAnchor="middle" fill="var(--color-text-primary)" fontSize="14" fontWeight="bold">1. AUDIT & DIAGNOSTIC</text>
+              <text x="500" y="145" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="11">Analyse des flux & Data</text>
             </motion.g>
 
-            {/* Nœuds Résultat : Humain & IA */}
-            <g>
-              {/* IA */}
-              <motion.circle 
-                cx="850" cy="160" r="40" 
-                style={{ fill: shouldReduceMotion ? "var(--color-accent)" : targetColor, stroke: shouldReduceMotion ? "var(--color-accent)" : targetBorderColor }} 
-                strokeWidth="2" 
-              />
-              <motion.text x="850" y="165" textAnchor="middle" style={{ fill: shouldReduceMotion ? "var(--color-bg)" : targetTextColor }} fontSize="14" fontWeight="600" className="font-sans">Agent IA</motion.text>
+            {/* STEP 2 : INFRASTRUCTURE (Y=270) */}
+            <motion.g style={{ opacity: layer2Opacity, y: layer2Y }}>
+              <rect x="350" y="270" width="300" height="60" rx="12" fill="var(--color-surface)" stroke="var(--color-accent)" strokeWidth="1.5" />
+              <text x="500" y="300" textAnchor="middle" fill="var(--color-text-primary)" fontSize="14" fontWeight="bold">2. STRUCTURE & CÂBLAGE</text>
+              <text x="500" y="315" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="11">Flux n8n / Make connectés</text>
+            </motion.g>
+
+            {/* STEP 3 : CLUSTER AGENT IA (Y=440+) */}
+            <motion.g style={{ opacity: layer3Opacity }}>
+
+              {/* Central Box for Title if needed, or just graphic */}
+              <text x="500" y="440" textAnchor="middle" fill="var(--color-accent)" fontSize="15" fontWeight="bold" className="tracking-wide uppercase">3. L'AGENT IA EN ACTION</text>
+              <text x="500" y="458" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="12">Interconnexion en temps réel avec votre écosystème</text>
+
+              {/* --- BRANCHES FROM AGENT --- */}
+              {/* Branch to Datas */}
+              <motion.path d="M 520 540 Q 600 500 680 500" stroke="var(--color-accent)" strokeWidth="2" style={{ pathLength: branchesLength }} />
+              {/* Branch to Processus */}
+              <motion.path d="M 520 540 L 680 540" stroke="var(--color-accent)" strokeWidth="2" style={{ pathLength: branchesLength }} />
+              {/* Branch to Outils */}
+              <motion.path d="M 520 540 Q 600 580 680 580" stroke="var(--color-accent)" strokeWidth="2" style={{ pathLength: branchesLength }} />
+              {/* Branch to Web */}
+              <motion.path d="M 480 580 Q 480 640 640 640" stroke="var(--color-accent)" strokeWidth="2" style={{ pathLength: branchesLength }} />
+
+              {/* NODE : CLIENT (Left) */}
+              <rect x="250" y="510" width="120" height="60" rx="12" fill="var(--color-bg)" stroke="var(--color-border)" strokeWidth="1.5" />
+              <text x="310" y="545" textAnchor="middle" fill="var(--color-text-primary)" fontSize="14" fontWeight="bold">Client 🧑‍💻</text>
+
+              {/* CONNECTION CLIENT <-> AGENT */}
+              <motion.line x1="370" y1="540" x2="440" y2="540" stroke="var(--color-accent)" strokeWidth="3" strokeDasharray="4 4" />
+
+              {/* --- FLOWING ENERGY DOTS (INFINITE) --- */}
+              <motion.g style={{ opacity: branchesLength }}>
+                <motion.path d="M 370 540 L 440 540" stroke="white" strokeWidth="2" strokeDasharray="4 12" animate={{ strokeDashoffset: [0, -16] }} transition={{ duration: 0.8, ease: "linear", repeat: Infinity }} />
+                <motion.path d="M 520 540 Q 600 500 680 500" stroke="white" strokeWidth="1.5" strokeDasharray="4 16" animate={{ strokeDashoffset: [0, -20] }} transition={{ duration: 1.1, ease: "linear", repeat: Infinity }} />
+                <motion.path d="M 520 540 L 680 540" stroke="white" strokeWidth="1.5" strokeDasharray="4 12" animate={{ strokeDashoffset: [0, -16] }} transition={{ duration: 0.9, ease: "linear", repeat: Infinity }} />
+                <motion.path d="M 520 540 Q 600 580 680 580" stroke="white" strokeWidth="1.5" strokeDasharray="4 16" animate={{ strokeDashoffset: [0, -20] }} transition={{ duration: 1.1, ease: "linear", repeat: Infinity }} />
+              </motion.g>
               
-              {/* Humain */}
-              <motion.circle 
-                cx="850" cy="340" r="40" 
-                style={{ fill: shouldReduceMotion ? "var(--color-accent)" : targetColor, stroke: shouldReduceMotion ? "var(--color-accent)" : targetBorderColor }} 
-                strokeWidth="2" 
-              />
-              <motion.text x="850" y="345" textAnchor="middle" style={{ fill: shouldReduceMotion ? "var(--color-bg)" : targetTextColor }} fontSize="14" fontWeight="600" className="font-sans">Humain</motion.text>
-            </g>
+              {/* NODE : AGENT IA (Center) */}
+              <circle cx="480" cy="540" r="40" fill="var(--color-accent)" />
+              <circle cx="480" cy="540" r="48" fill="var(--color-accent)" opacity="0.15" />
+              <text x="480" y="545" textAnchor="middle" fill="white" fontSize="14" fontWeight="bold">Agent IA</text>
+
+              {/* --- SATELLITES ON THE RIGHT --- */}
+              <motion.g style={{ opacity: branchesLength }}>
+                {/* Vos Datas */}
+                <rect x="680" y="480" width="140" height="40" rx="8" fill="var(--color-surface)" stroke="var(--color-border)" strokeWidth="1" />
+                <circle cx="700" cy="500" r="12" fill="var(--color-accent)" opacity="0.1" />
+                <circle cx="700" cy="500" r="4" fill="var(--color-accent)" />
+                <text x="725" y="504" fill="var(--color-text-primary)" fontSize="12">Vos Datas 📊</text>
+
+                {/* Vos Processus */}
+                <rect x="680" y="520" width="140" height="40" rx="8" fill="var(--color-surface)" stroke="var(--color-border)" strokeWidth="1" />
+                <circle cx="700" cy="540" r="12" fill="var(--color-accent)" opacity="0.1" />
+                <circle cx="700" cy="540" r="4" fill="var(--color-accent)" />
+                <text x="725" y="544" fill="var(--color-text-primary)" fontSize="12">Processus ⚙️</text>
+
+                {/* Vos Outils */}
+                <rect x="680" y="560" width="140" height="40" rx="8" fill="var(--color-surface)" stroke="var(--color-border)" strokeWidth="1" />
+                <circle cx="700" cy="580" r="12" fill="var(--color-accent)" opacity="0.1" />
+                <circle cx="700" cy="580" r="4" fill="var(--color-accent)" />
+                <text x="725" y="584" fill="var(--color-text-primary)" fontSize="12">Vos Outils 🛠️</text>
+
+                {/* Recherche Web */}
+                <rect x="640" y="620" width="180" height="40" rx="8" fill="var(--color-surface)" stroke="var(--color-accent)" strokeWidth="1" />
+                <circle cx="660" cy="640" r="12" fill="var(--color-accent)" opacity="0.1" />
+                <circle cx="660" cy="640" r="4" fill="var(--color-accent)" />
+                <text x="680" y="644" fill="var(--color-text-primary)" fontSize="12">Recherche Web Live 🌍</text>
+              </motion.g>
+
+            </motion.g>
 
           </svg>
         </div>

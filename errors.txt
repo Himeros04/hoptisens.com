@@ -1,0 +1,31 @@
+﻿app/[locale]/offres/page.tsx(161,33): error TS2322: Type 'string' is not assignable to type '"/" | "/a-propos" | "/offres" | "/offres/sprint" | "/offres/leads" | "/contact" | ({ pathname: "/"; } & Omit<UrlObject, "pathname">) | ({ pathname: "/a-propos"; } & Omit<...>) | ({ ...; } & Omit<...>) | ({ ...; } & Omit<...>) | ({ ...; } & Omit<...>) | ({ ...; } & Omit<...>)'.
+components/visuals/OfferSchemas.tsx(40,153): error TS2322: Type '{ duration: number; ease: string; repeat: number; }' is not assignable to type 'Transition<any> | undefined'.
+  Type '{ duration: number; ease: string; repeat: number; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+    Type '{ duration: number; ease: string; repeat: number; }' is not assignable to type 'ValueAnimationTransition<any>'.
+      Types of property 'ease' are incompatible.
+        Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+components/visuals/OfferSchemas.tsx(41,154): error TS2322: Type '{ duration: number; ease: string; repeat: number; }' is not assignable to type 'Transition<any> | undefined'.
+  Type '{ duration: number; ease: string; repeat: number; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+    Type '{ duration: number; ease: string; repeat: number; }' is not assignable to type 'ValueAnimationTransition<any>'.
+      Types of property 'ease' are incompatible.
+        Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+components/visuals/OfferSchemas.tsx(42,154): error TS2322: Type '{ duration: number; ease: string; repeat: number; }' is not assignable to type 'Transition<any> | undefined'.
+  Type '{ duration: number; ease: string; repeat: number; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+    Type '{ duration: number; ease: string; repeat: number; }' is not assignable to type 'ValueAnimationTransition<any>'.
+      Types of property 'ease' are incompatible.
+        Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+components/visuals/OfferSchemas.tsx(84,172): error TS2322: Type '{ duration: number; ease: string; repeat: number; }' is not assignable to type 'Transition<any> | undefined'.
+  Type '{ duration: number; ease: string; repeat: number; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+    Type '{ duration: number; ease: string; repeat: number; }' is not assignable to type 'ValueAnimationTransition<any>'.
+      Types of property 'ease' are incompatible.
+        Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+components/visuals/OfferSchemas.tsx(85,156): error TS2322: Type '{ duration: number; ease: string; repeat: number; }' is not assignable to type 'Transition<any> | undefined'.
+  Type '{ duration: number; ease: string; repeat: number; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+    Type '{ duration: number; ease: string; repeat: number; }' is not assignable to type 'ValueAnimationTransition<any>'.
+      Types of property 'ease' are incompatible.
+        Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.
+components/visuals/OfferSchemas.tsx(86,174): error TS2322: Type '{ duration: number; ease: string; repeat: number; }' is not assignable to type 'Transition<any> | undefined'.
+  Type '{ duration: number; ease: string; repeat: number; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+    Type '{ duration: number; ease: string; repeat: number; }' is not assignable to type 'ValueAnimationTransition<any>'.
+      Types of property 'ease' are incompatible.
+        Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.

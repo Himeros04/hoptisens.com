@@ -8,28 +8,32 @@ import { Link } from "@/lib/routing";
 
 const offres = [
   {
-    title: "Prospection & Inbound Augmentés",
-    description: "Protégez le temps de vos commerciaux. Notre \"Prospecteur Augmenté\" scrape, qualifie par l'IA et rédige des approches ultra-personnalisées. En Inbound, notre Filtre IA ne fait remonter dans votre CRM que les leads chauds.",
+    title: "Ingénierie d'Acquisition",
+    description: "Vos commerciaux perdent un temps précieux sur des prospects froids. Notre 'Prospecteur Augmenté' automatise la collecte et le filtrage des leads. Nous garantissons un CRM alimenté exclusivement en opportunités qualifiées.",
     icon: Users,
-    href: "/offres/leads"
+    href: "/contact",
+    cta: "Auditer mon Acquisition"
   },
   {
-    title: "Automatisation & CRM sur-mesure",
-    description: "La construction et l'assemblage de vos outils. Nous concevons des agents IA, interconnectons vos logiciels existants et développons des CRM semi-automatisés pour éradiquer les tâches chronophages.",
+    title: "Automatisation & RPA",
+    description: "La double-saisie détruit votre rentabilité. De la facturation à l'onboarding client, vos flux s'exécutent en temps réel, sans erreur humaine, réduisant drastiquement vos coûts opérationnels.",
     icon: Workflow,
-    href: "/offres"
+    href: "/contact",
+    cta: "Chiffrer mon Gain de Temps"
   },
   {
-    title: "Audits, Stratégie & Transfert de Compétences",
-    description: "L'analyse de l'existant pour concevoir une architecture solide avant les travaux. Nous formons ensuite vos équipes via des ateliers pratiques et concevons des agents formateurs internes pour l'onboarding.",
+    title: "Agents IA Personnalisés",
+    description: "Exploitez la richesse de vos données. Nous développons des applications métiers robustes et des assistants virtuels sécurisés pour accélérer la prise de décision de vos équipes.",
     icon: Brain,
-    href: "/offres"
+    href: "https://calendly.com/hoptisens/hoptisens-call",
+    cta: "Prototyper mon Agent IA"
   },
   {
-    title: "Sprint \"Processus Performants\"",
-    description: "Ne devinez plus où intégrer l'IA. En 10 jours ouvrés, obtenez un plan d'action chiffré sur vos 2 processus les plus rentables à optimiser.",
+    title: "Sprint POC",
+    description: "Un processus en deux étapes pour valider techniquement et financièrement votre transition vers l'IA, sécurisant vos investissements lourds.",
     icon: Zap,
-    href: "/offres/sprint",
+    href: "/contact",
+    cta: "Commencer mon Diagnostic",
     highlight: true
   }
 ];
@@ -54,34 +58,43 @@ export function Offres() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {offres.map((offre, index) => (
-            <FadeInUp key={index}>
-              <Link href={offre.href as any} className="block group">
-                <Card className={`h-full p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${offre.highlight ? 'border-accent/40 bg-accent-soft/30' : ''}`}>
-                  <div className="flex flex-col h-full">
-                    <div className="mb-6 flex items-center justify-between">
-                      <div className={`p-3 rounded-xl inline-flex ${offre.highlight ? 'bg-accent text-white' : 'bg-surface-hover text-text-primary group-hover:bg-accent group-hover:text-white transition-colors duration-300'}`}>
-                        <offre.icon className="w-6 h-6" />
+          {offres.map((offre, index) => {
+            const isExternal = offre.href.startsWith("http");
+            const LinkComponent = isExternal ? "a" : Link;
+            const linkProps = isExternal 
+              ? { href: offre.href, target: "_blank", rel: "noopener noreferrer" } 
+              : { href: offre.href as any };
+
+            return (
+              <FadeInUp key={index}>
+                {/* @ts-ignore */}
+                <LinkComponent {...linkProps} className="block group h-full">
+                  <Card className={`h-full p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${offre.highlight ? 'border-accent/40 bg-accent-soft/30' : ''}`}>
+                    <div className="flex flex-col h-full">
+                      <div className="mb-6 flex items-center justify-between">
+                        <div className={`p-3 rounded-xl inline-flex ${offre.highlight ? 'bg-accent text-white' : 'bg-surface-hover text-text-primary group-hover:bg-accent group-hover:text-white transition-colors duration-300'}`}>
+                          <offre.icon className="w-6 h-6" />
+                        </div>
+                        {offre.highlight && <Badge variant="accent">Populaire</Badge>}
                       </div>
-                      {offre.highlight && <Badge variant="accent">Populaire</Badge>}
+                      
+                      <h3 className="text-2xl font-serif text-text-primary mb-3">
+                        {offre.title}
+                      </h3>
+                      
+                      <p className="text-text-secondary flex-grow mb-6">
+                        {offre.description}
+                      </p>
+                      
+                      <div className="flex items-center text-sm font-medium text-text-primary group-hover:text-accent transition-colors mt-auto">
+                        {offre.cta || "Découvrir"} <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                      </div>
                     </div>
-                    
-                    <h3 className="text-2xl font-serif text-text-primary mb-3">
-                      {offre.title}
-                    </h3>
-                    
-                    <p className="text-text-secondary flex-grow mb-6">
-                      {offre.description}
-                    </p>
-                    
-                    <div className="flex items-center text-sm font-medium text-text-primary group-hover:text-accent transition-colors mt-auto">
-                      Découvrir <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-                    </div>
-                  </div>
-                </Card>
-              </Link>
-            </FadeInUp>
-          ))}
+                  </Card>
+                </LinkComponent>
+              </FadeInUp>
+            );
+          })}
         </div>
       </Container>
     </Section>

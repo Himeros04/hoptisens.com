@@ -1,14 +1,78 @@
+"use client";
+
+import { useState, useRef } from "react";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { FadeInUp } from "@/components/ui/FadeInUp";
-import { Card } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Link } from "@/lib/routing";
-import { ArrowRight, Brain, Zap, Workflow, Users, CheckCircle2 } from "lucide-react";
+import { Brain, Zap, Workflow, Users, CheckCircle2 } from "lucide-react";
 import { ContactForm } from "@/components/forms/ContactForm";
+import { motion, AnimatePresence } from "framer-motion";
+import { LeadsSchema, AutomatisationSchema, AgentsSchema, SprintSchema } from "@/components/visuals/OfferSchemas";
+
+const offers = [
+  {
+    id: "leads",
+    title: "Génération de Leads & CRM",
+    shortTitle: "Leads & CRM",
+    icon: Users,
+    description: "Ne perdez plus de temps à chercher des prospects. Nos systèmes scrutent le web et qualifient automatiquement les entreprises correspondant à votre profil idéal (ICP).",
+    bullets: ["Filtre d'intention d'achat", "Qualification automatique par Agent IA", "Synchro automatique avec votre CRM"],
+    cta: "Auditer mon Acquisition",
+    href: "/contact",
+    illustration: LeadsSchema
+  },
+  {
+    id: "automatisation",
+    title: "Automatisation & RPA",
+    shortTitle: "Automatisation",
+    icon: Workflow,
+    description: "Libérez vos équipes des tâches répétitives à faible valeur ajoutée. Nous connectons vos outils pour créer des flux de travail sans couture.",
+    bullets: ["Synchronisation de données multi-sources", "Traitement automatique de documents", "Relances et suivis automatiques"],
+    cta: "Chiffrer mon Gain de Temps",
+    href: "/contact",
+    illustration: AutomatisationSchema
+  },
+  {
+    id: "agents",
+    title: "Agents IA Intelligents",
+    shortTitle: "Agents IA",
+    icon: Brain,
+    description: "Des agents conversationnels entraînés sur vos données internes pour dialoguer avec vos clients 24/7 ou assister vos collaborateurs.",
+    bullets: ["Support client multilingue autonome", "Prise de rendez-vous et qualification", "Assistant interne pour vos équipes"],
+    cta: "Prototyper mon Agent IA",
+    href: "https://calendly.com/hoptisens/hoptisens-call",
+    isExternal: true,
+    illustration: AgentsSchema
+  },
+  {
+    id: "sprint",
+    title: "Sprint POC",
+    shortTitle: "Sprint POC",
+    icon: Zap,
+    description: "Un processus en deux étapes pour valider techniquement et financièrement votre transition vers l'IA, sécurisant vos investissements.",
+    bullets: ["Diagnostic Data-Driven offert", "Sprint immersif 4 jours (PoC)", "Garantie anti-risque"],
+    cta: "Commencer mon Diagnostic",
+    href: "/contact",
+    illustration: SprintSchema
+  }
+];
 
 export default function OffresPage() {
+  const [activeTab, setActiveTab] = useState("leads");
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  const handleTabChange = (tabId: string) => {
+    setActiveTab(tabId);
+    if (sliderRef.current) {
+      sliderRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  };
+
   return (
     <main className="flex min-h-screen flex-col pt-32 pb-20">
       {/* Hero Offres */}
@@ -27,16 +91,27 @@ export default function OffresPage() {
         </Container>
       </Section>
 
-      {/* Détail par catégorie */}
+      {/* Navigation Slider */}
       <nav className="sticky top-20 z-40 bg-bg/80 backdrop-blur-md border-b border-border mb-16 py-4 overflow-x-auto no-scrollbar">
         <Container>
           <ul className="flex space-x-8 text-sm font-medium min-w-max">
-            <li><a href="#leads" className="text-text-secondary hover:text-accent whitespace-nowrap">Leads & CRM</a></li>
-            <li><a href="#automatisation" className="text-text-secondary hover:text-accent whitespace-nowrap">Automatisation</a></li>
-            <li><a href="#agents" className="text-text-secondary hover:text-accent whitespace-nowrap">Agents IA</a></li>
-            <li><a href="#sprint" className="text-text-secondary hover:text-accent whitespace-nowrap">Sprint Automobilisation</a></li>
+            {offers.map((offer) => (
+              <li key={offer.id}>
+                <button 
+                  onClick={() => handleTabChange(offer.id)}
+                  className={`flex items-center gap-2 pb-2 border-b-2 transition-all cursor-pointer ${
+                    activeTab === offer.id 
+                      ? "border-accent text-accent font-bold" 
+                      : "border-transparent text-text-secondary hover:text-accent"
+                  }`}
+                >
+                  <offer.icon className="w-4 h-4" />
+                  {offer.shortTitle}
+                </button>
+              </li>
+            ))}
             <li>
-              <a href="#contact-form" className="text-accent font-bold whitespace-nowrap flex items-center gap-1.5">
+              <a href="#contact-form" className="text-accent font-bold whitespace-nowrap flex items-center gap-1.5 pb-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
                 Nous Contacter
               </a>
@@ -45,86 +120,77 @@ export default function OffresPage() {
         </Container>
       </nav>
 
-      {/* Sections détaillées */}
-      <Container className="space-y-32">
-        
-        {/* Sprint */}
-        <Section id="sprint" className="scroll-mt-32">
+      {/* Content Slider */}
+      <div className="relative overflow-hidden mb-32" ref={sliderRef}>
+        <Container>
+          <AnimatePresence mode="wait">
+            {offers.map((offer) => (
+              activeTab === offer.id && (
+                <motion.div
+                  key={offer.id}
+                  initial={{ opacity: 0, x: 40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -40 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                >
+                  <Section className="py-0">
+                    <div className="grid md:grid-cols-2 gap-12 items-center">
+                      <div className={`${offer.id === 'automatisation' || offer.id === 'sprint' ? 'md:order-last' : ''}`}>
+                        <div className="flex items-center gap-3 mb-6">
+                          <offer.icon className="text-accent w-8 h-8" />
+                          <h2 className="text-3xl font-serif text-text-primary">{offer.title}</h2>
+                        </div>
+                        <p className="text-text-secondary mb-6 text-lg">
+                          {offer.description}
+                        </p>
+                        <ul className="space-y-3 mb-8">
+                          {offer.bullets.map((bullet, i) => (
+                            <li key={i} className="flex items-start gap-2 text-text-secondary">
+                              <CheckCircle2 className="w-5 h-5 text-success shrink-0" />
+                              <span>{bullet}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        {offer.isExternal ? (
+                          <a href={offer.href} target="_blank" rel="noopener noreferrer" className="inline-block">
+                            <Button size="lg" className="bg-accent text-white hover:bg-white hover:text-accent border-none shadow-none">
+                              {offer.cta}
+                            </Button>
+                          </a>
+                        ) : (
+                          <Link href={offer.href as any} className="inline-block">
+                            <Button size="lg" className="bg-accent text-white hover:bg-white hover:text-accent border-none shadow-none">
+                              {offer.cta}
+                            </Button>
+                          </Link>
+                        )}
+                      </div>
+                      <div className="bg-surface rounded-3xl border border-border flex items-center justify-center aspect-video shadow-xl overflow-hidden">
+                        <offer.illustration />
+                      </div>
+                    </div>
+                  </Section>
+                </motion.div>
+              )
+            ))}
+          </AnimatePresence>
+        </Container>
+      </div>
+
+      {/* Formulaire de Contact Direct */}
+      <Section id="contact-form" className="scroll-mt-32 py-12">
+        <div className="max-w-3xl mx-auto">
           <FadeInUp>
-            <div className="flex items-center gap-3 mb-6">
-              <Zap className="text-accent w-8 h-8" />
-              <h2 className="text-3xl font-serif text-text-primary">Sprint Automobilisation</h2>
+            <div className="text-center mb-10">
+              <h2 className="text-3xl font-serif text-text-primary mb-3">Parlez-nous de votre projet</h2>
+              <p className="text-text-secondary text-sm">
+                Remplissez le formulaire ci-dessous. Nous analysons votre besoin sous 24h.
+              </p>
             </div>
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <p className="text-text-secondary mb-6 text-lg">
-                  Notre offre phare. En 10 jours chrono, nous analysons vos processus,
-                  identifions les cas d'usage IA les plus rentables, et déployons un POC
-                  fonctionnel dans votre environnement.
-                </p>
-                <ul className="space-y-3 mb-8">
-                  {['Audit flash de vos opérations', 'Maquettage solution', 'Déploiement POC', 'Formation d\'une demi-journée'].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-text-secondary">
-                      <CheckCircle2 className="w-5 h-5 text-success shrink-0" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button variant="secondary" className="p-0 border-none hover:bg-transparent">
-                  <Link href="/offres/sprint" className="inline-flex items-center justify-center rounded-xl font-medium transition-all h-11 px-6 text-base bg-transparent border border-[var(--color-border)] text-[var(--color-text-primary)] hover:bg-[var(--color-surface)]">
-                    Découvrir le Sprint
-                  </Link>
-                </Button>
-              </div>
-              <div className="bg-surface rounded-3xl p-8 border border-border flex items-center justify-center aspect-video">
-                <span className="text-text-muted italic">Illustration Process Sprint</span>
-              </div>
-            </div>
+            <ContactForm />
           </FadeInUp>
-        </Section>
-
-        {/* Leads */}
-        <Section id="leads" className="scroll-mt-32">
-          <FadeInUp>
-            <div className="flex items-center gap-3 mb-6">
-              <Users className="text-accent w-8 h-8" />
-              <h2 className="text-3xl font-serif text-text-primary">Génération de Leads & CRM</h2>
-            </div>
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="order-last md:order-first bg-surface rounded-3xl p-8 border border-border flex items-center justify-center aspect-video">
-                <span className="text-text-muted italic">Dashboard Leads</span>
-              </div>
-              <div>
-                <p className="text-text-secondary mb-6 text-lg">
-                  Ne perdez plus de temps à chercher des prospects. Nos systèmes scrutent le web
-                  et qualifient automatiquement les entreprises correspondant à votre profil idéal (ICP).
-                </p>
-                <Button variant="secondary" className="p-0 border-none hover:bg-transparent">
-                  <Link href="/offres/leads" className="inline-flex items-center justify-center rounded-xl font-medium transition-all h-11 px-6 text-base bg-transparent border border-[var(--color-border)] text-[var(--color-text-primary)] hover:bg-[var(--color-surface)]">
-                    Voir la génération de Leads
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          </FadeInUp>
-        </Section>
-
-        {/* Formulaire de Contact Direct */}
-        <Section id="contact-form" className="scroll-mt-32 py-12">
-          <div className="max-w-3xl mx-auto">
-            <FadeInUp>
-              <div className="text-center mb-10">
-                <h2 className="text-3xl font-serif text-text-primary mb-3">Parlez-nous de votre projet</h2>
-                <p className="text-text-secondary text-sm">
-                  Remplissez le formulaire ci-dessous. Nous analysons votre besoin sous 24h.
-                </p>
-              </div>
-              <ContactForm />
-            </FadeInUp>
-          </div>
-        </Section>
-
-      </Container>
+        </div>
+      </Section>
     </main>
   );
 }

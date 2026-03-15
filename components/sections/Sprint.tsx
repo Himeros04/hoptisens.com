@@ -22,31 +22,31 @@ export function Sprint() {
               </div>
             </div>
             <h2 className="text-3xl md:text-5xl font-serif mb-6">
-              Le Sprint "Processus Performants" — 490€ HT
+              Démarrez votre Transformation sans Risque
             </h2>
             <p className="text-[var(--color-accent)] font-medium text-lg mb-4">
-              On ne vous propose pas un service, on initie votre transformation.
+              Un processus en deux étapes pour valider techniquement et financièrement votre transition vers l'IA.
             </p>
             <ul className="space-y-4 mb-8 text-white/80 max-w-lg">
               <li className="flex items-start gap-3">
-                <span className="text-lg">🕒</span>
-                <div><span className="font-semibold text-white">10 jours ouvrés</span> chronomètre : Nous ciblons les 2 processus de votre entreprise où l'optimisation aura un ROI rapide.</div>
+                <span className="text-lg">⏱️</span>
+                <div><span className="font-semibold text-white">Étape 1 - Le Diagnostic Data-Driven (Offert)</span> : Remplissez notre questionnaire ciblé. Notre IA extrait un pré-rapport de faisabilité pour évaluer votre maturité et votre ROI potentiel.</div>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-lg">📄</span>
-                <div><span className="font-semibold text-white">Livrable actionnable</span> : Une synthèse claire du problème, 2 fiches détaillées avec le plan d'action, les outils préconisés et un devis d'implémentation.</div>
+                <span className="text-lg">🎯</span>
+                <div><span className="font-semibold text-white">Étape 2 - Le Sprint Immersif (Preuve de Concept)</span> : Pendant 4 jours ouvrés, nous cartographions vos données en immersion et délivrons une preuve de concept facturée.</div>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-lg">🛡️</span>
-                <div><span className="font-semibold text-white">Garantie Zéro Risque</span> ($100M Offer) : Le montant du sprint se transforme intégralement en avoir, déductible du coût de l'implémentation si vous continuez avec nous.</div>
+                <div><span className="font-semibold text-white">Garantie Confiance</span> : L'étape 1 filtre les idées irréalisables pour vous faire gagner du temps. L'étape 2 sécurise juridiquement et techniquement vos investissements lourds (Le Gros Œuvre).</div>
               </li>
             </ul>
             <div className="flex gap-4">
-              <a href="https://calendly.com/hoptisens/hoptisens-call" target="_blank" rel="noopener noreferrer" className="inline-block">
+              <Link href="/contact" className="inline-block">
                 <Button size="lg" className="bg-accent text-white hover:bg-white hover:text-accent border-none shadow-none">
-                  🚀 Réserver mon Sprint maintenant
+                  🚀 Commencer mon Diagnostic
                 </Button>
-              </a>
+              </Link>
             </div>
           </FadeInUp>
           
