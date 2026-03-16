@@ -2,6 +2,7 @@
 
 import { useChat, Chat } from '@ai-sdk/react';
 import { DefaultChatTransport } from 'ai';
+import type { UIMessage } from 'ai';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useRef, useEffect, useMemo } from 'react';
 import { MessageSquare, X, Send, AlertCircle } from 'lucide-react';
@@ -11,20 +12,25 @@ const WELCOME_MESSAGE =
 
 const STORAGE_KEY = 'hoptisens_chat_messages';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function extractTextContent(message: any): string {
-  const parts: any[] = message.parts ?? [];
-  const textPart = parts.find((p: any) => p.type === 'text');
-  if (textPart) return textPart.text;
-  if (typeof message.content === 'string') return message.content;
+function extractTextContent(message: UIMessage): string {
+  const textPart = message.parts.find((p) => p.type === 'text');
+  if (textPart && 'text' in textPart) return (textPart as { type: 'text'; text: string }).text;
   return '';
 }
+
+const STORAGE_TTL = 24 * 60 * 60 * 1000; // 24h
 
 function loadStoredMessages() {
   if (typeof window === 'undefined') return [];
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
-    return stored ? JSON.parse(stored) : [];
+    if (!stored) return [];
+    const payload = JSON.parse(stored);
+    if (payload.expires && Date.now() > payload.expires) {
+      localStorage.removeItem(STORAGE_KEY);
+      return [];
+    }
+    return payload.messages ?? payload;
   } catch {
     return [];
   }
@@ -32,16 +38,16 @@ function loadStoredMessages() {
 
 export function ChatAgent() {
   const [isOpen, setIsOpen] = useState(false);
+  const [sessionKey, setSessionKey] = useState(0);
 
-  // Stable Chat instance with persisted messages
+  // Stable Chat instance with persisted messages — recreated when sessionKey changes
   const chat = useMemo(
     () =>
       new Chat({
         messages: loadStoredMessages(),
         transport: new DefaultChatTransport({ api: '/api/chat' }),
       }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
+    [sessionKey]
   );
 
   const { messages, sendMessage, status, error } = useChat({ chat });
@@ -50,11 +56,15 @@ export function ChatAgent() {
   const isLoading = status === 'submitted' || status === 'streaming';
   const endOfMessagesRef = useRef<HTMLDivElement>(null);
 
-  // Persist messages to localStorage whenever they change
+  // Persist messages to localStorage (max 10, with TTL)
   useEffect(() => {
     if (messages.length === 0) return;
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+      const payload = {
+        messages: messages.slice(-10),
+        expires: Date.now() + STORAGE_TTL,
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
     } catch {
       // Ignore storage quota errors
     }
@@ -78,7 +88,7 @@ export function ChatAgent() {
     } catch {
       // Ignore
     }
-    window.location.reload();
+    setSessionKey((k) => k + 1);
   };
 
   const showWelcome = messages.length === 0;
@@ -152,8 +162,7 @@ export function ChatAgent() {
               )}
 
               {/* Conversation messages */}
-              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-              {messages.map((message: any) => {
+              {messages.map((message) => {
                 const content = extractTextContent(message);
                 if (!content) return null;
                 return (

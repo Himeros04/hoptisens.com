@@ -7,7 +7,7 @@ const defaultTransition = { duration: 2, ease: "linear" as const, repeat: Infini
 export function LeadsSchema() {
   return (
     <div className="w-full h-full flex items-center justify-center p-4 bg-surface/50 rounded-2xl border border-border">
-      <svg viewBox="0 0 500 300" className="w-full h-full max-w-md" fill="none">
+      <svg viewBox="0 0 500 300" className="w-full h-full max-w-md" fill="none" aria-hidden="true" focusable="false">
         {/* Source Nodes */}
         <g>
           <rect x="30" y="50" width="100" height="40" rx="8" fill="var(--color-bg)" stroke="var(--color-border)" strokeWidth="1.5" />
@@ -51,7 +51,7 @@ export function LeadsSchema() {
 export function AutomatisationSchema() {
   return (
     <div className="w-full h-full flex items-center justify-center p-4 bg-surface/50 rounded-2xl border border-border">
-      <svg viewBox="0 0 500 300" className="w-full h-full max-w-md" fill="none">
+      <svg viewBox="0 0 500 300" className="w-full h-full max-w-md" fill="none" aria-hidden="true" focusable="false">
         {/* Source Apps */}
         <g>
           <circle cx="80" cy="80" r="25" fill="var(--color-bg)" stroke="var(--color-border)" strokeWidth="1.5" />
@@ -97,7 +97,7 @@ export function AutomatisationSchema() {
 export function AgentsSchema() {
   return (
     <div className="w-full h-full flex items-center justify-center p-4 bg-surface/50 rounded-2xl border border-border">
-      <svg viewBox="0 0 500 300" className="w-full h-full max-w-md" fill="none">
+      <svg viewBox="0 0 500 300" className="w-full h-full max-w-md" fill="none" aria-hidden="true" focusable="false">
         {/* User Node */}
         <circle cx="100" cy="150" r="30" fill="var(--color-surface)" stroke="var(--color-border)" strokeWidth="2" />
         <text x="100" y="154" textAnchor="middle" fill="var(--color-text-primary)" fontSize="12" fontWeight="600">Client</text>
@@ -136,7 +136,7 @@ export function AgentsSchema() {
 export function SprintSchema() {
   return (
     <div className="w-full h-full flex items-center justify-center p-4 bg-surface/50 rounded-2xl border border-border">
-      <svg viewBox="0 0 500 300" className="w-full h-full max-w-md" fill="none">
+      <svg viewBox="0 0 500 300" className="w-full h-full max-w-md" fill="none" aria-hidden="true" focusable="false">
         {/* Timeline Path */}
         <path d="M 60 150 L 440 150" stroke="var(--color-border)" strokeWidth="4" strokeLinecap="round" />
         <motion.path d="M 60 150 L 440 150" stroke="var(--color-accent)" strokeWidth="4" strokeLinecap="round" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 2, ease: "easeInOut" }} />

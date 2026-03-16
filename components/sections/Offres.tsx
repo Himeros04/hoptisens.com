@@ -6,6 +6,8 @@ import { Badge } from "../ui/Badge";
 import { ArrowRight, Brain, Zap, Workflow, Users } from "lucide-react";
 import { Link } from "@/lib/routing";
 
+type RouteHref = "/" | "/a-propos" | "/offres" | "/contact";
+
 const offres = [
   {
     title: "Ingénierie d'Acquisition",
@@ -60,38 +62,42 @@ export function Offres() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {offres.map((offre, index) => {
             const isExternal = offre.href.startsWith("http");
-            const LinkComponent = isExternal ? "a" : Link;
-            const linkProps = isExternal 
-              ? { href: offre.href, target: "_blank", rel: "noopener noreferrer" } 
-              : { href: offre.href as any };
+            const cardContent = (
+              <Card className={`h-full p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${offre.highlight ? 'border-accent/40 bg-accent-soft/30' : ''}`}>
+                <div className="flex flex-col h-full">
+                  <div className="mb-6 flex items-center justify-between">
+                    <div className={`p-3 rounded-xl inline-flex ${offre.highlight ? 'bg-accent text-white' : 'bg-surface-hover text-text-primary group-hover:bg-accent group-hover:text-white transition-colors duration-300'}`}>
+                      <offre.icon className="w-6 h-6" />
+                    </div>
+                    {offre.highlight && <Badge variant="accent">Populaire</Badge>}
+                  </div>
+
+                  <h3 className="text-2xl font-serif text-text-primary mb-3">
+                    {offre.title}
+                  </h3>
+
+                  <p className="text-text-secondary flex-grow mb-6">
+                    {offre.description}
+                  </p>
+
+                  <div className="flex items-center text-sm font-medium text-text-primary group-hover:text-accent transition-colors mt-auto">
+                    {offre.cta || "Découvrir"} <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </div>
+              </Card>
+            );
 
             return (
               <FadeInUp key={index}>
-                {/* @ts-ignore */}
-                <LinkComponent {...linkProps} className="block group h-full">
-                  <Card className={`h-full p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${offre.highlight ? 'border-accent/40 bg-accent-soft/30' : ''}`}>
-                    <div className="flex flex-col h-full">
-                      <div className="mb-6 flex items-center justify-between">
-                        <div className={`p-3 rounded-xl inline-flex ${offre.highlight ? 'bg-accent text-white' : 'bg-surface-hover text-text-primary group-hover:bg-accent group-hover:text-white transition-colors duration-300'}`}>
-                          <offre.icon className="w-6 h-6" />
-                        </div>
-                        {offre.highlight && <Badge variant="accent">Populaire</Badge>}
-                      </div>
-                      
-                      <h3 className="text-2xl font-serif text-text-primary mb-3">
-                        {offre.title}
-                      </h3>
-                      
-                      <p className="text-text-secondary flex-grow mb-6">
-                        {offre.description}
-                      </p>
-                      
-                      <div className="flex items-center text-sm font-medium text-text-primary group-hover:text-accent transition-colors mt-auto">
-                        {offre.cta || "Découvrir"} <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-                      </div>
-                    </div>
-                  </Card>
-                </LinkComponent>
+                {isExternal ? (
+                  <a href={offre.href} target="_blank" rel="noopener noreferrer" className="block group h-full">
+                    {cardContent}
+                  </a>
+                ) : (
+                  <Link href={offre.href as RouteHref} className="block group h-full">
+                    {cardContent}
+                  </Link>
+                )}
               </FadeInUp>
             );
           })}

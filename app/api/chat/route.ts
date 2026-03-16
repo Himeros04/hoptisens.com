@@ -41,7 +41,10 @@ export async function POST(req: Request) {
         try {
           // Comprehensive transcription
           const transcription = messages
-            .map((m: any) => `${m.role === 'user' ? 'Client' : 'Lucio'}: ${m.content}`)
+            .map((m: any) => {
+              const text = m.parts?.find((p: any) => p.type === 'text')?.text ?? m.content ?? '';
+              return `${m.role === 'user' ? 'Client' : 'Lucio'}: ${text}`;
+            })
             .join('\n') + `\nLucio: ${text}`;
 
           // Check if we have an email in the last few messages to avoid redundant extractions

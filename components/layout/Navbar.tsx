@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionTemplate, AnimatePresence } from "framer-motion";
 import { Link, usePathname } from "@/lib/routing";
 import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
@@ -21,6 +21,8 @@ export function Navbar() {
   const borderRadius = useTransform(scrollY, [0, 150], [0, 999]);
   const bgOpacity = useTransform(scrollY, [0, 150], [0, 1]);
   const backdropBlur = useTransform(scrollY, [0, 150], [0, 12]);
+
+  const backdropFilterValue = useMotionTemplate`blur(${backdropBlur}px)`;
 
   // Échelle du logo
   const logoScale = useTransform(scrollY, [0, 150], [1, 0.9]);
@@ -59,7 +61,7 @@ export function Navbar() {
     { href: "/contact", label: t("contact") },
   ];
 
-  const switchLocale = locale === "fr" ? "en" : "fr";
+  const switchLocale = (locale === "fr" ? "en" : "fr") as "fr" | "en";
   const switchLabel = locale === "fr" ? "EN" : "FR";
 
   return (
@@ -73,7 +75,7 @@ export function Navbar() {
           maxWidth: navMaxWidth,
           top: navTop,
           background: metallicBg,
-          backdropFilter: `blur(${backdropBlur.get()}px)`,
+          backdropFilter: backdropFilterValue,
           boxShadow,
           borderRadius,
           border: borderStyle,
@@ -105,7 +107,7 @@ export function Navbar() {
             </div>
 
             <div className="flex items-center gap-4 border-l border-[var(--color-border)] pl-4">
-              <Link href={pathname} locale={switchLocale as any} className="text-xs font-semibold hover:text-[var(--color-accent)] transition-colors">
+              <Link href={pathname} locale={switchLocale} className="text-xs font-semibold hover:text-[var(--color-accent)] transition-colors">
                 {switchLabel}
               </Link>
               <a href="https://calendly.com/hoptisens/hoptisens-call" target="_blank" rel="noopener noreferrer" className="inline-block">
@@ -120,6 +122,9 @@ export function Navbar() {
           <button
             className="md:hidden p-2 ml-4 text-[var(--color-text-primary)]"
             onClick={() => setIsMobileMenuOpen(true)}
+            aria-label="Ouvrir le menu"
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             <Menu size={24} />
           </button>
@@ -130,6 +135,9 @@ export function Navbar() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
@@ -164,7 +172,7 @@ export function Navbar() {
             <div className="mt-auto pb-12 flex flex-col gap-6">
               <div className="flex items-center gap-4">
                 <span className="text-sm font-medium text-[var(--color-text-muted)]">Langue / Language</span>
-                <Link href={pathname} locale={switchLocale as any} className="text-sm font-bold bg-[var(--color-surface)] py-1 px-3 rounded-full" onClick={() => setIsMobileMenuOpen(false)}>
+                <Link href={pathname} locale={switchLocale} className="text-sm font-bold bg-[var(--color-surface)] py-1 px-3 rounded-full" onClick={() => setIsMobileMenuOpen(false)}>
                   Passer en {switchLabel}
                 </Link>
               </div>

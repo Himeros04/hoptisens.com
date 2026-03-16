@@ -16,7 +16,7 @@ export function FadeInUp({ children, delay = 0, ...props }: FadeInUpProps) {
       y: 0,
       transition: {
         duration: 0.5,
-        ease: "easeOut" as any,
+        ease: "easeOut",
         staggerChildren: 0.1,
         delay
       }

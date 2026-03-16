@@ -1,10 +1,28 @@
 import Airtable from 'airtable';
 
-const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY || 'missing' }).base(
-  process.env.AIRTABLE_BASE_ID || 'missing'
+if (!process.env.AIRTABLE_API_KEY || !process.env.AIRTABLE_BASE_ID) {
+  throw new Error('Missing required Airtable env vars: AIRTABLE_API_KEY and AIRTABLE_BASE_ID');
+}
+
+const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
+  process.env.AIRTABLE_BASE_ID
 );
 
 export const prospectsTable = base(process.env.AIRTABLE_TABLE_NAME || 'Prospects');
+
+interface AirtableFields {
+  [key: string]: string | number | boolean | readonly string[] | undefined;
+  'First Name': string;
+  'Last Name': string;
+  'Email': string;
+  'Company': string;
+  'Status': string;
+  'Source': 'Lucio' | 'Forms';
+  'Questions'?: string;
+  'Transcription'?: string;
+  'Message'?: string;
+  'Categorie'?: string[];
+}
 
 export interface ProspectData {
   firstName: string;
@@ -19,11 +37,8 @@ export interface ProspectData {
 }
 
 export async function createLead(data: ProspectData) {
-  if (!process.env.AIRTABLE_API_KEY || !process.env.AIRTABLE_BASE_ID) {
-    throw new Error('Missing Airtable configuration (AIRTABLE_API_KEY or AIRTABLE_BASE_ID).');
-  }
   try {
-    const fields: any = {
+    const fields: AirtableFields = {
       'First Name': data.firstName,
       'Last Name': data.lastName || '',
       'Email': data.email,
