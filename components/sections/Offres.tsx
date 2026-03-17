@@ -20,7 +20,7 @@ const offres = [
     title: "Automatisation & RPA",
     description: "La double-saisie détruit votre rentabilité. De la facturation à l'onboarding client, vos flux s'exécutent en temps réel, sans erreur humaine, réduisant drastiquement vos coûts opérationnels.",
     icon: Workflow,
-    href: "/contact",
+    href: "/#calculateur",
     cta: "Chiffrer mon Gain de Temps"
   },
   {

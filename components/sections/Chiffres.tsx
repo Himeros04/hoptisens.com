@@ -2,6 +2,7 @@ import { Section } from "../ui/Section";
 import { Container } from "../ui/Container";
 import { FadeInUp } from "../ui/FadeInUp";
 import { Counter } from "../ui/Counter";
+import { ArrowRight } from "lucide-react";
 
 const metrics = [
   { numeric: 80, prefix: "", suffix: "%", label: "De temps de prospection manuel économisé grâce à nos systèmes de données pré-qualifiées." },
@@ -34,6 +35,15 @@ export function Chiffres() {
             </FadeInUp>
           ))}
         </div>
+        <FadeInUp className="text-center mt-12">
+          <a
+            href="#calculateur"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-accent)] border border-[var(--color-accent-border)] bg-[var(--color-accent-soft)] px-5 py-2.5 rounded-full hover:bg-[var(--color-accent)] hover:text-white transition-all duration-200"
+          >
+            Calculez ce que vous économiseriez
+            <ArrowRight className="w-3.5 h-3.5" />
+          </a>
+        </FadeInUp>
       </Container>
     </Section>
   );

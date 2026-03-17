@@ -77,6 +77,13 @@ export function Hero() {
               <Button variant="secondary" size="lg" className="w-full">⚡ Remplir le Diagnostic Flash</Button>
             </Link>
           </div>
+          <a
+            href="#calculateur"
+            className="inline-flex items-center gap-1.5 mt-4 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
+          >
+            Calculer mon gain de temps
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+          </a>
         </FadeInUp>
       </Container>
     </Section>
