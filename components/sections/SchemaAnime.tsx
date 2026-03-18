@@ -44,16 +44,17 @@ export function SchemaAnime() {
         <FadeInUp>
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-serif text-text-primary mb-4">
-              L'Architecture de votre Transformation.
+              Comment votre entreprise fonctionne avec un Agent IA
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">
-              Hoptisens connecte l'expertise humaine à la puissance algorithmique. 
-              Découvrez comment notre Agent IA s'intègre au cœur de votre écosystème.
+              Hoptisens connecte vos outils existants à un Agent IA central qui travaille pour vous 24/7.
             </p>
           </div>
         </FadeInUp>
 
-        <div ref={containerRef} className="relative w-full aspect-[4/3] md:aspect-[16/10] bg-bg rounded-3xl border border-border flex items-center justify-center overflow-hidden p-6 md:p-8 shadow-2xl">
+        {/* Scrollable wrapper on mobile so the schema stays readable */}
+        <div className="w-full overflow-x-auto md:overflow-hidden pb-2 md:pb-0 flex md:block justify-center">
+        <div ref={containerRef} className="relative min-w-[620px] h-[420px] md:min-w-0 md:h-auto md:w-full md:aspect-[16/10] bg-bg rounded-3xl border border-border flex items-center justify-center overflow-hidden p-6 md:p-8 shadow-2xl">
           <svg className="w-full h-full max-w-4xl" viewBox="0 0 1000 750" fill="none">
             
             {/* Grid de fond technique léger */}
@@ -103,7 +104,7 @@ export function SchemaAnime() {
             <motion.g style={{ opacity: layer2Opacity, y: layer2Y }}>
               <rect x="350" y="270" width="300" height="60" rx="12" fill="var(--color-surface)" stroke="var(--color-accent)" strokeWidth="1.5" />
               <text x="500" y="300" textAnchor="middle" fill="var(--color-text-primary)" fontSize="14" fontWeight="bold">2. STRUCTURE & CÂBLAGE</text>
-              <text x="500" y="315" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="11">Flux n8n / Make connectés</text>
+              <text x="500" y="315" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="11">Vos outils d'automatisation connectés</text>
             </motion.g>
 
             {/* STEP 3 : CLUSTER AGENT IA (Y=440+) */}
@@ -173,6 +174,7 @@ export function SchemaAnime() {
             </motion.g>
 
           </svg>
+        </div>
         </div>
       </Container>
     </Section>

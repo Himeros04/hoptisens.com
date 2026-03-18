@@ -2,12 +2,13 @@ import { Section } from "../ui/Section";
 import { Container } from "../ui/Container";
 import { FadeInUp } from "../ui/FadeInUp";
 import { Counter } from "../ui/Counter";
+import { ArrowRight } from "lucide-react";
 
 const metrics = [
-  { numeric: 80, prefix: "", suffix: "%", label: "De temps de prospection manuel économisé grâce à nos systèmes de données pré-qualifiées." },
-  { numeric: 10, prefix: "", suffix: " Jours", label: "Le temps exact pour cibler 2 processus clés et chiffrer votre ROI lors de notre Sprint." },
-  { numeric: 100, prefix: "", suffix: "%", label: "De l'audit initial déductible de votre phase d'implémentation." },
-  { numeric: 24, prefix: "", suffix: "/7", label: "De qualification de leads grâce à nos agents IA conversationnels." },
+  { numeric: 30, prefix: "> ", suffix: "%", label: "de tâches répétitives en moins" },
+  { numeric: 30, prefix: "", suffix: " Jours", label: "pour un premier ROI chiffré" },
+  { numeric: 100, prefix: "", suffix: "%", label: "de l'audit déductible de la mission" },
+  { numeric: 24, prefix: "", suffix: "/7", label: " qualification de prospect entrant" },
 ];
 
 export function Chiffres() {
@@ -16,10 +17,10 @@ export function Chiffres() {
       <Container>
         <FadeInUp className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-serif text-[var(--color-text-primary)] mb-4">
-            Votre nouvelle architecture de croissance
+            Ce que nos clients mesurent déjà
           </h2>
           <p className="text-[var(--color-text-secondary)] text-lg">
-            Nous installons les bases d’une architecture d’entreprise flexible, orientée IA et responsable pour que vous puissiez anticiper ce changement plutôt que de le subir.
+            Moyennes constatées sur nos derniers accompagnements TPE/PME.
           </p>
         </FadeInUp>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 divide-x-0 md:divide-x divide-border">
@@ -34,6 +35,15 @@ export function Chiffres() {
             </FadeInUp>
           ))}
         </div>
+        <FadeInUp className="text-center mt-12">
+          <a
+            href="#calculateur"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-accent)] border border-[var(--color-accent-border)] bg-[var(--color-accent-soft)] px-5 py-2.5 rounded-full hover:bg-[var(--color-accent)] hover:text-white transition-all duration-200"
+          >
+            Calculez ce que vous économiseriez
+            <ArrowRight className="w-3.5 h-3.5" />
+          </a>
+        </FadeInUp>
       </Container>
     </Section>
   );

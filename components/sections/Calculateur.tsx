@@ -392,6 +392,9 @@ export function Calculateur() {
                   ? "Coût horaire réel = (salaire net × 1,82) ÷ 151,67 heures légales"
                   : "Coût horaire = TJM ÷ 8 heures"}
               </p>
+              <p className="mt-1 text-xs text-[var(--color-text-muted)] italic">
+                Cette donnée reste anonyme et sert uniquement à estimer votre coût horaire réel. Rien n'est stocké.
+              </p>
             </div>
           </div>
         </FadeInUp>
@@ -460,7 +463,7 @@ export function Calculateur() {
                 href="/contact"
                 className="inline-flex items-center gap-2 h-12 px-8 text-lg font-medium rounded-xl bg-[#2A2A2A] text-[#F9F7F3] hover:bg-[#1A1A1A] transition-colors shadow-[0_4px_10px_rgba(0,0,0,0.1)]"
               >
-                Discuter de mon projet IA
+                Récupérer {result.totalHours}h/mois — Parlons-en
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </motion.div>

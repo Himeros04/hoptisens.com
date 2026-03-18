@@ -13,12 +13,16 @@ export default function ContactPage() {
         <Container className="text-center max-w-3xl">
           <FadeInUp>
             <h1 className="text-4xl md:text-6xl font-serif text-text-primary mb-6">
-              Parlons de votre <span className="italic text-accent">avenir</span>
+              Démarrez votre <span className="italic text-accent">projet IA</span>
             </h1>
-            <p className="text-xl text-text-secondary mb-10">
-              Démarrez une conversation avec notre Agent IA pour pré-qualifier 
-              votre besoin, ou contactez-nous directement.
+            <p className="text-xl text-text-secondary mb-4">
+              Remplissez le formulaire ci-dessous et nous analysons votre besoin sous 24h.
             </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-6 text-sm text-text-muted mb-10">
+              <span>📝 Vous savez ce que vous voulez ? → <strong className="text-text-primary">Formulaire</strong></span>
+              <span>💬 Vous explorez encore ? → <strong className="text-text-primary">Discutez avec Lucio</strong></span>
+              <span>📞 Vous préférez le téléphone ? → <strong className="text-text-primary">Réservez un créneau</strong></span>
+            </div>
           </FadeInUp>
         </Container>
       </Section>

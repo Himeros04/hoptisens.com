@@ -4,11 +4,72 @@
   },
   "Navigation": {
     "offres": "Offres",
+    "diagnostic": "Diagnostic",
     "apropos": "À propos",
     "contact": "Contact",
     "cta": "Prendre RDV →",
     "entreprise": "Entreprise",
     "legals": "Mentions légales",
     "rgpd": "Politique de confidentialité"
+  },
+  "Diagnostic": {
+    "meta": {
+      "title": "Auto-Diagnostic IA — Hoptisens",
+      "description": "Découvrez en 2 minutes les projets IA les plus impactants pour votre entreprise."
+    },
+    "intro": {
+      "badge": "DIAGNOSTIC GRATUIT · 2 MIN",
+      "title": "Quel projet IA aura le plus d'impact dans votre entreprise ?",
+      "subtitle": "Répondez à 5 questions. Notre IA analyse votre contexte et vous propose des projets concrets d'automatisation, avec leur architecture et leur niveau de complexité.",
+      "cta": "Commencer le diagnostic",
+      "disclaimer": "Aucune donnée personnelle requise. Résultats immédiats."
+    },
+    "steps": {
+      "profile": {
+        "title": "Parlons de vous.",
+        "context": "Ces informations nous permettent de cibler les automatisations les plus pertinentes pour votre fonction et votre secteur.",
+        "role": "Votre rôle",
+        "sector": "Secteur d'activité"
+      },
+      "company": {
+        "title": "Votre entreprise en bref.",
+        "size": "Nombre de collaborateurs",
+        "department": "Département principal concerné"
+      },
+      "tools": {
+        "title": "Quels outils utilisez-vous au quotidien ?",
+        "subtitle": "Sélectionnez au moins 1 outil.",
+        "other": "Précisez vos outils clés..."
+      },
+      "painPoints": {
+        "title": "Quels processus vous font perdre le plus de temps ?",
+        "subtitle": "Sélectionnez 1 à 4 irritants, puis indiquez votre priorité n°1.",
+        "descriptionLabel": "Décrivez en une phrase votre plus grand irritant (optionnel)"
+      },
+      "maturity": {
+        "title": "Où en êtes-vous avec l'IA et l'automatisation ?",
+        "level": "Votre niveau actuel",
+        "horizon": "Horizon de temps"
+      }
+    },
+    "loading": {
+      "title": "Analyse de votre contexte...",
+      "step1": "Secteur identifié",
+      "step2": "Outils analysés",
+      "step3": "Recommandations en cours..."
+    },
+    "results": {
+      "title": "Votre diagnostic personnalisé",
+      "cta_title": "Envie d'aller plus loin ?",
+      "cta_call": "Réserver un appel",
+      "cta_restart": "Refaire le diagnostic"
+    },
+    "nav": {
+      "back": "Retour",
+      "next": "Suivant",
+      "submit": "Voir mes résultats"
+    },
+    "hero_cta": "Commencer mon Diagnostic",
+    "sprint_link": "Ou commencez par un diagnostic gratuit"
   }
 }

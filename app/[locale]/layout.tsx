@@ -27,7 +27,8 @@ export const metadata: Metadata = {
   title: 'Hoptisens',
   description: 'Agence IA & Automatisation',
   icons: {
-    icon: '/favicon.svg',
+    icon: '/etoile_fleche_sans_fond.png',
+    apple: '/etoile_fleche_sans_fond.png',
   },
 }
 

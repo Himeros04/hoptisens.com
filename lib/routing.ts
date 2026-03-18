@@ -25,6 +25,10 @@ export const routing = defineRouting({
     '/contact': {
       fr: '/contact',
       en: '/contact'
+    },
+    '/diagnostic': {
+      fr: '/diagnostic',
+      en: '/diagnostic'
     }
   }
 });

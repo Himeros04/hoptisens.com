@@ -1,8 +1,8 @@
 # Spécifications Fonctionnelles — hoptisens.com
 
-**Version** : 1.0  
-**Date** : Mars 2026  
-**Statut** : Référence de conception
+**Version** : 2.0
+**Date** : Mars 2026
+**Statut** : Reflet de l'état actuel du site en production
 
 ---
 
@@ -14,13 +14,16 @@
 4. [Design System](#4-design-system)
 5. [Composants globaux](#5-composants-globaux)
 6. [Pages — Détail fonctionnel](#6-pages--détail-fonctionnel)
-7. [Schéma animé scroll-driven (Hero)](#7-schéma-animé-scroll-driven-hero)
-8. [Agent IA conversationnel (Contact)](#8-agent-ia-conversationnel-contact)
-9. [Motion Design — Catalogue complet](#9-motion-design--catalogue-complet)
-10. [Internationalisation (FR / EN)](#10-internationalisation-fr--en)
-11. [Stack technique](#11-stack-technique)
-12. [Déploiement](#12-déploiement)
-13. [Phases de développement](#13-phases-de-développement)
+7. [Schéma animé scroll-driven](#7-schéma-animé-scroll-driven)
+8. [Calculateur ROI interactif](#8-calculateur-roi-interactif)
+9. [Agent IA conversationnel — Lucio](#9-agent-ia-conversationnel--lucio)
+10. [Formulaire de contact](#10-formulaire-de-contact)
+11. [Schémas visuels animés des offres](#11-schémas-visuels-animés-des-offres)
+12. [Motion Design — Catalogue complet](#12-motion-design--catalogue-complet)
+13. [Internationalisation (FR / EN)](#13-internationalisation-fr--en)
+14. [Stack technique](#14-stack-technique)
+15. [Intégrations externes](#15-intégrations-externes)
+16. [Déploiement](#16-déploiement)
 
 ---
 
@@ -31,22 +34,24 @@
 - **Nom** : Hoptisens
 - **Domaine** : hoptisens.com
 - **Type** : Agence IA & Automatisation
-- **Slogan** : "Simplifier pour Amplifier"
+- **Slogan** : "Simplifier pour amplifier"
+- **Fondateur** : Hadrien Peyron
 
 ### Vision
 
-D'ici 2030, la relation au travail va drastiquement changer. Les outils boostés à l'IA seront omniprésents. Hoptisens construit un avenir souhaitable avant de le subir.
+D'ici 2030, chaque entreprise structurée devrait avoir son propre écosystème d'IA. Hoptisens démocratise l'Intelligence Artificielle pour les PME.
 
 ### Mission
 
-Permettre aux entreprises d'anticiper ce changement plutôt que de le subir, en installant les bases d'une architecture d'entreprise flexible, orientée IA et responsable.
+Accompagner les dirigeants dans leur transformation digitale et IA en déployant rapidement des POC à ROI direct, en liant pragmatisme et innovation.
 
 ### Objectifs du site
 
-- Générer des prises de contact qualifiées via un agent IA conversationnel
-- Présenter clairement les 4 catégories d'offres + l'offre Sprint
-- Incarner l'expertise IA par le design et les animations
-- Être bilingue FR / EN dès le lancement
+- Générer des prises de contact qualifiées via un formulaire, un agent IA conversationnel (Lucio) et un lien Calendly
+- Présenter les 4 services principaux (Ingénierie d'Acquisition, Automatisation & RPA, Agents IA, Sprint POC)
+- Démontrer le ROI via un calculateur interactif
+- Incarner l'expertise IA par le design, les animations et les schémas SVG animés
+- Être bilingue FR / EN
 
 ---
 
@@ -55,8 +60,8 @@ Permettre aux entreprises d'anticiper ce changement plutôt que de le subir, en 
 ### Marché cible
 
 - **TPE et PME** : 10 à 300 collaborateurs
-- **Secteurs** : Agences marketing, ESN, SSII, Sociétés de conseils, tous secteurs avec processus répétitifs et des cols blancs (personnes travaillant avec un ordinateur, économie de l'information..).
-- **Décideurs** : Responsables opérationnels, Directeur commercial, Dirigeants, CEO, CSO, DAF, responsables opérations, DSI
+- **Secteurs** : Agences marketing, ESN, SSII, Sociétés de conseils, tous secteurs avec processus répétitifs et cols blancs
+- **Décideurs** : Dirigeants, CEO, CTO, DSI, DAF, CSO, responsables opérations
 
 ### Personas principaux
 
@@ -65,11 +70,11 @@ Permettre aux entreprises d'anticiper ce changement plutôt que de le subir, en 
 | Le Dirigeant | PDG / Gérant, 40-55 ans | Gagner du temps, réduire les coûts opérationnels |
 | L'Opérationnel | DAF / Responsable ops | Automatiser les tâches répétitives, fiabiliser les données |
 | Le Visionnaire | CTO / DSI | Intégrer l'IA de façon responsable et mesurable |
-| Le Commercial | CSO / Responsable des ventes & marketing | Gagner du temps, fluidifier les processus de vente, améliorer la qualité des leads, se focaliser sur la relation humaine |
+| Le Commercial | CSO / Responsable des ventes & marketing | Fluidifier les processus de vente, améliorer la qualité des leads |
 
 ### Positionnement
 
-Hoptisens ne vend pas un logiciel, ni une simple formation. Elle co-construit avec ses clients une **architecture d'entreprise augmentée**, étape par étape, avec un ROI mesurable.
+Hoptisens ne vend pas un logiciel, ni une simple formation. Elle co-construit avec ses clients une **architecture d'entreprise augmentée**, étape par étape, avec un ROI mesurable. L'approche est pragmatique et orientée POC : valider techniquement et financièrement avant de scaler.
 
 ---
 
@@ -87,14 +92,14 @@ Hoptisens ne vend pas un logiciel, ni une simple formation. Elle co-construit av
 /offres                  → Offres (FR)
 /en/services             → Services (EN)
 
-/offres/sprint           → Sprint Processus Performants (FR)
-/en/services/sprint      → Sprint Efficient Processes (EN)
+/offres/sprint           → Sprint Automobilisation (FR)
+/en/services/sprint      → Sprint (EN)
 
 /offres/leads            → Offres Lead Gen (FR)
 /en/services/leads       → Lead Gen Services (EN)
 
-/contact                 → Contact + Agent IA (FR)
-/en/contact              → Contact + AI Agent (EN)
+/contact                 → Contact (FR)
+/en/contact              → Contact (EN)
 ```
 
 ### Hiérarchie des composants
@@ -102,14 +107,17 @@ Hoptisens ne vend pas un logiciel, ni une simple formation. Elle co-construit av
 ```text
 app/
 ├── [locale]/
-│   ├── layout.tsx           → Layout global (Navbar + Footer)
-│   ├── page.tsx             → Accueil
-│   ├── a-propos/page.tsx    → À propos
+│   ├── layout.tsx             → Layout global (Navbar + Footer)
+│   ├── page.tsx               → Accueil (7 sections)
+│   ├── a-propos/page.tsx      → À propos
 │   ├── offres/
-│   │   ├── page.tsx         → Vue d'ensemble offres
-│   │   ├── sprint/page.tsx  → Landing Sprint
-│   │   └── leads/page.tsx   → Landing Lead Gen
-│   └── contact/page.tsx     → Contact + Agent IA
+│   │   ├── page.tsx           → Vue d'ensemble offres (tabs)
+│   │   ├── sprint/page.tsx    → Landing Sprint
+│   │   └── leads/page.tsx     → Landing Lead Gen
+│   └── contact/page.tsx       → Contact (formulaire + chat + infos)
+├── api/
+│   └── chat/
+│       └── route.ts           → Route Handler agent IA (Gemini)
 ├── components/
 │   ├── layout/
 │   │   ├── Navbar.tsx
@@ -117,20 +125,25 @@ app/
 │   ├── sections/
 │   │   ├── Hero.tsx
 │   │   ├── SchemaAnime.tsx
-│   │   ├── Offres.tsx
 │   │   ├── Chiffres.tsx
+│   │   ├── Offres.tsx
+│   │   ├── Calculateur.tsx
 │   │   ├── Sprint.tsx
 │   │   └── Temoignages.tsx
-│   ├── ui/
-│   │   ├── Button.tsx
-│   │   ├── Card.tsx
-│   │   ├── Badge.tsx
-│   │   └── Tag.tsx
-│   └── agent/
-│       └── ChatAgent.tsx
+│   ├── visuals/
+│   │   └── OfferSchemas.tsx   → Schémas SVG animés par offre
+│   ├── forms/
+│   │   └── ContactForm.tsx    → Formulaire de contact (Zod + Airtable)
+│   ├── agent/
+│   │   ├── ChatAgent.tsx      → Widget chat flottant (Lucio)
+│   │   └── ContactChat.tsx    → Chat embarqué pleine largeur
+│   └── ui/
+│       ├── FadeInUp.tsx
+│       └── Counter.tsx
 └── lib/
     ├── i18n.ts
-    └── ai.ts
+    ├── routing.ts
+    └── airtable.ts            → Intégration Airtable (leads)
 ```
 
 ---
@@ -139,85 +152,43 @@ app/
 
 ### 4.1 Palette de couleurs
 
-| Token CSS | Valeur HEX | Usage |
-| --- | --- | --- |
-| `--bg` | `#FAFAF9` | Fond principal (blanc chaud) |
-| `--surface` | `#F2F1EF` | Fonds de cartes, sections alternées |
-| `--surface-hover` | `#ECEAE6` | Hover sur cartes |
-| `--border` | `#E4E2DE` | Bordures fines, séparateurs |
-| `--text-primary` | `#1A1916` | Titres, corps principal |
-| `--text-secondary` | `#4B4A45` | Textes d'appui |
-| `--text-muted` | `#78766F` | Labels, légendes, placeholders |
-| `--accent` | `#2A5BFF` | Bleu électrique — CTA, highlights, liens actifs |
-| `--accent-hover` | `#1A47E8` | Hover sur éléments accent |
-| `--accent-soft` | `#EEF2FF` | Fond de badges, tags |
-| `--accent-border` | `#C7D3FF` | Bordure des éléments accent |
-| `--success` | `#16A34A` | États positifs, badges "Haute priorité" |
-| `--warning` | `#D97706` | États d'alerte |
+| Token CSS | Usage |
+| --- | --- |
+| `--color-accent` | Couleur principale (jaune/doré) — CTA, highlights, liens actifs |
+| `--color-text-primary` | Titres, corps principal |
+| `--color-text-secondary` | Textes d'appui |
+| `--color-bg` | Fond principal |
+| `--color-surface` | Fonds de cartes, sections alternées |
+| `--color-border` | Bordures fines, séparateurs |
+| `--color-success` | États positifs |
+| `--color-error` | États d'erreur |
 
 ### 4.2 Typographie
 
-| Rôle | Police | Poids | Taille | Notes |
-| --- | --- | --- | --- | --- |
-| Hero titre | Geist | 800 | 72-96px | Tracking `-0.04em`, responsive |
-| Titre H2 | Geist | 700 | 40-56px | Tracking `-0.02em` |
-| Titre H3 | Geist | 600 | 28-36px | |
-| Corps | Inter | 400 | 16-18px | Line-height 1.65 |
-| Corps bold | Inter | 600 | 16px | Emphases, bullet points |
-| Label / Tag | Inter | 500 | 11-12px | Uppercase, letter-spacing `0.08em` |
-| Mono / Data | Geist Mono | 400 | 13-14px | Chiffres clés, codes |
-
-**Installation** :
-
-```bash
-npm install geist
-```
-
-```tsx
-// app/layout.tsx
-import { GeistSans, GeistMono } from 'geist/font'
-```
+| Rôle | Police | Notes |
+| --- | --- | --- |
+| Titres (H1, H2) | Playfair Display | Serif, élégant |
+| Corps / UI | Geist Sans | Sans-serif, lisible |
+| Mono / Data | Geist Mono | Chiffres clés, codes |
 
 ### 4.3 Spacing & Layout
 
-- **Grille** : 12 colonnes, gutter 24px, max-width `1200px`, padding horizontal `24px` (mobile) / `48px` (desktop)
-- **Sections** : `padding-y: 96px` (desktop) / `64px` (mobile)
-- **Radius** : `8px` (boutons, inputs), `12px` (cartes), `16px` (grandes cartes), `9999px` (pills/badges)
-- **Ombres** :
-  - `shadow-sm` : `0 1px 3px rgba(0,0,0,0.06)`
-  - `shadow-md` : `0 4px 16px rgba(0,0,0,0.08)`
-  - `shadow-lg` : `0 8px 32px rgba(0,0,0,0.12)`
+- **Max-width** : `1200px`, centré avec padding horizontal responsive
+- **Sections** : padding vertical généreux (desktop > mobile)
+- **Radius** : coins arrondis sur cartes, boutons, badges
+- **Ombres** : multi-niveaux (sm, md, lg) pour profondeur
 
 ### 4.4 Composants UI de base
 
-**Button variants :**
+**FadeInUp** : Wrapper d'animation réutilisable (fade + translation verticale au mount, délai configurable)
 
-```text
-Primary   : bg-accent text-white, hover bg-accent-hover
-Secondary : bg-surface border-border text-primary, hover bg-surface-hover
-Ghost     : bg-transparent border-border text-primary, hover bg-surface
-```
-
-**Badge / Tag :**
-
-```text
-Default : bg-surface border-border text-muted, 11px uppercase
-Accent  : bg-accent-soft border-accent-border text-accent, 11px uppercase
-```
-
-**Card :**
-
-```text
-Base    : bg-surface border border-border rounded-xl p-6
-Hover   : shadow-md, translateY(-2px), border-color → accent-border
-Durée   : 200ms ease
-```
+**Counter** : Compteur animé de 0 vers une valeur cible, déclenché au `whileInView`
 
 ---
 
 ## 5. Composants globaux
 
-### 5.1 Navbar — comportement scroll compact (inspiré twine.com)
+### 5.1 Navbar
 
 **Structure :**
 
@@ -225,50 +196,59 @@ Durée   : 200ms ease
 [ Logo Hoptisens ]   [ Offres · À propos · Contact ]   [ FR|EN · Prendre RDV → ]
 ```
 
-**Comportement dynamique (Framer Motion `useScroll`) :**
+**Comportement dynamique au scroll (seuil : 150px) :**
 
-| Propriété | État initial (top) | État compact (scroll > 80px) |
+| Propriété | État initial (top) | État compact (scroll > 150px) |
 | --- | --- | --- |
-| `padding-y` | `20px` | `10px` |
-| `background` | `transparent` | `rgba(250,250,249,0.92)` |
-| `backdrop-filter` | `none` | `blur(12px)` |
-| `box-shadow` | `none` | `0 1px 0 #E4E2DE` |
-| `logo height` | `32px` | `24px` |
-| Transition | — | `300ms easeInOut` |
+| Forme | Pleine largeur | Boîte arrondie contenue |
+| Background | Transparent | Gradient métallique + blur |
+| Blur | Aucun | Intensifié |
+| Box-shadow | Aucune | Apparaît |
+| Logo | Taille normale | Légèrement réduit |
 
-**Implémentation :**
-
-```tsx
-const { scrollY } = useScroll()
-const paddingY = useTransform(scrollY, [0, 80], [20, 10])
-const bgOpacity = useTransform(scrollY, [0, 80], [0, 0.92])
-const logoHeight = useTransform(scrollY, [0, 80], [32, 24])
-```
+**CTA principal Navbar** : "Prendre RDV →" — lien externe vers Calendly (`calendly.com/hoptisens/hoptisens-call`)
 
 **Menu mobile :**
 
-- Hamburger → menu plein écran avec fond `--bg`
-- Liens animés en stagger (slide-in depuis la droite)
-- CTA "Prendre RDV" en bas du menu
+- Hamburger → slide-in depuis la droite (spring animation Framer Motion)
+- Liens de navigation + toggle langue + CTA
 
 **Switcher de langue :**
 
-- Toggle FR | EN en haut à droite de la navbar
+- Toggle FR | EN dans la navbar
 - Conserve le path courant en changeant le locale
 
 ---
 
 ### 5.2 Footer
 
-**Colonnes :**
+**4 colonnes :**
 
 ```text
-[ Logo + Tagline ]   [ Offres ]   [ Liens ]   [ Contact ]
+[ Logo + Tagline ]   [ Offres ]   [ Entreprise ]   [ Contact ]
 ```
 
-- Copyright, liens légaux (mentions légales, RGPD)
-- Icônes réseaux sociaux (LinkedIn, minimal)
-- Fond `--surface`, bordure top `--border`
+**Colonne 1 — Branding :**
+- Logo Hoptisens
+- Tagline : "Simplifier pour amplifier. Agence IA & Automatisation pour dirigeants lucides"
+
+**Colonne 2 — Offres :**
+- L'Étude & Les Plans
+- Le Gros Œuvre
+- Les Réseaux d'Acquisition
+- Le Transfert de Compétences
+
+**Colonne 3 — Entreprise :**
+- À propos
+- Contact
+- Mentions légales
+- Politique de confidentialité
+
+**Colonne 4 — Contact :**
+- Email : hadrien@hoptisens.com
+- LinkedIn : Hadrien Peyron (lien)
+
+**Bas de page :** © 2026 Hoptisens
 
 ---
 
@@ -276,145 +256,148 @@ const logoHeight = useTransform(scrollY, [0, 80], [32, 24])
 
 ### 6.1 Page Accueil (`/`)
 
+La page d'accueil est composée de 7 sections enchaînées.
+
 #### Section 1 — Hero
 
 **Contenu textuel :**
 
-- **Pré-titre** (tag badge) : `AGENCE IA & AUTOMATISATION`
-- **Titre H1** : `Simplifiez pour Amplifier.` (FR) / `Simplify to Amplify.` (EN)
-- **Sous-titre** : "Nous aidons les TPE et PME à anticiper la transformation IA plutôt que de la subir. En construisant avec vous une architecture d'entreprise flexible, mesurable et responsable."
-- **CTA Principal** : `Démarrer votre diagnostic →` (→ `/offres/sprint`)
-- **CTA Secondaire** : `Voir nos offres` (→ `/offres`, ghost button)
+- **Titre H1** : "Multipliez vos Prospects qualifiés, Divisez vos Coûts gaspillés"
+- **Sous-titre** : "Ne subissez plus l'évolution technologique. Hoptisens construit et déploie des systèmes d'intelligence artificielle sur-mesure (Automatisation, Agents IA, CRM) pour sécuriser vos marges et protéger le temps de vos équipes"
+- **CTA Principal** : "Réserver mon Appel Stratégique" — lien externe Calendly
+- **CTA Secondaire** : "Remplir le Diagnostic Flash" — lien vers `/contact`
+- **Lien tertiaire** : Scroll vers le calculateur ROI (`#calculateur`)
 
 **Background :**
 
-- Mesh gradient animé en CSS pur : 3 cercles de couleur (`#2A5BFF20`, `#7C3AED15`, `#F59E0B10`) qui dérivent lentement via `@keyframes`
-- Pas d'image, pas de photo
+- Mesh gradient animé en CSS pur (dérive lente via `@keyframes`)
 
 **Animation du titre :**
 
-- Chaque mot apparaît en stagger avec `y: 20 → 0` + `opacity: 0 → 1`
-- Délai entre mots : `0.08s`
-- Durée par mot : `0.5s`
+- Chaque mot apparaît en stagger avec `y → 0` + `opacity: 0 → 1`
 
 #### Section 2 — Schéma animé scroll-driven
 
-Voir section 7 pour le détail complet.
+Voir [section 7](#7-schéma-animé-scroll-driven) pour le détail complet.
 
 #### Section 3 — Chiffres clés
 
-**Disposition** : Grille 4 colonnes (2 sur mobile)
+**Titre de section** : "Votre nouvelle architecture de croissance"
+
+**Disposition** : Grille 4 colonnes (responsive)
 
 | Chiffre | Label |
 | --- | --- |
-| `-80%` | temps de prospection |
-| `+3×` | ROI moyen constaté |
-| `10 jours` | pour un premier livrable |
-| `100%` | TPE & PME accompagnées |
+| `80%` | de gain de temps sur la prospection manuelle |
+| `10 jours` | de Sprint pour valider votre ROI |
+| `100%` | de l'audit initial déductible de l'implémentation |
+| `24/7` | vos leads qualifiés par une IA conversationnelle |
 
 **Animation** : Counter animé de `0` vers la valeur cible déclenché au `whileInView`
 
 #### Section 4 — Présentation des 4 offres
 
-**Disposition** : Grille 2×2 (cartes), puis 1 colonne sur mobile
+**Titre de section** : "Notre ingénierie au service de votre rentabilité"
+
+**Disposition** : Grille de 4 cartes (responsive 1 colonne sur mobile)
 
 **Cartes :**
 
-```text
-┌─────────────────────────────┐
-│ [Tag] CATÉGORIE 1           │
-│                             │
-│ L'Étude & Les Plans         │
-│ ─────────────────           │
-│ Audit · Cartographie        │
-│ Diagnostic · Stratégie      │
-│                             │
-│ [ En savoir plus → ]        │
-└─────────────────────────────┘
-```
+1. **Ingénierie d'Acquisition** (icône Users)
+   - Description : "Vos commerciaux perdent un temps précieux sur des prospects froids..."
+   - CTA : "Auditer mon Acquisition"
 
-Chaque carte pointe vers `/offres#categorie-x`
+2. **Automatisation & RPA** (icône Workflow)
+   - Description : "La double-saisie détruit votre rentabilité..."
+   - CTA : "Chiffrer mon Gain de Temps"
 
-**4 catégories :**
+3. **Agents IA Personnalisés** (icône Brain) — badge "Populaire"
+   - Description : "Exploitez la richesse de vos données..."
+   - CTA : "Prototyper mon Agent IA"
 
-1. `L'Étude & Les Plans` — Stratégie & Diagnostics
-2. `Le Gros Œuvre` — Ingénierie & Déploiement
-3. `Les Réseaux d'Acquisition` — Visibilité & Conversion
-4. `Le Transfert de Compétences` — Hopti-Learn
+4. **Sprint POC** (icône Zap)
+   - Description : "Un processus en deux étapes pour valider techniquement et financièrement votre transition vers l'IA..."
+   - CTA : "Commencer mon Diagnostic"
 
-#### Section 5 — Mise en avant Sprint
+#### Section 5 — Calculateur ROI interactif
 
-**Format** : Bloc pleine largeur, fond `--accent-soft`, bordure `--accent-border`
+Voir [section 8](#8-calculateur-roi-interactif) pour le détail complet.
+
+#### Section 6 — Sprint (mise en avant)
+
+**Format** : Bloc pleine largeur, fond sombre (`--text-primary`)
 
 **Contenu :**
 
-- Badge : `OFFRE D'ENTRÉE`
-- Titre : `Sprint "Processus Performants"`
-- Accroche : _"On ne vous propose pas un service, on initie votre transformation."_
-- Sous-texte : "En 10 jours ouvrés, identifiez les 2 processus à fort ROI. 490€ HT — déductibles de la mission d'implémentation."
-- CTA : `Démarrer le Sprint →`
+- Badge : "Offre de lancement — 490€ (~~990€~~)" + mention "Valable pour les 7 prochains clients"
+- Titre : "Démarrez votre Transformation sans Risque"
+- **2 étapes :**
+  - Étape 1 : Diagnostic Data-Driven (Offert)
+  - Étape 2 : Sprint Immersif 4 jours (POC payant)
+  - + Garantie Confiance
+- Visuel : "10 Jours pour tout changer" avec cercle accent animé
+- CTA : "Commencer mon Diagnostic" → `/contact`
 
-#### Section 6 — Témoignages (optionnel au lancement)
+#### Section 7 — Témoignages / Résultats
 
-Carrousel horizontal, 3 citations, auto-scroll toutes les 5s.
+**Titre** : "Des Résultats Concrets pour les TPE/PME"
+
+**2 études de cas :**
+
+1. **PME Services B2B** (25 collaborateurs)
+   - Action : Déploiement d'un filtre IA d'intention
+   - Résultat : −70% du temps de qualification manuelle
+
+2. **Cabinet de Conseil** (12 collaborateurs)
+   - Action : CRM semi-automatisé via Telegram
+   - Résultat : Zéro erreur de saisie, synchronisation instantanée Supabase
 
 ---
 
 ### 6.2 Page À propos (`/a-propos`)
 
-**Sections :**
+**Section 1 — Raison d'être :**
 
-1. **Hero** : Titre "Notre raison d'être" + sous-titre vision 2030
-2. **Vision / Mission / Stratégie** : 3 blocs en grille (icône + titre + texte)
-   - Vision : D'ici 2030, notre relation au travail va changer radicalement
-   - Mission : Simplifier pour Amplifier
-   - Stratégie : Sensibiliser → Co-construire → Accompagner
-3. **L'approche Hoptisens** : Timeline en 3 étapes (Diagnostic → Construction → Transfert)
-4. **CTA bas de page** : Vers `/contact`
+- Tagline : "Démocratiser l'Intelligence Artificielle pour les PME"
+- Mission : "Chaque entreprise structurée devrait avoir son propre écosystème d'IA d'ici 2030"
+- **3 cartes :**
+  1. **Notre Vision** (icône Target) — "Créer un monde où l'humain est libéré des tâches répétitives..."
+  2. **Notre Mission** (icône Compass) — "Accompagner les dirigeants dans leur transformation..."
+  3. **Notre Stratégie** (icône Sparkles) — "Lier pragmatisme et innovation. Déployer rapidement des POC à ROI direct..."
+
+**Section 2 — L'Approche Hoptisens (timeline) :**
+
+3 étapes :
+
+1. **Diagnostic** (icône Building) — Cartographie des processus, évaluation du ROI
+2. **Construction** (icône Rocket) — Sourcing LLM, design workflow (Make/n8n), création d'interfaces
+3. **Transfert & Formation** (icône GraduationCap) — Formation des équipes, documentation des systèmes
+
+**CTA bas de page** : "Parler à un consultant"
 
 ---
 
 ### 6.3 Page Offres (`/offres`)
 
-**Structure :**
+**Structure avec navigation par onglets :**
 
-**Hero de page :** Titre + description courte
+**Hero :**
+- Titre : "Nos Solutions pour l'Ère de l'IA"
+- Description des 4 services
 
-**4 sections d'offres (une par catégorie) :**
+**Navigation sticky (tabs) :**
+- 4 onglets : Leads & CRM, Automatisation, Agents IA, Sprint POC
+- + Bouton pulsant "Nous Contacter"
 
-```text
-Catégorie 1 : L'Étude & Les Plans
-─────────────────────────────────
-Sous-titre : "L'analyse de l'existant pour concevoir une architecture solide."
+**Contenu par onglet (slider animé) :**
+Chaque onglet affiche :
+- Icône + titre du service
+- Description complète
+- 3-4 bullet points avec icônes CheckCircle2
+- CTA spécifique (certains vers Calendly)
+- Schéma SVG animé illustrant le service (voir [section 11](#11-schémas-visuels-animés-des-offres))
 
-Liste de services :
-• Audit de l'infrastructure de données
-• Audit et cartographie des processus automatisables
-• Audit de l'architecture commerciale
-• Diagnostic de maturité IA
-
-Catégorie 2 : Le Gros Œuvre
-────────────────────────────
-• Conception d'agents IA et d'automatisations de processus
-• Interconnexion des outils existants (câblage logiciel)
-• Développement de CRM semi-automatisés
-• Web Apps métiers & tableaux de bord interactifs
-
-Catégorie 3 : Les Réseaux d'Acquisition
-─────────────────────────────────────────
-• Génération et qualification automatisée de leads
-• Écosystèmes web orientés conversion
-• Infrastructures de pages optimisées SEO
-• Usine à contenus : génération multi-canaux IA
-
-Catégorie 4 : Le Transfert de Compétences (Hopti-Learn)
-────────────────────────────────────────────────────────
-• Ateliers "Les Fondamentaux de l'IA"
-• Formation : Créer ses propres assistants IA métiers
-• Agents formateurs internes pour l'onboarding
-```
-
-**CTA de bas de page :** Bloc Sprint mis en avant
+**Section bas de page :** Formulaire de contact embarqué ("Parlez-nous de votre projet")
 
 ---
 
@@ -423,25 +406,23 @@ Catégorie 4 : Le Transfert de Compétences (Hopti-Learn)
 **Structure :**
 
 1. **Hero** :
-   - Badge : `OFFRE D'ENTRÉE · 490€ HT`
-   - Titre H1 : `Sprint "Processus Performants"`
-   - Promesse : "En 10 jours ouvrés, nous ciblons les 2 processus où l'optimisation aura un ROI rapide et opérationnel."
+   - Badge : "Offre de lancement"
+   - Titre H1 : "Le Sprint Automobilisation"
+   - Promesse : "Passez de l'idée floue à un système d'IA opérationnel en seulement deux semaines"
 
-2. **Ce que vous recevez** (livrables) :
-   - Note de synthèse 1 page (problème + solution + ROI)
-   - 2 fiches détaillées avec plan d'action et outils
-   - Devis pour la phase d'implémentation
+2. **Carte tarif** :
+   - Prix de lancement : `490€ HT` (~~990€ HT~~)
+   - Mention : "Valable pour les 7 prochains clients"
+   - Livrables inclus :
+     - Note de synthèse détaillée
+     - Fiches de cas d'usage prioritaires
+     - Devis technique d'implémentation
+   - Mention : "Intégralement déductible si vous poursuivez avec nous"
 
-3. **Comment ça marche** (timeline visuelle 3 étapes) :
-   - Étape 1 : Entretien de cadrage (J1-J2)
-   - Étape 2 : Analyse & modélisation (J3-J8)
-   - Étape 3 : Restitution & livrable (J9-J10)
-
-4. **Le tarif** :
-   - Bloc centré : `490€ HT`
-   - Mention : "Ce montant devient un avoir déductible si vous continuez avec nous."
-
-5. **CTA** : Formulaire simplifié ou redirection vers `/contact` avec le contexte Sprint pré-rempli dans l'agent IA
+3. **Timeline (3 phases)** :
+   - Jours 1-2 : Immersion (analyse des processus, cartographie des données)
+   - Jours 3-8 : Conception (architecture, développement du prototype)
+   - Jours 9-10 : Restitution (tests, livraison de la roadmap)
 
 ---
 
@@ -449,338 +430,348 @@ Catégorie 4 : Le Transfert de Compétences (Hopti-Learn)
 
 **Structure :**
 
-1. **Hero** : Titre "Alimentez votre pipeline, automatiquement."
+1. **Hero** :
+   - Titre : "Alimentez votre pipeline, automatiquement"
+   - Sous-titre : "Nous construisons des systèmes de prospection sur-mesure combinant scraping éthique, qualification IA et outreach multi-canal"
 
-2. **3 offres spécialisées (cartes)** :
+2. **3 fonctionnalités clés (cartes)** :
 
-   **Le Prospecteur Augmenté** (Outbound)
-   > Scraping + qualification IA + rédaction de premières approches ultra-personnalisées. -80% de temps de prospection manuelle.
+   **Prospecteur Augmenté** (icône Radar)
+   > Veille web en temps réel, LinkedIn, bases de données publiques
 
-   **Le Filtre IA** (Inbound)
-   > Agent conversationnel sur votre site. Pose les bonnes questions, évalue le potentiel, ne remonte que les leads chauds dans votre CRM.
+   **Filtre IA** (icône Filter)
+   > L'agent IA analyse chaque prospect par rapport au Persona défini
 
-   **Le Système Contenu-Contact** (Hybride)
-   > SEO + génération IA de contenu + qualification + CRM automatisé. L'offre clé en main.
+   **Campagnes Connectées** (icône Share2)
+   > Push automatique vers le CRM, séquences email personnalisées via IA
 
-3. **CTA** : `Discutons de votre pipeline →` (→ `/contact`)
+3. **CTA** : "Me générer des leads"
 
 ---
 
 ### 6.6 Page Contact (`/contact`)
 
-**Structure :**
+**Hero :**
+- Titre : "Parlons de votre avenir"
+- Sous-titre : "Démarrez une conversation avec notre Agent IA pour pré-qualifier votre besoin, ou contactez-nous directement"
 
-1. **Titre** : "Parlons de votre transformation."
-2. **Sous-titre** : "Notre assistant IA va vous poser quelques questions pour comprendre votre situation. Vous recevrez ensuite une réponse personnalisée sous 24h."
-3. **Interface Agent IA** (voir section 8)
-4. **Coordonnées discrètes** (sous le chat) : email direct en fallback
+**Layout 3 colonnes :**
+
+- **Gauche (2 cols)** : Formulaire de contact (voir [section 10](#10-formulaire-de-contact))
+- **Droite (1 col)** : Carte de contact direct
+  - Email : contact@hoptisens.com
+  - LinkedIn : Hadrien Peyron
+  - Délai de réponse : 24-48h ouvrées
+
+**Widget Lucio** : Chat flottant accessible en bas à droite (voir [section 9](#9-agent-ia-conversationnel--lucio))
 
 ---
 
-## 7. Schéma animé scroll-driven (Hero)
+## 7. Schéma animé scroll-driven
 
 ### Concept général
 
-Inspiré du style **makingsoftware.com** : un schéma SVG en position `sticky` qui évolue progressivement au fur et à mesure que l'utilisateur scrolle. Le schéma représente la **transformation d'une entreprise classique en entreprise augmentée** grâce à Hoptisens.
+Schéma SVG en position `sticky` qui évolue au fur et à mesure que l'utilisateur scrolle. Représente **l'architecture de la transformation** d'une entreprise via Hoptisens.
 
-**Titre de section** (au-dessus du schéma, sticky) :
-> "De vos processus actuels à votre entreprise augmentée"
+**Titre de section :** "L'Architecture de votre Transformation"
 
-### Zones de scroll et états du schéma
+**Description :** Comment l'Agent IA s'intègre dans l'écosystème
 
-La section a une hauteur de `300vh` pour permettre un scroll lent. Le schéma SVG est en `position: sticky; top: 10%`.
+### Structure du schéma
 
-```text
-Scroll  0% → 30%  : Phase 1 — L'entreprise avant
-Scroll 30% → 60%  : Phase 2 — L'intervention Hoptisens
-Scroll 60% → 100% : Phase 3 — L'entreprise augmentée
-```
-
----
-
-### Phase 1 — "Avant" (scroll 0% → 30%)
-
-**Apparence :**
-
-- 3 nœuds rectangulaires gris, connectés par des **flèches en tirets** (processus manuels, lents)
-- Couleur des nœuds : `#D1D5DB` (gris neutre)
-- Couleur des flèches : `#9CA3AF` (gris moyen), style `stroke-dasharray: 6 4`
-
-**Labels des nœuds :**
+**Flow vertical en 3 couches :**
 
 ```text
-[ Prospection manuelle ]  →→→  [ Saisie de données ]  →→→  [ Reporting Excel ]
+Couche 1 : Audit
+     ↓
+Couche 2 : Infrastructure
+     ↓
+Couche 3 : Agent IA
+     ↓  ↓  ↓  ↓  ↓
+  [ Client ] [ Data ] [ Processes ] [ Tools ] [ Web Search ]
 ```
 
-**Animation d'entrée :**
+### Animations scroll-driven
 
-- Chaque nœud apparaît en `fadeIn` + `scaleIn` depuis `0.8` à `1.0`
-- Stagger : `0.2s` entre chaque nœud
-- Les flèches se dessinent via `pathLength: 0 → 1` après les nœuds
+Le schéma se révèle progressivement au scroll :
 
----
-
-### Phase 2 — "L'intervention Hoptisens" (scroll 30% → 60%)
-
-**Apparence :**
-
-- Un nœud central `HOPTISENS` apparaît en fondu au centre du schéma (cercle avec logo/initiales)
-- Des **lignes de connexion** s'animent depuis ce nœud vers chacun des 3 nœuds existants
-- Effet "câblage progressif" : `pathLength: 0 → 1` sur chaque ligne de connexion
-- Les 3 nœuds commencent à changer de couleur (gris → bleu accent, via interpolation de couleur)
-
-**Animation :**
-
-- Nœud central : `scale: 0 → 1` + `opacity: 0 → 1`
-- Lignes de connexion : dessin séquentiel, `pathLength` piloté par `useTransform(scrollProgress, [0.3, 0.6], [0, 1])`
-- Couleur des nœuds : interpolation CSS via `useTransform`
-
----
-
-### Phase 3 — "Après" (scroll 60% → 100%)
-
-**Apparence :**
-
-- Les flèches en tirets deviennent des **flèches pleines** et animées
-- 3 **nouveaux nœuds** apparaissent en bas du schéma :
-
-  ```text
-  [ Agent IA ]    [ CRM Automatisé ]    [ Dashboard Pilotage ]
-  ```
-
-- Des **points animés** voyagent le long des connexions (effet de flux de données)
-- Un **badge compteur** apparaît : `−80% temps opérationnel` avec counter animé
-
-**Couleurs finales :**
-
-- Nœuds sources : `--accent` bleu
-- Nouveaux nœuds : `--surface` avec bordure `--accent`
-- Lignes de flux : `--accent` avec opacité `0.6`
-- Points voyageurs : `--accent`, radius `4px`
-
-**Animation des points voyageurs (flux) :**
-
-```css
-@keyframes flowDot {
-  from { offset-distance: 0%; }
-  to   { offset-distance: 100%; }
-}
-/* offset-path: path('...') */
-```
-
----
+- **Phase 1** : Apparition des nœuds Audit et Infrastructure avec connecteurs animés
+- **Phase 2** : Apparition du nœud Agent IA central
+- **Phase 3** : Branches vers les 5 destinations (Client, Data, Processes, Tools, Web Search)
+- **Points de flux animés** : Des particules d'énergie voyagent le long des connecteurs
 
 ### Implémentation technique
 
 ```tsx
 // components/sections/SchemaAnime.tsx
-
 const { scrollYProgress } = useScroll({ target: sectionRef })
-
-// Phase 1 → Phase 2 : apparition nœud Hoptisens
-const hoptiScale   = useTransform(scrollYProgress, [0.30, 0.45], [0, 1])
-const hoptiOpacity = useTransform(scrollYProgress, [0.30, 0.45], [0, 1])
-
-// Phase 2 : dessin des connexions
-const pathLength1 = useTransform(scrollYProgress, [0.35, 0.55], [0, 1])
-const pathLength2 = useTransform(scrollYProgress, [0.40, 0.60], [0, 1])
-const pathLength3 = useTransform(scrollYProgress, [0.45, 0.60], [0, 1])
-
-// Phase 2 → Phase 3 : changement couleur nœuds
-const nodeColor = useTransform(scrollYProgress, [0.5, 0.7], ['#D1D5DB', '#2A5BFF'])
-
-// Phase 3 : apparition nouveaux nœuds
-const newNodesOpacity = useTransform(scrollYProgress, [0.65, 0.85], [0, 1])
-const newNodesY       = useTransform(scrollYProgress, [0.65, 0.85], [20, 0])
+// Animations pilotées par useTransform sur scrollYProgress
+// Chaque couche apparaît séquentiellement selon la progression du scroll
 ```
 
 ---
 
-## 8. Agent IA conversationnel (Contact)
+## 8. Calculateur ROI interactif
+
+### Concept
+
+Calculateur en 3 étapes permettant au visiteur d'estimer les économies réalisables en déployant un agent IA. Ancre : `#calculateur` (cible de scroll depuis le Hero).
+
+### Étape 1 — Sélection de l'agent IA
+
+5 agents prédéfinis avec estimation d'heures économisées/mois :
+
+| Agent | Heures économisées/mois |
+| --- | --- |
+| Agent de Qualification de Leads | 15h |
+| Agent Support Client | 17h |
+| Agent CRM & Suivi Commercial | 14h |
+| Agent Administratif & Comptabilité | 16h |
+| Agent Marketing & Contenu | 15h |
+
+Sélection multiple possible (les heures s'additionnent).
+
+### Étape 2 — Profil de coût
+
+- Toggle entre "Salarié(e)" et "Indépendant/Freelance"
+- **Salarié** : Saisie du salaire net mensuel → coût horaire = `(net × 1.82) / 151.67`
+- **Indépendant** : Saisie du TJM → coût horaire = `TJM / 8`
+
+### Étape 3 — Résultats animés
+
+Affichage en temps réel :
+- Total d'heures économisées / mois
+- Économie mensuelle en € (avec projection annuelle)
+- Animation counter sur les chiffres
+
+**CTA final** : "Discuter de mon projet IA" → `/contact`
+
+---
+
+## 9. Agent IA conversationnel — Lucio
+
+### Persona
+
+- **Nom** : Lucio
+- **Rôle** : Assistant IA Hoptisens
+- **Ton** : Chaleureux, légèrement humoristique, professionnel
 
 ### Interface
 
-- Fenêtre de chat intégrée dans la page (pas de popup)
-- Largeur max `640px`, centré
-- Design sobre : fond blanc, bulles avec coins arrondis
-- Message de l'agent : fond `--surface`, aligné à gauche
-- Message de l'utilisateur : fond `--accent-soft`, aligné à droite
-- Avatar agent : initiales "H" dans un cercle `--accent`
+**Widget flottant :**
+- Position : bas droite, fixe
+- Ouverture/fermeture par clic
 
-### Flux de conversation (scénario type)
+**Sur la page contact :**
+- Version embarquée pleine largeur (`ContactChat.tsx`)
 
-```text
-Agent  → "Bonjour ! Je suis l'assistant Hoptisens.
-          Pour vous proposer la meilleure approche,
-          j'ai besoin de vous poser 4 courtes questions.
-          C'est parti ?"
+### Message d'accueil
 
-User   → [Oui]
+> "Bonjour ! Je suis Lucio, l'assistant IA d'Hoptisens. Je suis là pour comprendre vos besoins en automatisation et vous orienter vers la meilleure solution."
 
-Agent  → "Dans quel secteur évolue votre entreprise,
-          et combien de personnes travaillent avec vous ?"
+### Flux de conversation
 
-User   → "On est dans la logistique, 45 personnes."
+Questions séquentielles (une par une) :
 
-Agent  → "Parfait. Aujourd'hui, quelle est votre
-          principale douleur opérationnelle ?
-          (prospection, reporting, traitement de données,
-          onboarding, autre)"
+1. Secteur de l'entreprise et rôle de l'utilisateur
+2. Processus chronophages / répétitifs identifiés
+3. Expérience préalable en automatisation / IA
+4. Bénéfices attendus
+5. Recommandation de profil + demande de coordonnées (prénom, nom, email)
 
-User   → "Le reporting, on passe des heures sur Excel."
+### Capture de leads
 
-Agent  → "Je comprends. Avez-vous déjà utilisé des
-          outils IA ou d'automatisation, ou est-ce
-          une première exploration ?"
-
-User   → "On a essayé ChatGPT mais rien de structuré."
-
-Agent  → "Dernière question : quel est votre horizon
-          de temps pour initier ce type de projet ?"
-
-User   → "D'ici 3 mois idéalement."
-
-Agent  → "Merci pour ces informations. Voici ce que
-          je vous recommande : [RECOMMANDATION DYNAMIQUE]
-
-          Un membre de l'équipe Hoptisens va revenir
-          vers vous sous 24h avec une proposition adaptée.
-
-          Pour finaliser, pouvez-vous me laisser votre
-          prénom et votre email ?"
-```
-
-### Logique de recommandation dynamique
-
-| Profil détecté | Recommandation |
-| --- | --- |
-| Première exploration + processus manuel clé | Sprint "Processus Performants" (490€) |
-| Besoin de leads / prospection | Le Prospecteur Augmenté |
-| Site web + besoin de qualification | Le Filtre IA |
-| Besoin global + budget confirmé | Système Contenu-Contact (Hybride) |
-| Équipe sans compétences IA | Catégorie 4 — Hopti-Learn |
+Lorsque Lucio détecte un email dans la conversation, il déclenche automatiquement la création d'un lead dans Airtable avec :
+- Prénom, Nom, Email, Entreprise
+- Questions posées et transcription complète
+- Source : "Lucio"
+- Statut : "New"
 
 ### Technique
 
-- **SDK** : Vercel AI SDK (`ai` package)
-- **Modèle** : Google Gemini API (coût maîtrisé, suffisant pour la qualification)
-- **Streaming** : hook `useChat` Vercel AI SDK pour les réponses en temps réel
-- **System prompt** : Injecté côté serveur (Route Handler Next.js `/api/chat`)
-- **Envoi email** : À la fin de la conversation, résumé structuré envoyé via **Resend** à l'adresse Hoptisens
-- **Données collectées** : secteur, taille équipe, douleur principale, maturité IA, horizon, prénom, email
-
-### Sécurité
-
-- Rate limiting via Vercel Edge (max 10 messages / session)
-- System prompt non exposé côté client
-- Pas de données stockées en base (envoi email uniquement)
+- **SDK** : Vercel AI SDK (`@ai-sdk/google`, `@ai-sdk/react`)
+- **Modèle** : Google Gemini 2.5 Flash
+- **Streaming** : Réponses en temps réel via `/api/chat`
+- **System prompt** : Injecté côté serveur, non exposé au client
+- **Persistance** : `localStorage` (TTL 24h, max 10 messages)
+- **Auto-scroll** vers le dernier message
 
 ### Animation de l'interface chat
 
-- Chaque bulle apparaît avec `opacity: 0 → 1` + `y: 8 → 0` en `200ms`
-- Indicateur de frappe (3 points pulsants) pendant que l'agent répond
+- Bulle de message : `opacity: 0→1` + `y: 8→0` en `200ms`
+- Indicateur de frappe : 3 points pulsants
 - Scroll automatique vers le dernier message
 
 ---
 
-## 9. Motion Design — Catalogue complet
+## 10. Formulaire de contact
 
-### 9.1 Principes généraux
+### Champs
 
-- **Performance first** : `will-change: transform` uniquement sur les éléments animés
-- **Respect des préférences** : `prefers-reduced-motion` → toutes les animations désactivées
-- **60 fps** : Uniquement `transform` et `opacity` pour les animations (pas de `height`, `width`, `top`)
-- **Durées** : Courtes (150-300ms) pour les interactions, plus longues (400-600ms) pour les entrées de section
+| Champ | Type | Requis |
+| --- | --- | --- |
+| Prénom | text | Oui |
+| Nom | text | Oui |
+| Entreprise | text | Oui |
+| Email | email | Oui (validé) |
+| Catégorie(s) | checkbox multi-select | Non |
+| Message | textarea | Oui |
+
+**Options de catégories :**
+- Audit
+- Conception d'Agent IA
+- Formation
+- Workshop
+- Autre
+
+### Validation
+
+- Validation côté client avec **Zod** (schéma de validation)
+- Affichage des erreurs au niveau de chaque champ
+- État de chargement avec spinner
+
+### Soumission
+
+- **Server Action** Next.js → appel `createLead()` dans `lib/airtable.ts`
+- Création d'un enregistrement Airtable dans la table "Prospects"
+- Source : "Forms"
+- Message de succès avec icône CheckCircle2 après soumission
 
 ---
 
-### 9.2 Catalogue des animations
+## 11. Schémas visuels animés des offres
+
+4 schémas SVG animés dans `components/visuals/OfferSchemas.tsx`, utilisés sur la page Offres dans chaque onglet :
+
+### LeadsSchema
+
+```text
+[ Sources Web/LinkedIn/Social ] → ( Filtre IA ) → [ Lead Qualifié ]
+```
+- Chemins en tirets animés avec particule voyageuse
+
+### AutomatisationSchema
+
+```text
+[ Collaborateur (Slack) ] ← → [ Processus Déterministe ] ← → [ Outils ]
+                                   ┌─────────┐
+                                   │ Data     │
+                                   │ Process  │
+                                   │ Tools    │
+                                   └─────────┘
+Grille d'outils : Gmail, Pennylane, LinkedIn, CRM, Code, Notion
+```
+- Connexions animées avec transitions de couleur
+
+### AgentsSchema
+
+```text
+[ Collaborateur ] ↔ ( Agent IA ) → [ Validation ◇ ] → [ Outputs ]
+                     (cercle pulsant)
+Outputs : Email, LinkedIn, Pennylane, CRM, Code, Notion
+```
+
+### SprintSchema
+
+```text
+Étape 1 : Diagnostic (Offert) → Étape 2 : Sprint (4 jours)
+    📋 Livrables Étape 1          🚀 Livrables Étape 2
+```
+- Flèche de timeline en arrière-plan
+- Bulles de livrables animées
+
+---
+
+## 12. Motion Design — Catalogue complet
+
+### 12.1 Principes généraux
+
+- **Performance first** : `transform` et `opacity` uniquement pour les animations
+- **Respect des préférences** : support `prefers-reduced-motion`
+- **Bibliothèque** : Framer Motion 12.x
+- **Durées** : 150-300ms (interactions), 400-600ms (entrées de section)
+
+### 12.2 Catalogue des animations
 
 #### Navbar
 
-| Déclencheur | Animation | Durée | Easing |
-| --- | --- | --- | --- |
-| Scroll > 80px | Compactage (padding, bg, blur) | 300ms | easeInOut |
-| Hover lien nav | Underline slide-in | 200ms | ease |
-| Click CTA | Scale 0.97 → 1 | 150ms | spring |
+| Déclencheur | Animation | Durée |
+| --- | --- | --- |
+| Scroll > 150px | Morphing forme (pleine largeur → boîte arrondie) | 300ms |
+| Scroll > 150px | Apparition gradient métallique + blur + shadow | 300ms |
 
 #### Hero
 
-| Élément | Animation | Délai | Durée |
-| --- | --- | --- | --- |
-| Badge pré-titre | fadeIn + slideDown | 0ms | 400ms |
-| Titre H1 (mot 1) | fadeIn + slideUp | 200ms | 500ms |
-| Titre H1 (mot 2) | fadeIn + slideUp | 280ms | 500ms |
-| Titre H1 (mot N) | fadeIn + slideUp | +80ms/mot | 500ms |
-| Sous-titre | fadeIn | 600ms | 400ms |
-| Boutons CTA | fadeIn + slideUp | 800ms | 400ms |
-| Mesh gradient bg | Dérive lente (CSS keyframes) | 0ms | 8s infini |
+| Élément | Animation | Délai |
+| --- | --- | --- |
+| Titre H1 (mot par mot) | fadeIn + slideUp, stagger | +80ms/mot |
+| Sous-titre | fadeIn | après titre |
+| Boutons CTA | fadeIn + slideUp | après sous-titre |
+| Mesh gradient bg | Dérive lente (CSS keyframes) | infini |
 
-#### Schéma animé (voir section 7)
+#### Schéma animé scroll-driven
 
 | Phase | Déclencheur | Type |
 | --- | --- | --- |
-| Phase 1 | Entrée dans le viewport | stagger fadeIn + scaleIn |
-| Phase 2 | scroll 30-60% | pathLength drawing |
-| Phase 3 | scroll 60-100% | fadeIn + counter + flowDots |
+| Couche 1 (Audit) | Entrée viewport | fadeIn + scale |
+| Couche 2 (Infrastructure) | scroll progressif | pathLength drawing |
+| Couche 3 (Agent IA + branches) | scroll avancé | fadeIn + flux de particules |
 
 #### Sections (scroll reveal)
 
-| Pattern | Propriétés | Durée | Easing |
-| --- | --- | --- | --- |
-| `FadeInUp` | `y: 20→0`, `opacity: 0→1` | 500ms | easeOut |
-| `FadeIn` | `opacity: 0→1` | 400ms | easeOut |
-| `ScaleIn` | `scale: 0.95→1`, `opacity: 0→1` | 400ms | easeOut |
-| Stagger enfants | délai `0.1s` entre chaque enfant | — | — |
+| Pattern | Propriétés | Durée |
+| --- | --- | --- |
+| `FadeInUp` | `y: 20→0`, `opacity: 0→1` | 500ms |
+| Stagger enfants | délai `0.1s` entre chaque | — |
 
-Tous déclenchés via `whileInView` avec `once: true` et `margin: "-10%"`.
+Déclenchés via `whileInView` avec `once: true`.
+
+#### Calculateur ROI
+
+| Élément | Animation |
+| --- | --- |
+| Transition entre étapes | Slide horizontal |
+| Résultats chiffrés | Counter animé |
+| Sélection d'agent | Scale + border highlight |
 
 #### Cartes offres
 
 | Déclencheur | Animation | Durée |
 | --- | --- | --- |
-| Hover | `translateY: -4px`, `shadow-md` | 200ms |
-| Hover bordure | `border-color → --accent-border` | 200ms |
-| Click | `scale: 0.98` | 100ms |
-
-#### Boutons
-
-| Déclencheur | Animation | Durée |
-| --- | --- | --- |
-| Hover primary | `bg → accent-hover`, légère luminosité | 150ms |
-| Hover ghost | `bg → surface` | 150ms |
-| Active/Click | `scale: 0.97` | 100ms |
+| Hover | `translateY: -4px`, shadow | 200ms |
+| Hover bordure | border-color transition | 200ms |
 
 #### Chiffres clés (counter)
 
 - Durée : `1500ms` par counter
-- Easing : `easeOut` (rapide au début, ralentit vers la valeur finale)
+- Easing : `easeOut`
 - Déclencheur : `whileInView`, une seule fois
-
-#### Transitions de pages
-
-- `AnimatePresence` avec `mode="wait"`
-- Sortie : `opacity: 1→0`, `y: 0→-10`, `200ms`
-- Entrée : `opacity: 0→1`, `y: 10→0`, `300ms`
 
 #### Agent IA (chat)
 
 | Élément | Animation | Durée |
 | --- | --- | --- |
-| Fenêtre chat | `scaleY: 0.95→1`, `opacity: 0→1` | 300ms |
 | Bulle message | `y: 8→0`, `opacity: 0→1` | 200ms |
-| Indicateur typing | 3 dots en `pulse` alterné | infini |
-| Bouton envoi | `scale: 0.95→1` au hover | 150ms |
+| Indicateur typing | 3 dots en pulse alterné | infini |
+
+#### Schémas visuels des offres
+
+| Élément | Animation |
+| --- | --- |
+| Chemins SVG | stroke-dashoffset animé (particules voyageuses) |
+| Cercle Agent IA | Pulse continu |
+| Connecteurs | pathLength progressif |
+| Transitions de couleur | Interpolation CSS |
 
 ---
 
-## 10. Internationalisation (FR / EN)
+## 13. Internationalisation (FR / EN)
 
 ### Stratégie
 
-- **Package** : `next-intl`
+- **Package** : `next-intl` 4.x
 - **Routing** : Préfixe de locale dans l'URL (`/` pour FR, `/en/` pour EN)
-- **Détection** : `Accept-Language` header au premier accès, puis cookie
+- **Pathnames localisés** : `/a-propos` ↔ `/about`, `/offres` ↔ `/services`, etc.
 - **Switcher** : Toggle FR|EN dans la navbar, conserve la route courante
 
 ### Structure des fichiers de traduction
@@ -793,42 +784,43 @@ messages/
 
 ### Éléments traduits
 
-- Tous les textes de l'interface (titres, descriptions, CTA, labels)
-- Les messages de l'agent IA (system prompt adapté par locale)
-- Les métadonnées SEO (title, description, og:title par locale)
-- Les URLs (slugs localisés)
+- Textes de navigation (offres, à propos, contact, CTA)
+- Labels et contenus de l'interface
+- Métadonnées SEO par locale
 
 ### Éléments non traduits
 
-- Logo, icônes, images SVG
-- Données structurées communes (offres, chiffres)
+- Logo, icônes, SVG
+- Données structurées communes
 
 ---
 
-## 11. Stack technique
+## 14. Stack technique
 
 ### Dépendances principales
 
 ```json
 {
   "dependencies": {
-    "next": "14.x",
-    "react": "18.x",
+    "next": "16.x",
+    "react": "19.x",
     "typescript": "5.x",
-    "tailwindcss": "3.x",
-    "framer-motion": "11.x",
-    "next-intl": "3.x",
-    "ai": "3.x",
-    "geist": "1.x",
+    "tailwindcss": "4.x",
+    "framer-motion": "12.x",
+    "next-intl": "4.x",
+    "@ai-sdk/google": "latest",
+    "@ai-sdk/react": "latest",
+    "geist": "latest",
     "lucide-react": "latest",
-    "resend": "3.x",
+    "airtable": "0.12.x",
+    "zod": "latest",
     "clsx": "2.x",
     "tailwind-merge": "2.x"
   }
 }
 ```
 
-### Structure Next.js 14 (App Router)
+### Structure Next.js (App Router)
 
 ```text
 app/
@@ -836,61 +828,59 @@ app/
 │   └── ...pages
 ├── api/
 │   └── chat/
-│       └── route.ts    → Route Handler agent IA
+│       └── route.ts    → Route Handler agent IA Lucio
 └── globals.css
 ```
 
 ### Variables d'environnement
 
 ```env
-GEMINI_API_KEY=       # Clé API Google Gemini (agent IA)
-RESEND_API_KEY=       # Clé API Resend (emails)
-CONTACT_EMAIL=        # Email de réception des leads
-NEXT_PUBLIC_URL=      # https://hoptisens.com
-```
-
-### Configuration Tailwind
-
-```js
-// tailwind.config.js
-module.exports = {
-  content: ['./app/**/*.tsx', './components/**/*.tsx'],
-  theme: {
-    extend: {
-      colors: {
-        bg: '#FAFAF9',
-        surface: '#F2F1EF',
-        border: '#E4E2DE',
-        accent: '#2A5BFF',
-        'accent-soft': '#EEF2FF',
-        'text-primary': '#1A1916',
-        'text-muted': '#78766F',
-      },
-      fontFamily: {
-        sans: ['var(--font-geist-sans)'],
-        mono: ['var(--font-geist-mono)'],
-      },
-    },
-  },
-}
+GEMINI_API_KEY=         # Clé API Google Gemini 2.5 Flash
+AIRTABLE_API_KEY=       # Clé API Airtable
+AIRTABLE_BASE_ID=       # ID de la base Airtable
+AIRTABLE_TABLE_NAME=    # Nom de la table (défaut: "Prospects")
 ```
 
 ---
 
-## 12. Déploiement
+## 15. Intégrations externes
+
+### Airtable — CRM Leads
+
+- **Table** : "Prospects"
+- **Champs** :
+  - First Name, Last Name, Email, Company
+  - Status (défaut : "New")
+  - Source : "Lucio" (chat) ou "Forms" (formulaire)
+  - Questions, Transcription (données du chat)
+  - Message, Categorie (données du formulaire)
+- **2 points d'entrée** : formulaire de contact + chat Lucio
+
+### Calendly — Prise de RDV
+
+- **URL** : `calendly.com/hoptisens/hoptisens-call`
+- **Utilisé dans** : CTA navbar, CTA Hero, certains CTA d'offres
+
+### LinkedIn
+
+- **Profil** : Hadrien Peyron
+- **Utilisé dans** : Footer, page contact
+
+---
+
+## 16. Déploiement
 
 ### Hébergement
 
 - **Plateforme** : Vercel
-- **Domaine** : hoptisens.com (déjà possédé)
-- **Configuration DNS** : Pointage A/CNAME vers Vercel
+- **Domaine** : hoptisens.com
 
 ### Environnements
 
 | Environnement | URL | Branche Git |
 | --- | --- | --- |
 | Production | hoptisens.com | `main` |
-| Preview | *.vercel.app | `develop` + PRs |
+| Preview | *.vercel.app | PRs |
 
 ### Performance cibles (Core Web Vitals)
 
@@ -905,151 +895,9 @@ module.exports = {
 - `sitemap.xml` généré automatiquement par Next.js
 - `robots.txt` configuré
 - Balises `og:` et `twitter:` pour chaque page
-- Données structurées JSON-LD (Organization, WebSite)
 - Balises `hreflang` pour le bilinguisme FR/EN
-- Images SVG exclusivement → performances optimales
-
-### Analytics
-
-- **Vercel Analytics** (intégré, sans cookie tiers)
-- Optionnel : Plausible Analytics (RGPD-friendly, sans cookies)
+- SVG exclusivement pour les illustrations
 
 ---
 
-## 13. Phases de développement
-
-### Vue d'ensemble
-
-| Phase | Durée | Livrable |
-| --- | --- | --- |
-| 1. Setup & fondations | Jour 1 | Projet initialisé, déployé sur Vercel |
-| 2. Design system | Jours 2-3 | Composants UI de base, tokens CSS |
-| 3. Pages statiques | Jours 4-7 | Toutes les pages sans animations |
-| 4. Motion design | Jours 8-9 | Toutes les animations implémentées |
-| 5. Agent IA | Jours 10-11 | Chat fonctionnel + envoi email |
-| 6. i18n | Jour 12 | Bilinguisme FR/EN complet |
-| 7. SEO & performances | Jour 13 | Métadonnées, sitemap, Core Web Vitals |
-| 8. Tests & go live | Jour 14 | Mise en ligne sur hoptisens.com |
-
----
-
-### Phase 1 — Setup & Fondations (Jour 1)
-
-```bash
-npx create-next-app@latest hoptisens.com \
-  --typescript --tailwind --app --src-dir=false
-
-npm install framer-motion next-intl ai geist \
-  lucide-react resend clsx tailwind-merge
-```
-
-- Configuration Tailwind (tokens couleurs, fonts)
-- Connexion repo Git → Vercel (CI/CD automatique)
-- Déploiement Vercel vide + connexion domaine hoptisens.com
-- Variables d'environnement configurées sur Vercel
-
----
-
-### Phase 2 — Design System (Jours 2-3)
-
-**Composants à créer :**
-
-- `Button.tsx` (3 variants : primary, secondary, ghost)
-- `Card.tsx` (avec hover animation)
-- `Badge.tsx` / `Tag.tsx`
-- `Section.tsx` (wrapper avec padding standard)
-- `Container.tsx` (max-width + padding horizontal)
-- `FadeInUp.tsx` (wrapper animation scroll reveal)
-- `Navbar.tsx` (structure statique d'abord)
-- `Footer.tsx`
-
----
-
-### Phase 3 — Pages statiques (Jours 4-7)
-
-**Ordre de développement :**
-
-1. Accueil (`/`) — Hero + toutes sections (sans animation)
-2. Offres (`/offres`) — 4 catégories
-3. Sprint (`/offres/sprint`) — Landing
-4. Lead Gen (`/offres/leads`) — Landing
-5. À propos (`/a-propos`)
-6. Contact (`/contact`) — Structure sans agent IA
-
----
-
-### Phase 4 — Motion design (Jours 8-9)
-
-**Ordre d'implémentation :**
-
-1. Navbar scroll compact (`useScroll` + `useTransform`)
-2. Hero stagger reveal (titres mot par mot)
-3. Mesh gradient background (CSS keyframes)
-4. Scroll reveal sections (`whileInView` + `FadeInUp`)
-5. Cartes hover animations
-6. Chiffres counter animés
-7. Schéma SVG scroll-driven (`SchemaAnime.tsx`)
-8. Transitions de pages (`AnimatePresence`)
-
----
-
-### Phase 5 — Agent IA (Jours 10-11)
-
-**Tâches :**
-
-1. Route Handler `app/api/chat/route.ts` (Vercel AI SDK + Gemini API)
-2. System prompt de qualification (FR + EN)
-3. Logique de recommandation dynamique
-4. Composant `ChatAgent.tsx` (interface chat)
-5. Animation des bulles de message
-6. Intégration Resend : envoi du résumé de conversation par email
-7. Rate limiting (Vercel Edge)
-
----
-
-### Phase 6 — Internationalisation (Jour 12)
-
-**Tâches :**
-
-1. Configuration `next-intl` + middleware de routing
-2. Fichiers `messages/fr.json` et `messages/en.json`
-3. Traduction de tous les composants
-4. System prompt agent IA en EN
-5. Switcher FR|EN dans la navbar
-6. Balises `hreflang` dans le layout
-
----
-
-### Phase 7 — SEO & Performances (Jour 13)
-
-**Tâches :**
-
-1. `metadata` Next.js pour chaque page (title, description, og:)
-2. `sitemap.ts` dynamique
-3. `robots.ts`
-4. JSON-LD Organization + WebSite
-5. Audit Lighthouse → corriger CWV si < cibles
-6. Optimisation imports Framer Motion (tree-shaking)
-7. Vérification `prefers-reduced-motion`
-
----
-
-### Phase 8 — Tests & Go Live (Jour 14)
-
-**Checklist avant mise en ligne :**
-
-- [ ] Responsive testé : 375px, 768px, 1280px, 1440px
-- [ ] Cross-browser : Chrome, Firefox, Safari, Edge
-- [ ] Agent IA testé (FR + EN)
-- [ ] Emails Resend reçus correctement
-- [ ] Variables d'environnement de production configurées
-- [ ] Domaine hoptisens.com pointé vers Vercel
-- [ ] SSL actif (automatique Vercel)
-- [ ] Sitemap accessible sur hoptisens.com/sitemap.xml
-- [ ] Analytics Vercel actif
-- [ ] `prefers-reduced-motion` vérifié
-- [ ] Lighthouse score > 90 sur toutes les pages
-
----
-
-Document rédigé en Mars 2026 — Hoptisens · hoptisens.com
+Document mis à jour en Mars 2026 — Hoptisens · hoptisens.com

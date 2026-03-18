@@ -4,11 +4,72 @@
   },
   "Navigation": {
     "offres": "Services",
+    "diagnostic": "Diagnostic",
     "apropos": "About",
     "contact": "Contact",
     "cta": "Book a Call →",
     "entreprise": "Company",
     "legals": "Legal Notice",
     "rgpd": "Privacy Policy"
+  },
+  "Diagnostic": {
+    "meta": {
+      "title": "AI Auto-Diagnostic — Hoptisens",
+      "description": "Discover in 2 minutes the most impactful AI projects for your business."
+    },
+    "intro": {
+      "badge": "FREE DIAGNOSTIC · 2 MIN",
+      "title": "Which AI project will have the most impact on your business?",
+      "subtitle": "Answer 5 questions. Our AI analyzes your context and proposes concrete automation projects, with their architecture and complexity level.",
+      "cta": "Start the diagnostic",
+      "disclaimer": "No personal data required. Immediate results."
+    },
+    "steps": {
+      "profile": {
+        "title": "Tell us about yourself.",
+        "context": "This information helps us target the most relevant automations for your role and industry.",
+        "role": "Your role",
+        "sector": "Industry"
+      },
+      "company": {
+        "title": "Your company at a glance.",
+        "size": "Number of employees",
+        "department": "Main department involved"
+      },
+      "tools": {
+        "title": "What tools do you use daily?",
+        "subtitle": "Select at least 1 tool.",
+        "other": "Specify your key tools..."
+      },
+      "painPoints": {
+        "title": "Which processes waste the most of your time?",
+        "subtitle": "Select 1 to 4 pain points, then indicate your #1 priority.",
+        "descriptionLabel": "Describe your biggest pain point in one sentence (optional)"
+      },
+      "maturity": {
+        "title": "Where are you with AI and automation?",
+        "level": "Your current level",
+        "horizon": "Time horizon"
+      }
+    },
+    "loading": {
+      "title": "Analyzing your context...",
+      "step1": "Industry identified",
+      "step2": "Tools analyzed",
+      "step3": "Generating recommendations..."
+    },
+    "results": {
+      "title": "Your personalized diagnostic",
+      "cta_title": "Want to go further?",
+      "cta_call": "Book a call",
+      "cta_restart": "Redo the diagnostic"
+    },
+    "nav": {
+      "back": "Back",
+      "next": "Next",
+      "submit": "See my results"
+    },
+    "hero_cta": "Start my Diagnostic",
+    "sprint_link": "Or start with a free diagnostic"
   }
 }

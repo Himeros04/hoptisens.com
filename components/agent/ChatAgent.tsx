@@ -8,14 +8,30 @@ import { useState, useRef, useEffect, useMemo } from 'react';
 import { MessageSquare, X, Send, AlertCircle } from 'lucide-react';
 
 const WELCOME_MESSAGE =
-  "Bonjour ! Je suis Lucio, l'assistant IA d'Hoptisens.\nJe suis là pour comprendre vos besoins en automatisation et vous orienter vers la meilleure solution.\n\nPour commencer : quel est le secteur d'activité de votre entreprise et votre rôle ?";
+  "En 2 minutes, j'identifie le projet ou l'offre la plus adéquate à votre situation.\nJe suis Lucio, l'assistant d'Hoptisens.\n\nReady ? Pour dégrossir le sujet, pouvez-vous m'indiquer votre secteur d'activité ?";
 
 const STORAGE_KEY = 'hoptisens_chat_messages';
+const CHAT_ID_KEY = 'hoptisens_chat_id';
 
 function extractTextContent(message: UIMessage): string {
   const textPart = message.parts.find((p) => p.type === 'text');
   if (textPart && 'text' in textPart) return (textPart as { type: 'text'; text: string }).text;
   return '';
+}
+
+/** Renders text with clickable links */
+function renderWithLinks(text: string) {
+  const urlRegex = /(https?:\/\/[^\s)]+)/g;
+  const parts = text.split(urlRegex);
+  return parts.map((part, i) =>
+    urlRegex.test(part) ? (
+      <a key={i} href={part} target="_blank" rel="noopener noreferrer" className="underline text-[var(--color-accent)] hover:opacity-80 break-all">
+        {part}
+      </a>
+    ) : (
+      <span key={i}>{part}</span>
+    )
+  );
 }
 
 const STORAGE_TTL = 24 * 60 * 60 * 1000; // 24h
@@ -28,6 +44,7 @@ function loadStoredMessages() {
     const payload = JSON.parse(stored);
     if (payload.expires && Date.now() > payload.expires) {
       localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem(CHAT_ID_KEY);
       return [];
     }
     return payload.messages ?? payload;
@@ -36,18 +53,31 @@ function loadStoredMessages() {
   }
 }
 
+function getOrCreateChatId(): string {
+  if (typeof window === 'undefined') return '';
+  const existing = localStorage.getItem(CHAT_ID_KEY);
+  if (existing) return existing;
+  const id = crypto.randomUUID();
+  localStorage.setItem(CHAT_ID_KEY, id);
+  return id;
+}
+
 export function ChatAgent() {
   const [isOpen, setIsOpen] = useState(false);
   const [sessionKey, setSessionKey] = useState(0);
 
   // Stable Chat instance with persisted messages — recreated when sessionKey changes
+  const chatId = useMemo(() => getOrCreateChatId(), [sessionKey]);
   const chat = useMemo(
     () =>
       new Chat({
         messages: loadStoredMessages(),
-        transport: new DefaultChatTransport({ api: '/api/chat' }),
+        transport: new DefaultChatTransport({
+          api: '/api/chat',
+          body: { chatId },
+        }),
       }),
-    [sessionKey]
+    [sessionKey, chatId]
   );
 
   const { messages, sendMessage, status, error } = useChat({ chat });
@@ -85,6 +115,7 @@ export function ChatAgent() {
   const handleClearSession = () => {
     try {
       localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem(CHAT_ID_KEY);
     } catch {
       // Ignore
     }
@@ -180,7 +211,7 @@ export function ChatAgent() {
                           : 'bg-[var(--color-surface)] text-[var(--color-text-secondary)] rounded-bl-sm'
                       }`}
                     >
-                      {content}
+                      {message.role === 'user' ? content : renderWithLinks(content)}
                     </div>
                   </motion.div>
                 );

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <!-- Dégradé doré fidèle à l'image d'origine -->
+    <linearGradient id="goldBase" x1="20%" y1="10%" x2="80%" y2="95%">
+      <stop offset="0%" stop-color="#ddb84f"/>
+      <stop offset="18%" stop-color="#d4ab44"/>
+      <stop offset="35%" stop-color="#c9982f"/>
+      <stop offset="55%" stop-color="#c08e2a"/>
+      <stop offset="75%" stop-color="#b38325"/>
+      <stop offset="100%" stop-color="#a07520"/>
+    </linearGradient>
+    <!-- Reflet métallique subtil -->
+    <radialGradient id="goldSheen" cx="42%" cy="38%" r="55%" fx="38%" fy="32%">
+      <stop offset="0%" stop-color="#e0be58" stop-opacity="0.5"/>
+      <stop offset="40%" stop-color="#d4aa42" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#a07520" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Filtre grain doré -->
+    <filter id="grain" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="1.8 1.2" numOctaves="5" seed="3" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="mono"/>
+      <feBlend in="SourceGraphic" in2="mono" mode="soft-light"/>
+    </filter>
+  </defs>
+  <!-- Étoile 8 branches avec flèche en haut à droite – tracé unique pour jonctions lisses -->
+  <path d="
+    M 152,90
+    L 152,110
+    Q 124.1,110 143.8,129.7
+    L 129.7,143.8
+    Q 110,124.1 110,152
+    L 90,152
+    Q 90,124.1 70.3,143.8
+    L 56.2,129.7
+    Q 75.9,110 48,110
+    L 48,90
+    Q 75.9,90 56.2,70.3
+    L 70.3,56.2
+    Q 90,75.9 90,48
+    L 110,48
+    Q 110,75.9 121.2,64.7
+    L 112.7,56.6
+    L 150.9,49.1
+    L 142.4,86.9
+    L 135.4,78.8
+    Q 124.1,90 152,90
+    Z
+  " fill="url(#goldBase)" filter="url(#grain)"/>
+  <!-- Couche de reflet métallique -->
+  <path d="
+    M 152,90
+    L 152,110
+    Q 124.1,110 143.8,129.7
+    L 129.7,143.8
+    Q 110,124.1 110,152
+    L 90,152
+    Q 90,124.1 70.3,143.8
+    L 56.2,129.7
+    Q 75.9,110 48,110
+    L 48,90
+    Q 75.9,90 56.2,70.3
+    L 70.3,56.2
+    Q 90,75.9 90,48
+    L 110,48
+    Q 110,75.9 121.2,64.7
+    L 112.7,56.6
+    L 150.9,49.1
+    L 142.4,86.9
+    L 135.4,78.8
+    Q 124.1,90 152,90
+    Z
+  " fill="url(#goldSheen)"/>
+</svg>

@@ -6,18 +6,18 @@ import { Container } from "@/components/ui/Container";
 import { FadeInUp } from "@/components/ui/FadeInUp";
 import { Button } from "@/components/ui/Button";
 import { Link } from "@/lib/routing";
-import { Brain, Zap, Workflow, Users, CheckCircle2 } from "lucide-react";
+import { Brain, Zap, Workflow, Users, CheckCircle2, GraduationCap } from "lucide-react";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { motion, AnimatePresence } from "framer-motion";
-import { LeadsSchema, AutomatisationSchema, AgentsSchema, SprintSchema } from "@/components/visuals/OfferSchemas";
+import { LeadsSchema, AutomatisationSchema, AgentsSchema, SprintSchema, WorkshopSchema } from "@/components/visuals/OfferSchemas";
 
 const offers = [
   {
     id: "leads",
-    title: "Génération de Leads & CRM",
-    shortTitle: "Leads & CRM",
+    title: "Acquisition & Leads",
+    shortTitle: "Acquisition & Leads",
     icon: Users,
-    description: "Ne perdez plus de temps à chercher des prospects. Nos systèmes scrutent le web et qualifient automatiquement les entreprises correspondant à votre profil idéal (ICP).",
+    description: "Ne perdez plus de temps à chercher des prospects. Nos systèmes scrutent le web et qualifient automatiquement les entreprises qui correspondent à votre client idéal.",
     bullets: ["Filtre d'intention d'achat", "Qualification automatique par Agent IA", "Synchro automatique avec votre CRM"],
     cta: "Auditer mon Acquisition",
     href: "/contact",
@@ -26,7 +26,7 @@ const offers = [
   {
     id: "automatisation",
     title: "Automatisation & RPA",
-    shortTitle: "Automatisation",
+    shortTitle: "Automatisation & RPA",
     icon: Workflow,
     description: "Libérez vos équipes des tâches répétitives à faible valeur ajoutée. Nous connectons vos outils pour créer des flux de travail sans couture.",
     bullets: ["Synchronisation de données multi-sources", "Traitement automatique de documents", "Relances et suivis automatiques"],
@@ -36,7 +36,7 @@ const offers = [
   },
   {
     id: "agents",
-    title: "Agents IA Intelligents",
+    title: "Agents IA",
     shortTitle: "Agents IA",
     icon: Brain,
     description: "Des agents conversationnels entraînés sur vos données internes pour dialoguer avec vos clients 24/7 ou assister vos collaborateurs.",
@@ -48,14 +48,25 @@ const offers = [
   },
   {
     id: "sprint",
-    title: "Sprint POC",
-    shortTitle: "Sprint POC",
+    title: "Sprint IA",
+    shortTitle: "Sprint IA",
     icon: Zap,
-    description: "Un processus en deux étapes pour valider techniquement et financièrement votre transition vers l'IA, sécurisant vos investissements.",
-    bullets: ["Diagnostic Data-Driven offert", "Sprint immersif 4 jours (PoC)", "Garantie anti-risque"],
+    description: "10 jours pour prouver que ça marche. Diagnostic offert, puis preuve de concept livrée — votre investissement est sécurisé.",
+    bullets: ["Diagnostic basé sur vos données réelles (offert)", "Sprint immersif 4 jours (preuve de concept)", "Garantie anti-risque"],
     cta: "Commencer mon Diagnostic",
     href: "/contact",
     illustration: SprintSchema
+  },
+  {
+    id: "workshops",
+    title: "Workshops & Ateliers",
+    shortTitle: "Workshops",
+    icon: GraduationCap,
+    description: "Formez vos équipes à l'IA en conditions réelles. Une demi-journée ou journée complète animée par nos experts pour identifier vos cas d'usage et repartir avec un plan d'action concret.",
+    bullets: ["Mapping des opportunités IA dans vos métiers", "Ateliers de prototypage rapide en équipe", "Plan d'action priorisé sur 90 jours"],
+    cta: "Organiser un Workshop",
+    href: "/contact",
+    illustration: WorkshopSchema
   }
 ];
 

@@ -40,7 +40,7 @@ export function Hero() {
       
       <Container className="text-center relative z-10">
         <FadeInUp>
-          <Badge variant="accent" className="mb-6">Partenaire de la Transformation Numérique des TPE & PME</Badge>
+          <Badge variant="accent" className="mb-6">L'IA opérationnelle pour les PME de 10 à 300 personnes</Badge>
           
           <motion.h1 
             initial="hidden"
@@ -67,16 +67,23 @@ export function Hero() {
             transition={{ delay: 0.6, duration: 0.6 }}
             className="text-lg md:text-xl text-[var(--color-text-secondary)] max-w-2xl mx-auto mb-10"
           >
-            Ne subissez plus l'évolution technologique. Hoptisens construit et déploie des systèmes d'intelligence artificielle sur-mesure (Automatisation, Agents IA, CRM) pour sécuriser vos marges et protéger le temps de vos équipes.
+            Hoptisens conçoit et déploie des systèmes IA sur-mesure pour les PME : automatisation, agents intelligents, CRM connecté. Vos marges sont protégées, votre temps est libéré.
           </motion.p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="https://calendly.com/hoptisens/hoptisens-call" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-              <Button size="lg" className="w-full">📞 Réserver mon Appel Stratégique</Button>
-            </a>
-            <Link href="/contact" className="w-full sm:w-auto">
-              <Button variant="secondary" size="lg" className="w-full">⚡ Remplir le Diagnostic Flash</Button>
+            <Link href="/diagnostic" className="w-full sm:w-auto">
+              <Button size="lg" className="w-full">⚡ Commencer mon Diagnostic</Button>
             </Link>
+            <a href="https://calendly.com/hoptisens/hoptisens-call" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <Button variant="secondary" size="lg" className="w-full">📞 Réserver un appel</Button>
+            </a>
           </div>
+          <a
+            href="#calculateur"
+            className="inline-flex items-center gap-1.5 mt-4 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
+          >
+            Calculer mon gain de temps
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+          </a>
         </FadeInUp>
       </Container>
     </Section>
