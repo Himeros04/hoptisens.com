@@ -67,13 +67,13 @@ export default function AboutPage() {
               <div className="flex flex-col md:flex-row items-center gap-12">
                 <div className="flex-shrink-0">
                   {/* Remplacer par votre photo : public/hadrien-peyron.jpg */}
-                  <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-accent/30 bg-surface flex items-center justify-center">
+                  <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-accent/30 bg-surface">
                     <Image
                       src="/hadrien-peyron.png"
                       alt="Hadrien Peyron, fondateur de Hoptisens"
-                      width={192}
-                      height={192}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
+                      style={{ objectPosition: "center 20%" }}
                     />
                   </div>
                 </div>
