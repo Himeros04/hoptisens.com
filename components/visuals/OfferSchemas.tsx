@@ -250,69 +250,82 @@ export function AgentsSchema() {
 export function WorkshopSchema() {
   return (
     <div className="w-full h-full flex items-center justify-center p-4 bg-surface/50 rounded-2xl border border-border">
-      <svg viewBox="0 0 600 350" className="w-full h-full" fill="none" aria-hidden="true" focusable="false">
-        {/* Left: Équipes */}
-        <g>
-          {[60, 120, 180].map((y, i) => (
-            <g key={i} transform={`translate(40, ${y})`}>
-              <rect x="0" y="0" width="110" height="36" rx="18" fill="var(--color-bg)" stroke="var(--color-border)" strokeWidth="1.5" />
-              <text x="20" y="23" textAnchor="middle" fontSize="14">{["👩‍💼", "👨‍💻", "👩‍🔬"][i]}</text>
-              <text x="65" y="23" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="11">{["Direction", "Tech", "Métier"][i]}</text>
-            </g>
-          ))}
-        </g>
+      <svg viewBox="0 0 620 340" className="w-full h-full" fill="none" aria-hidden="true" focusable="false">
 
-        {/* Arrows left → center */}
-        {[78, 138, 198].map((y, i) => (
-          <motion.path
-            key={i}
-            d={`M 150 ${y} L 210 175`}
-            stroke="var(--color-accent)"
-            strokeWidth="1.5"
-            strokeDasharray="4 4"
-            animate={{ strokeDashoffset: [0, -20] }}
-            transition={defaultTransition}
-          />
-        ))}
+        {/* === WORKSHOP FRAME (left) === */}
+        {/* Subtle animated ring */}
+        <motion.circle cx="115" cy="175" r="90" fill="none" stroke="var(--color-accent)" strokeWidth="1" opacity="0.08" animate={{ r: [82, 95, 82] }} transition={{ duration: 4, repeat: Infinity }} />
 
-        {/* Center: Workshop Session */}
-        <g>
-          <rect x="210" y="110" width="160" height="130" rx="16" fill="var(--color-surface)" stroke="var(--color-accent)" strokeWidth="2" />
-          <rect x="210" y="110" width="160" height="130" rx="16" fill="none" stroke="var(--color-accent)" strokeWidth="1" strokeDasharray="4 4" opacity="0.4" />
-          <text x="290" y="155" textAnchor="middle" fontSize="22">🎯</text>
-          <text x="290" y="185" textAnchor="middle" fill="var(--color-text-primary)" fontSize="12" fontWeight="bold">WORKSHOP IA</text>
-          <text x="290" y="203" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="10">½ journée · journée</text>
-          <motion.circle cx="290" cy="175" r="50" fill="none" stroke="var(--color-accent)" strokeWidth="1" opacity="0.2" animate={{ r: [45, 55, 45] }} transition={{ duration: 3, repeat: Infinity }} />
-        </g>
+        {/* Main frame */}
+        <rect x="10" y="22" width="210" height="296" rx="14" fill="var(--color-surface)" stroke="var(--color-accent)" strokeWidth="2" />
 
-        {/* Arrows center → right */}
-        {[138, 193, 248].map((y, i) => (
-          <motion.path
-            key={i}
-            d={`M 370 175 L 430 ${y + 18}`}
-            stroke="var(--color-accent)"
-            strokeWidth="1.5"
-            strokeDasharray="4 4"
-            animate={{ strokeDashoffset: [0, -20] }}
-            transition={defaultTransition}
-          />
-        ))}
+        {/* Frame header */}
+        <text x="115" y="55" textAnchor="middle" fontSize="22">🎯</text>
+        <text x="115" y="78" textAnchor="middle" fill="var(--color-text-primary)" fontSize="12" fontWeight="bold">WORKSHOP IA</text>
+        <text x="115" y="96" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="10">½ journée → 3 jours</text>
+        <line x1="26" y1="108" x2="204" y2="108" stroke="var(--color-border)" strokeWidth="1" opacity="0.6" />
 
-        {/* Right: Livrables */}
-        <g>
-          {[
-            { y: 120, icon: "🗺️", label: "Cas d'usage identifiés" },
-            { y: 175, icon: "🛠️", label: "Prototypes rapides" },
-            { y: 230, icon: "📅", label: "Plan d'action 90 jours" }
-          ].map((item, i) => (
-            <g key={i} transform={`translate(430, ${item.y})`}>
-              <rect x="0" y="0" width="140" height="36" rx="8" fill={i === 2 ? "var(--color-accent)" : "var(--color-bg)"} stroke={i === 2 ? "var(--color-accent)" : "var(--color-border)"} strokeWidth="1.5" opacity={i === 2 ? 1 : undefined} />
-              {i === 2 && <rect x="0" y="0" width="140" height="36" rx="8" fill="var(--color-accent)" opacity="0.15" />}
-              <text x="20" y="23" textAnchor="middle" fontSize="13">{item.icon}</text>
-              <text x="80" y="23" textAnchor="middle" fill={i === 2 ? "var(--color-accent)" : "var(--color-text-secondary)"} fontSize="10" fontWeight={i === 2 ? "600" : "400"}>{item.label}</text>
-            </g>
-          ))}
-        </g>
+        {/* Role pill: Direction Métier */}
+        <rect x="26" y="122" width="178" height="36" rx="8" fill="var(--color-bg)" stroke="var(--color-border)" strokeWidth="1.5" />
+        <text x="48" y="145" textAnchor="middle" fontSize="14">👔</text>
+        <text x="130" y="145" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="10.5">Direction Métier</text>
+
+        {/* Role pill: Technique */}
+        <rect x="26" y="172" width="178" height="36" rx="8" fill="var(--color-bg)" stroke="var(--color-border)" strokeWidth="1.5" />
+        <text x="48" y="195" textAnchor="middle" fontSize="14">💻</text>
+        <text x="130" y="195" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="10.5">Technique</text>
+
+        {/* Role pill: Métier */}
+        <rect x="26" y="222" width="178" height="36" rx="8" fill="var(--color-bg)" stroke="var(--color-border)" strokeWidth="1.5" />
+        <text x="48" y="245" textAnchor="middle" fontSize="14">🏭</text>
+        <text x="130" y="245" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="10.5">Métier</text>
+
+        {/* Subtle connectors between pills */}
+        <line x1="115" y1="158" x2="115" y2="172" stroke="var(--color-border)" strokeWidth="1" opacity="0.4" strokeDasharray="2 2" />
+        <line x1="115" y1="208" x2="115" y2="222" stroke="var(--color-border)" strokeWidth="1" opacity="0.4" strokeDasharray="2 2" />
+
+        {/* === MAIN ARROW: Workshop → Cas d'usage === */}
+        <motion.path
+          d="M 220 175 C 248 175 252 58 278 58"
+          stroke="var(--color-accent)"
+          strokeWidth="2"
+          strokeDasharray="5 4"
+          animate={{ strokeDashoffset: [0, -27] }}
+          transition={defaultTransition}
+        />
+
+        {/* === OUTPUT FLOW (right column) === */}
+
+        {/* Node 1: Cas d'usage identifié */}
+        <rect x="278" y="36" width="195" height="44" rx="8" fill="var(--color-bg)" stroke="var(--color-border)" strokeWidth="1.5" />
+        <text x="302" y="63" textAnchor="middle" fontSize="14">🗺️</text>
+        <text x="388" y="63" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="10.5">Cas d&apos;usage identifié</text>
+
+        {/* Arrow 1 → 2 */}
+        <motion.path d="M 375 80 L 375 106" stroke="var(--color-accent)" strokeWidth="2" strokeDasharray="4 4" animate={{ strokeDashoffset: [0, -24] }} transition={defaultTransition} />
+        <polygon points="375,106 370,98 380,98" fill="var(--color-accent)" opacity="0.6" />
+
+        {/* Node 2: Proof of Concept — accented */}
+        <rect x="278" y="106" width="195" height="44" rx="8" fill="var(--color-accent)" opacity="0.1" />
+        <rect x="278" y="106" width="195" height="44" rx="8" stroke="var(--color-accent)" strokeWidth="1.5" />
+        <text x="302" y="133" textAnchor="middle" fontSize="14">✨</text>
+        <text x="388" y="133" textAnchor="middle" fill="var(--color-accent)" fontSize="10.5" fontWeight="600">Proof of Concept</text>
+
+        {/* Arrow 2 → 3 */}
+        <motion.path d="M 375 150 L 375 176" stroke="var(--color-accent)" strokeWidth="2" strokeDasharray="4 4" animate={{ strokeDashoffset: [0, -24] }} transition={defaultTransition} />
+        <polygon points="375,176 370,168 380,168" fill="var(--color-accent)" opacity="0.8" />
+
+        {/* Node 3: Déploiement — full accent */}
+        <rect x="278" y="176" width="195" height="44" rx="8" fill="var(--color-accent)" opacity="0.18" />
+        <rect x="278" y="176" width="195" height="44" rx="8" stroke="var(--color-accent)" strokeWidth="2" />
+        <text x="302" y="203" textAnchor="middle" fontSize="14">🚀</text>
+        <text x="388" y="203" textAnchor="middle" fill="var(--color-accent)" fontSize="10.5" fontWeight="700">Déploiement</text>
+
+        {/* Badge: Plan adoption 60 jours */}
+        <rect x="278" y="230" width="195" height="24" rx="12" fill="var(--color-accent)" opacity="0.07" />
+        <rect x="278" y="230" width="195" height="24" rx="12" stroke="var(--color-accent)" strokeWidth="1" opacity="0.3" />
+        <text x="375" y="246" textAnchor="middle" fill="var(--color-accent)" fontSize="9" fontWeight="600">Plan d&apos;adoption : 60 jours</text>
+
       </svg>
     </div>
   );

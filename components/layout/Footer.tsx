@@ -45,10 +45,10 @@ export function Footer() {
           <div id="contact" className="flex flex-col gap-4">
             <h4 className="font-semibold text-[var(--color-text-primary)]">{t("contact")}</h4>
             <a 
-              href="mailto:hadrien@hoptisens.com?subject=Demande%20d%27information%20%5Bhoptisens.com%5D&body=Bonjour%2C%20suite%20%C3%A0%20la%20visite%20de%20votre%20site%20web%2C%20je%20suis%20int%C3%A9ress%C3%A9%20d%27en%20savoir%20plus%20sur%20vos%20prestations.%20%C3%AAtes%20vous%20disponible%20pour%20un%20%C3%A9change%20dans%20les%20prochains%20jours%20%3F"
+              href="mailto:hello@hoptisens.com?subject=Demande%20d%27information%20%5Bhoptisens.com%5D&body=Bonjour%2C%20suite%20%C3%A0%20la%20visite%20de%20votre%20site%20web%2C%20je%20suis%20int%C3%A9ress%C3%A9%20d%27en%20savoir%20plus%20sur%20vos%20prestations.%20%C3%AAtes%20vous%20disponible%20pour%20un%20%C3%A9change%20dans%20les%20prochains%20jours%20%3F"
               className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors cursor-pointer"
             >
-              hadrien@hoptisens.com
+              hello@hoptisens.com
             </a>
             <div className="flex gap-4 mt-2">
               <a href="https://www.linkedin.com/in/hadrien-peyron/" target="_blank" rel="noopener noreferrer" className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors cursor-pointer">

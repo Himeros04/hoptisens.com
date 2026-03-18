@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { FadeInUp } from "@/components/ui/FadeInUp";
@@ -62,8 +62,8 @@ const offers = [
     title: "Workshops & Ateliers",
     shortTitle: "Workshops",
     icon: GraduationCap,
-    description: "Formez vos équipes à l'IA en conditions réelles. Une demi-journée ou journée complète animée par nos experts pour identifier vos cas d'usage et repartir avec un plan d'action concret.",
-    bullets: ["Mapping des opportunités IA dans vos métiers", "Ateliers de prototypage rapide en équipe", "Plan d'action priorisé sur 90 jours"],
+    description: "D'une demi-journée à trois jours, nos experts animent vos équipes Direction, Technique et Métier pour identifier vos cas d'usage IA, prototyper en conditions réelles et repartir avec un Proof of Concept déployable.",
+    bullets: ["Identification et priorisation de vos cas d'usage IA", "Proof of Concept construit en atelier avec vos équipes", "Plan d'adoption déployable en 60 jours"],
     cta: "Organiser un Workshop",
     href: "/contact",
     illustration: WorkshopSchema
@@ -73,6 +73,13 @@ const offers = [
 export default function OffresPage() {
   const [activeTab, setActiveTab] = useState("leads");
   const sliderRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    if (hash && offers.some((o) => o.id === hash)) {
+      setActiveTab(hash);
+    }
+  }, []);
 
   const handleTabChange = (tabId: string) => {
     setActiveTab(tabId);

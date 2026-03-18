@@ -80,7 +80,7 @@ export default function AboutPage() {
                 <div>
                   <p className="text-accent text-sm font-medium uppercase tracking-wider mb-2">Le fondateur</p>
                   <h2 className="text-3xl md:text-4xl font-serif text-text-primary mb-2">Hadrien Peyron</h2>
-                  <p className="text-text-muted text-sm mb-6">Orchestrateur d'Agents IA · Fondateur Hoptisens · Passioné de musique</p>
+                  <p className="text-text-muted text-sm mb-6">Orchestrateur d'Agents IA · Fondateur Hoptisens · Passionné de musique</p>
                   <p className="text-text-secondary mb-4">
                     Ingénieur reconverti en Business Developer, Hadrien a passé 7 ans à piloter
                     une Business Unit de 60 consultants IT au sein d'un grand groupe de conseil — apprenant sur le terrain comment
