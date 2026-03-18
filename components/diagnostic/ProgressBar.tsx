@@ -43,7 +43,7 @@ export function ProgressBar({ currentStep, totalSteps = 5 }: ProgressBarProps) {
           className="absolute h-0.5 top-1/2 -translate-y-1/2 bg-accent rounded-full origin-left"
           initial={{ width: "0%" }}
           animate={{ width: `${((currentStep - 1) / (totalSteps - 1)) * 100}%` }}
-          transition={{ type: "spring", stiffness: 100, damping: 20 }}
+          transition={{ type: "spring", stiffness: 30, damping: 25 }}
         />
 
         {/* Dots */}

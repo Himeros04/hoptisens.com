@@ -250,65 +250,67 @@ export function AgentsSchema() {
 export function SprintSchema() {
   return (
     <div className="w-full h-full flex items-center justify-center p-4 bg-surface/50 rounded-2xl border border-border">
-      <svg viewBox="0 0 600 350" className="w-full h-full" fill="none" aria-hidden="true" focusable="false">
+      <svg viewBox="0 0 600 400" className="w-full h-full" fill="none" aria-hidden="true" focusable="false">
         {/* Timeline Arrow Background */}
-        <path d="M 80 160 L 520 160" stroke="var(--color-border)" strokeWidth="4" strokeLinecap="round" opacity="0.5" />
-        <motion.path d="M 80 160 L 520 160" stroke="var(--color-accent)" strokeWidth="4" strokeLinecap="round" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.5, ease: "easeInOut" }} />
+        <path d="M 80 120 L 520 120" stroke="var(--color-border)" strokeWidth="4" strokeLinecap="round" opacity="0.5" />
+        <motion.path d="M 80 120 L 520 120" stroke="var(--color-accent)" strokeWidth="4" strokeLinecap="round" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.5, ease: "easeInOut" }} />
 
         {/* --- Étape 1 : Diagnostic --- */}
-        <g transform="translate(160, 160)">
+        <g transform="translate(160, 120)">
           {/* Main Node */}
           <motion.circle cx="0" cy="0" r="30" fill="var(--color-surface)" stroke="var(--color-accent)" strokeWidth="3" initial={{ scale: 0.8 }} animate={{ scale: 1 }} transition={{ duration: 0.5 }} />
           <text x="0" y="7" textAnchor="middle" fontSize="20">📋</text>
-          
+
           {/* text Details */}
           <text x="0" y="50" textAnchor="middle" fill="var(--color-text-primary)" fontSize="13" fontWeight="bold">1. DIAGNOSTIC</text>
           <text x="0" y="68" textAnchor="middle" fill="var(--color-success)" fontSize="11" fontWeight="600">OFFERT</text>
-
-          {/* Connectors to Bubbles */}
-          <line x1="0" y1="-30" x2="0" y2="-35" stroke="var(--color-accent)" strokeWidth="1" strokeDasharray="2 2" />
-          <line x1="0" y1="-30" x2="90" y2="-65" stroke="var(--color-accent)" strokeWidth="1" strokeDasharray="2 2" />
-
-          {/* Deliverables Bubble 1 */}
-          <g transform="translate(-80, -70)">
-            <rect x="0" y="0" width="160" height="35" rx="18" fill="var(--color-bg)" stroke="var(--color-border)" strokeWidth="1" />
-            <text x="80" y="21" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="11">📝 Questionnaire ciblé</text>
-          </g>
-
-          {/* Deliverables Bubble 2 */}
-          <g transform="translate(10, -100)">
-            <rect x="0" y="0" width="160" height="35" rx="18" fill="var(--color-accent)" opacity="0.1" />
-            <rect x="0" y="0" width="160" height="35" rx="18" fill="none" stroke="var(--color-accent)" strokeWidth="1" />
-            <text x="80" y="21" textAnchor="middle" fill="var(--color-accent)" fontSize="11" fontWeight="600">📊 Pré-rapport ROI</text>
-          </g>
         </g>
 
         {/* --- Étape 2 : Sprint Immersif --- */}
-        <g transform="translate(420, 160)">
+        <g transform="translate(420, 120)">
           {/* Main Node */}
           <motion.circle cx="0" cy="0" r="35" fill="var(--color-accent)" initial={{ scale: 0.8 }} animate={{ scale: 1 }} transition={{ duration: 0.5, delay: 0.5 }} />
           <text x="0" y="7" textAnchor="middle" fontSize="22">🚀</text>
 
           {/* text Details */}
           <text x="0" y="55" textAnchor="middle" fill="var(--color-text-primary)" fontSize="13" fontWeight="bold">2. SPRINT IMMERSIF</text>
-          <text x="0" y="73" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="11">4 JOURS OUVRES</text>
+          <text x="0" y="73" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="11">4 JOURS OUVRÉS</text>
+        </g>
 
-          {/* Connectors to Bubbles */}
-          <line x1="0" y1="-35" x2="-20" y2="-45" stroke="var(--color-accent)" strokeWidth="1" strokeDasharray="2 2" />
-          <line x1="0" y1="-35" x2="60" y2="-75" stroke="var(--color-accent)" strokeWidth="1" strokeDasharray="2 2" />
+        {/* --- Séparateur --- */}
+        <line x1="60" y1="240" x2="540" y2="240" stroke="var(--color-border)" strokeWidth="1" opacity="0.3" />
 
-          {/* Deliverables Bubble 1 */}
-          <g transform="translate(-100, -80)">
-            <rect x="0" y="0" width="160" height="35" rx="18" fill="var(--color-bg)" stroke="var(--color-border)" strokeWidth="1" />
-            <text x="80" y="21" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="11">🗺️ Cartographie Données</text>
-          </g>
+        {/* --- Livrables en dessous du schéma (2 par ligne) --- */}
+        <text x="300" y="268" textAnchor="middle" fill="var(--color-text-primary)" fontSize="12" fontWeight="bold" opacity="0.6" className="uppercase tracking-wide">LIVRABLES</text>
 
-          {/* Deliverables Bubble 2 */}
-          <g transform="translate(-20, -110)">
-            <rect x="0" y="0" width="160" height="35" rx="18" fill="var(--color-accent)" opacity="0.1" />
-            <rect x="0" y="0" width="160" height="35" rx="18" fill="none" stroke="var(--color-accent)" strokeWidth="1" />
-            <text x="80" y="21" textAnchor="middle" fill="var(--color-accent)" fontSize="11" fontWeight="600">✨ PoC / MVP Délivré</text>
-          </g>
+        {/* Ligne 1 : 2 livrables */}
+        <g transform="translate(55, 285)">
+          <rect x="0" y="0" width="230" height="38" rx="19" fill="var(--color-bg)" stroke="var(--color-border)" strokeWidth="1" />
+          <circle cx="22" cy="19" r="12" fill="var(--color-accent)" opacity="0.1" />
+          <text x="22" y="23" textAnchor="middle" fontSize="12">📝</text>
+          <text x="130" y="24" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="11">Questionnaire ciblé</text>
+        </g>
+        <g transform="translate(315, 285)">
+          <rect x="0" y="0" width="230" height="38" rx="19" fill="var(--color-accent)" opacity="0.1" />
+          <rect x="0" y="0" width="230" height="38" rx="19" fill="none" stroke="var(--color-accent)" strokeWidth="1" />
+          <circle cx="22" cy="19" r="12" fill="var(--color-accent)" opacity="0.1" />
+          <text x="22" y="23" textAnchor="middle" fontSize="12">📊</text>
+          <text x="130" y="24" textAnchor="middle" fill="var(--color-accent)" fontSize="11" fontWeight="600">Pré-rapport ROI</text>
+        </g>
+
+        {/* Ligne 2 : 2 livrables */}
+        <g transform="translate(55, 335)">
+          <rect x="0" y="0" width="230" height="38" rx="19" fill="var(--color-bg)" stroke="var(--color-border)" strokeWidth="1" />
+          <circle cx="22" cy="19" r="12" fill="var(--color-accent)" opacity="0.1" />
+          <text x="22" y="23" textAnchor="middle" fontSize="12">🗺️</text>
+          <text x="130" y="24" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="11">Cartographie Données</text>
+        </g>
+        <g transform="translate(315, 335)">
+          <rect x="0" y="0" width="230" height="38" rx="19" fill="var(--color-accent)" opacity="0.1" />
+          <rect x="0" y="0" width="230" height="38" rx="19" fill="none" stroke="var(--color-accent)" strokeWidth="1" />
+          <circle cx="22" cy="19" r="12" fill="var(--color-accent)" opacity="0.1" />
+          <text x="22" y="23" textAnchor="middle" fontSize="12">✨</text>
+          <text x="130" y="24" textAnchor="middle" fill="var(--color-accent)" fontSize="11" fontWeight="600">PoC / MVP Délivré</text>
         </g>
       </svg>
     </div>

@@ -52,7 +52,9 @@ export function SchemaAnime() {
           </div>
         </FadeInUp>
 
-        <div ref={containerRef} className="relative w-full aspect-[4/3] md:aspect-[16/10] bg-bg rounded-3xl border border-border flex items-center justify-center overflow-hidden p-6 md:p-8 shadow-2xl">
+        {/* Scrollable wrapper on mobile so the schema stays readable */}
+        <div className="w-full overflow-x-auto md:overflow-hidden -mx-4 px-4 md:mx-0 md:px-0 pb-2 md:pb-0">
+        <div ref={containerRef} className="relative min-w-[620px] h-[420px] md:min-w-0 md:h-auto md:w-full md:aspect-[16/10] bg-bg rounded-3xl border border-border flex items-center justify-center overflow-hidden p-6 md:p-8 shadow-2xl">
           <svg className="w-full h-full max-w-4xl" viewBox="0 0 1000 750" fill="none">
             
             {/* Grid de fond technique léger */}
@@ -172,6 +174,7 @@ export function SchemaAnime() {
             </motion.g>
 
           </svg>
+        </div>
         </div>
       </Container>
     </Section>
