@@ -4,7 +4,8 @@ import { FadeInUp } from "@/components/ui/FadeInUp";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Link } from "@/lib/routing";
-import { Target, Compass, Sparkles, Building, Rocket, GraduationCap } from "lucide-react";
+import { Target, Compass, Sparkles, Building, Rocket, GraduationCap, Linkedin } from "lucide-react";
+import Image from "next/image";
 
 export default function AboutPage() {
   return (
@@ -53,6 +54,57 @@ export default function AboutPage() {
                   (Sprint IA) avant de structurer des systèmes globaux complexes.
                 </p>
               </Card>
+            </FadeInUp>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Section Fondateur */}
+      <Section className="py-24">
+        <Container>
+          <div className="max-w-4xl mx-auto">
+            <FadeInUp>
+              <div className="flex flex-col md:flex-row items-center gap-12">
+                <div className="flex-shrink-0">
+                  {/* Remplacer par votre photo : public/hadrien-peyron.jpg */}
+                  <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-accent/30 bg-surface flex items-center justify-center">
+                    <Image
+                      src="/hadrien-peyron.png"
+                      alt="Hadrien Peyron, fondateur de Hoptisens"
+                      width={192}
+                      height={192}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <p className="text-accent text-sm font-medium uppercase tracking-wider mb-2">Le fondateur</p>
+                  <h2 className="text-3xl md:text-4xl font-serif text-text-primary mb-2">Hadrien Peyron</h2>
+                  <p className="text-text-muted text-sm mb-6">Orchestrateur d'Agents IA · Fondateur Hoptisens · Passioné de musique</p>
+                  <p className="text-text-secondary mb-4">
+                    Ingénieur reconverti en Business Developer, Hadrien a passé 7 ans à piloter
+                    une Business Unit de 60 consultants IT au sein d'un grand groupe de conseil — apprenant sur le terrain comment
+                    structurer, vendre et faire grandir une activité de services complexes.
+                  </p>
+                  <p className="text-text-secondary mb-4">
+                    En 2024, il fonde Hoptisens avec une conviction : l'IA doit servir les opérations,
+                    pas impressionner les investisseurs. Sa philosophie tient en trois mots : <span className="text-text-primary font-medium">Simplifier pour Amplifier.</span>
+                  </p>
+                  <p className="text-text-secondary italic mb-8">
+                    "Ingénieur dans l'esprit, Business Developer dans la pratique. Je me focalise sur
+                    l'identification de problématiques et me plais à imaginer des solutions pour y répondre."
+                  </p>
+                  <a
+                    href="https://www.linkedin.com/in/hadrien-peyron/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors font-medium"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                    Voir le profil LinkedIn
+                  </a>
+                </div>
+              </div>
             </FadeInUp>
           </div>
         </Container>

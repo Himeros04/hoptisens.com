@@ -3,7 +3,7 @@ import { Container } from "../ui/Container";
 import { FadeInUp } from "../ui/FadeInUp";
 import { Card } from "../ui/Card";
 import { Badge } from "../ui/Badge";
-import { ArrowRight, Brain, Zap, Workflow, Users } from "lucide-react";
+import { ArrowRight, Brain, Zap, Workflow, Users, GraduationCap } from "lucide-react";
 import { Link } from "@/lib/routing";
 
 type RouteHref = "/" | "/a-propos" | "/offres" | "/contact";
@@ -102,6 +102,26 @@ export function Offres() {
             );
           })}
         </div>
+
+        {/* Teaser Workshop */}
+        <FadeInUp className="mt-6">
+          <Link href="/offres" className="group block">
+            <div className="border border-border rounded-2xl px-6 py-4 flex items-center justify-between bg-surface-hover/20 hover:border-accent/40 hover:bg-accent-soft/10 transition-all duration-300">
+              <div className="flex items-center gap-4">
+                <div className="p-2.5 rounded-xl bg-surface-hover group-hover:bg-accent/10 transition-colors">
+                  <GraduationCap className="w-5 h-5 text-text-secondary group-hover:text-accent transition-colors" />
+                </div>
+                <div>
+                  <p className="font-medium text-text-primary text-sm">Workshops & Ateliers IA</p>
+                  <p className="text-text-secondary text-xs">Formez vos équipes en conditions réelles — demi-journée ou journée complète</p>
+                </div>
+              </div>
+              <span className="text-sm text-accent font-medium flex items-center gap-1 shrink-0 ml-4">
+                En savoir plus <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </span>
+            </div>
+          </Link>
+        </FadeInUp>
       </Container>
     </Section>
   );

@@ -5,10 +5,10 @@ import { Counter } from "../ui/Counter";
 import { ArrowRight } from "lucide-react";
 
 const metrics = [
-  { numeric: 80, prefix: "", suffix: "%", label: "de prospection manuelle en moins" },
-  { numeric: 10, prefix: "", suffix: " Jours", label: "pour un premier ROI chiffré" },
+  { numeric: 30, prefix: "> ", suffix: "%", label: "de tâches répétitives en moins" },
+  { numeric: 30, prefix: "", suffix: " Jours", label: "pour un premier ROI chiffré" },
   { numeric: 100, prefix: "", suffix: "%", label: "de l'audit déductible de la mission" },
-  { numeric: 24, prefix: "", suffix: "/7", label: "de qualification IA, sans pause" },
+  { numeric: 24, prefix: "", suffix: "/7", label: " qualification de prospect entrant" },
 ];
 
 export function Chiffres() {

@@ -247,6 +247,77 @@ export function AgentsSchema() {
   );
 }
 
+export function WorkshopSchema() {
+  return (
+    <div className="w-full h-full flex items-center justify-center p-4 bg-surface/50 rounded-2xl border border-border">
+      <svg viewBox="0 0 600 350" className="w-full h-full" fill="none" aria-hidden="true" focusable="false">
+        {/* Left: Équipes */}
+        <g>
+          {[60, 120, 180].map((y, i) => (
+            <g key={i} transform={`translate(40, ${y})`}>
+              <rect x="0" y="0" width="110" height="36" rx="18" fill="var(--color-bg)" stroke="var(--color-border)" strokeWidth="1.5" />
+              <text x="20" y="23" textAnchor="middle" fontSize="14">{["👩‍💼", "👨‍💻", "👩‍🔬"][i]}</text>
+              <text x="65" y="23" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="11">{["Direction", "Tech", "Métier"][i]}</text>
+            </g>
+          ))}
+        </g>
+
+        {/* Arrows left → center */}
+        {[78, 138, 198].map((y, i) => (
+          <motion.path
+            key={i}
+            d={`M 150 ${y} L 210 175`}
+            stroke="var(--color-accent)"
+            strokeWidth="1.5"
+            strokeDasharray="4 4"
+            animate={{ strokeDashoffset: [0, -20] }}
+            transition={defaultTransition}
+          />
+        ))}
+
+        {/* Center: Workshop Session */}
+        <g>
+          <rect x="210" y="110" width="160" height="130" rx="16" fill="var(--color-surface)" stroke="var(--color-accent)" strokeWidth="2" />
+          <rect x="210" y="110" width="160" height="130" rx="16" fill="none" stroke="var(--color-accent)" strokeWidth="1" strokeDasharray="4 4" opacity="0.4" />
+          <text x="290" y="155" textAnchor="middle" fontSize="22">🎯</text>
+          <text x="290" y="185" textAnchor="middle" fill="var(--color-text-primary)" fontSize="12" fontWeight="bold">WORKSHOP IA</text>
+          <text x="290" y="203" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="10">½ journée · journée</text>
+          <motion.circle cx="290" cy="175" r="50" fill="none" stroke="var(--color-accent)" strokeWidth="1" opacity="0.2" animate={{ r: [45, 55, 45] }} transition={{ duration: 3, repeat: Infinity }} />
+        </g>
+
+        {/* Arrows center → right */}
+        {[138, 193, 248].map((y, i) => (
+          <motion.path
+            key={i}
+            d={`M 370 175 L 430 ${y + 18}`}
+            stroke="var(--color-accent)"
+            strokeWidth="1.5"
+            strokeDasharray="4 4"
+            animate={{ strokeDashoffset: [0, -20] }}
+            transition={defaultTransition}
+          />
+        ))}
+
+        {/* Right: Livrables */}
+        <g>
+          {[
+            { y: 120, icon: "🗺️", label: "Cas d'usage identifiés" },
+            { y: 175, icon: "🛠️", label: "Prototypes rapides" },
+            { y: 230, icon: "📅", label: "Plan d'action 90 jours" }
+          ].map((item, i) => (
+            <g key={i} transform={`translate(430, ${item.y})`}>
+              <rect x="0" y="0" width="140" height="36" rx="8" fill={i === 2 ? "var(--color-accent)" : "var(--color-bg)"} stroke={i === 2 ? "var(--color-accent)" : "var(--color-border)"} strokeWidth="1.5" opacity={i === 2 ? 1 : undefined} />
+              {i === 2 && <rect x="0" y="0" width="140" height="36" rx="8" fill="var(--color-accent)" opacity="0.15" />}
+              <text x="20" y="23" textAnchor="middle" fontSize="13">{item.icon}</text>
+              <text x="80" y="23" textAnchor="middle" fill={i === 2 ? "var(--color-accent)" : "var(--color-text-secondary)"} fontSize="10" fontWeight={i === 2 ? "600" : "400"}>{item.label}</text>
+            </g>
+          ))}
+        </g>
+      </svg>
+    </div>
+  );
+}
+
 export function SprintSchema() {
   return (
     <div className="w-full h-full flex items-center justify-center p-4 bg-surface/50 rounded-2xl border border-border">

@@ -6,10 +6,10 @@ import { Container } from "@/components/ui/Container";
 import { FadeInUp } from "@/components/ui/FadeInUp";
 import { Button } from "@/components/ui/Button";
 import { Link } from "@/lib/routing";
-import { Brain, Zap, Workflow, Users, CheckCircle2 } from "lucide-react";
+import { Brain, Zap, Workflow, Users, CheckCircle2, GraduationCap } from "lucide-react";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { motion, AnimatePresence } from "framer-motion";
-import { LeadsSchema, AutomatisationSchema, AgentsSchema, SprintSchema } from "@/components/visuals/OfferSchemas";
+import { LeadsSchema, AutomatisationSchema, AgentsSchema, SprintSchema, WorkshopSchema } from "@/components/visuals/OfferSchemas";
 
 const offers = [
   {
@@ -56,6 +56,17 @@ const offers = [
     cta: "Commencer mon Diagnostic",
     href: "/contact",
     illustration: SprintSchema
+  },
+  {
+    id: "workshops",
+    title: "Workshops & Ateliers",
+    shortTitle: "Workshops",
+    icon: GraduationCap,
+    description: "Formez vos équipes à l'IA en conditions réelles. Une demi-journée ou journée complète animée par nos experts pour identifier vos cas d'usage et repartir avec un plan d'action concret.",
+    bullets: ["Mapping des opportunités IA dans vos métiers", "Ateliers de prototypage rapide en équipe", "Plan d'action priorisé sur 90 jours"],
+    cta: "Organiser un Workshop",
+    href: "/contact",
+    illustration: WorkshopSchema
   }
 ];
 

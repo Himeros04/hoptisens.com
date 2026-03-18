@@ -145,7 +145,7 @@ Cependant, **plusieurs faiblesses freinent la conversion**. Elles sont détaill�
 **3. Les labels sont trop longs.** Un chiffre clé doit être scannable en 1 seconde.
 
 > **Recommandation :** Labels courts :
-> - `80%` → `"de prospection manuelle en moins"`
+> - `50%` → `"de prospection manuelle en moins"`
 > - `10 jours` → `"pour un premier ROI chiffré"`
 > - `100%` → `"de l'audit déductible de la mission"`
 > - `24/7` → `"de qualification IA, sans pause"`
