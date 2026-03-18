@@ -17,7 +17,7 @@ interface AirtableFields {
   'Email': string;
   'Company': string;
   'Status': string;
-  'Source': 'Lucio' | 'Forms';
+  'Source': 'Lucio' | 'Forms' | 'AutoDiag';
   'Questions'?: string;
   'Transcription'?: string;
   'Message'?: string;
@@ -33,7 +33,7 @@ export interface ProspectData {
   transcription?: string;
   categorie?: string[];
   message?: string;
-  source: 'Lucio' | 'Forms';
+  source: 'Lucio' | 'Forms' | 'AutoDiag';
 }
 
 export async function createLead(data: ProspectData) {

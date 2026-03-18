@@ -10,29 +10,29 @@ type RouteHref = "/" | "/a-propos" | "/offres" | "/contact";
 
 const offres = [
   {
-    title: "Ingénierie d'Acquisition",
-    description: "Vos commerciaux perdent un temps précieux sur des prospects froids. Notre 'Prospecteur Augmenté' automatise la collecte et le filtrage des leads. Nous garantissons un CRM alimenté exclusivement en opportunités qualifiées.",
+    title: "Acquisition & Leads",
+    description: "Vos commerciaux passent plus de temps à chercher des prospects qu'à closer. On automatise tout jusqu'au CRM.",
     icon: Users,
     href: "/contact",
     cta: "Auditer mon Acquisition"
   },
   {
     title: "Automatisation & RPA",
-    description: "La double-saisie détruit votre rentabilité. De la facturation à l'onboarding client, vos flux s'exécutent en temps réel, sans erreur humaine, réduisant drastiquement vos coûts opérationnels.",
+    description: "La double-saisie détruit votre rentabilité. Vos flux s'exécutent en temps réel, sans erreur humaine.",
     icon: Workflow,
     href: "/#calculateur",
     cta: "Chiffrer mon Gain de Temps"
   },
   {
-    title: "Agents IA Personnalisés",
-    description: "Exploitez la richesse de vos données. Nous développons des applications métiers robustes et des assistants virtuels sécurisés pour accélérer la prise de décision de vos équipes.",
+    title: "Agents IA",
+    description: "Un assistant virtuel entraîné sur vos données, disponible 24/7 pour vos clients ou vos équipes.",
     icon: Brain,
     href: "https://calendly.com/hoptisens/hoptisens-call",
     cta: "Prototyper mon Agent IA"
   },
   {
-    title: "Sprint POC",
-    description: "Un processus en deux étapes pour valider techniquement et financièrement votre transition vers l'IA, sécurisant vos investissements lourds.",
+    title: "Sprint IA",
+    description: "10 jours pour prouver que ça marche. Diagnostic offert, puis preuve de concept livrée.",
     icon: Zap,
     href: "/contact",
     cta: "Commencer mon Diagnostic",
@@ -46,10 +46,10 @@ export function Offres() {
       <Container>
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16">
           <FadeInUp className="max-w-2xl">
-            <h2 className="text-3xl md:text-5xl font-serif text-text-primary mb-4">Notre ingénierie au service de votre rentabilité</h2>
+            <h2 className="text-3xl md:text-5xl font-serif text-text-primary mb-4">Nos solutions pour votre croissance</h2>
             <p className="text-text-secondary text-lg">
-              De l'audit initial au déploiement technique, nous couvrons 
-              l'ensemble des besoins de transformation digitale pour les PME.
+              De l'acquisition de clients à l'automatisation de vos process,
+              chaque offre répond à un besoin concret de votre PME.
             </p>
           </FadeInUp>
           <FadeInUp className="mt-6 md:mt-0">
@@ -69,7 +69,7 @@ export function Offres() {
                     <div className={`p-3 rounded-xl inline-flex ${offre.highlight ? 'bg-accent text-white' : 'bg-surface-hover text-text-primary group-hover:bg-accent group-hover:text-white transition-colors duration-300'}`}>
                       <offre.icon className="w-6 h-6" />
                     </div>
-                    {offre.highlight && <Badge variant="accent">Populaire</Badge>}
+                    {offre.highlight && <Badge variant="accent">Commencez ici</Badge>}
                   </div>
 
                   <h3 className="text-2xl font-serif text-text-primary mb-3">

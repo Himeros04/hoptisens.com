@@ -2,7 +2,7 @@
 
 **Version** : 1.0
 **Date** : Mars 2026
-**Statut** : Proposition de conception
+**Statut** : Validé
 **Dépendance** : SPECS_FONCTIONNELLES.md v1.0
 
 ---
@@ -71,7 +71,7 @@ Visiteur découvre Hoptisens
 **Points d'entrée sur le site :**
 - CTA Hero : "Commencer mon Diagnostic" (CTA secondaire)
 - Section Sprint : lien "Commencer par un diagnostic gratuit"
-- Navbar : item optionnel ou sous-menu sous "Offres"
+- Navbar : item "Diagnostic" dans la navigation principale
 - Footer : lien dans la colonne "Offres"
 
 ---
@@ -247,7 +247,6 @@ Visiteur découvre Hoptisens
 |-------|------|---------|
 | Niveau actuel | Select (cards visuelles avec icône + description) | Voir ci-dessous |
 | Horizon de temps | Select (chips) | Urgent (< 1 mois) · Court terme (1-3 mois) · Moyen terme (3-6 mois) · Exploration (pas de deadline) |
-| Budget indicatif | Select (chips, optionnel) | < 2 000€ · 2 000 - 5 000€ · 5 000 - 15 000€ · 15 000€+ · Je ne sais pas encore |
 
 **Niveaux de maturité (cards visuelles) :**
 
@@ -533,8 +532,6 @@ Règles de sélection :
   "En route" → garder ou augmenter
 - Adapter à la taille de l'entreprise : "1-5" → privilégier no-code/low-code,
   "150+" → architectures robustes
-- Si budget "< 2 000€" → ne pas proposer de projet complexité > 6
-
 Pour chaque projet, sélectionne le schemaId le plus approprié depuis la
 bibliothèque et remplis les labels des nœuds avec les outils réels du visiteur.
 
@@ -542,7 +539,7 @@ Recommande aussi le meilleur point d'entrée :
 - "sprint" si la maturité est Découverte ou Premiers pas
 - "audit" si les douleurs sont multiples et diffuses
 - "formation" si la maturité est Découverte et la taille > 50
-- "rdv_direct" si le budget est > 15 000€ ou l'horizon est Urgent
+- "rdv_direct" si l'horizon est Urgent
 
 CATALOGUE DE PROJETS :
 [catalogue injecté ici]
@@ -619,7 +616,7 @@ Nœuds paramétrables : `source`, `agent`, `db`, `output`, `reply`
 │ (Web)    │  ├──→ │  Filtre IA │ ───→ │ {output}  │
 ├──────────┤  │    │            │      │ (CRM)     │
 │ {source2}│  │    └────────────┘      └───────────┘
-│ (LinkedIn│ ─┘
+│ (LinkedIn)│ ─┘
 └──────────┘
 ```
 
@@ -992,13 +989,6 @@ export type TimeHorizon =
   | "moyen_terme"
   | "exploration";
 
-export type BudgetRange =
-  | "less_2k"
-  | "2k_5k"
-  | "5k_15k"
-  | "more_15k"
-  | "unknown";
-
 // Données collectées à travers les 5 étapes
 export interface DiagnosticInput {
   // Étape 1
@@ -1023,7 +1013,6 @@ export interface DiagnosticInput {
   // Étape 5
   maturity: MaturityLevel;
   timeHorizon: TimeHorizon;
-  budget?: BudgetRange;
 }
 
 // Résultat retourné par l'API

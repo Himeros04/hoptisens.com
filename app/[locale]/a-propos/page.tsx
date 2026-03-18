@@ -87,9 +87,9 @@ export default function AboutPage() {
                 <div className="absolute -left-[50px] bg-bg border-4 border-accent w-6 h-6 rounded-full mt-1.5 ring-4 ring-surface"></div>
                 <h3 className="text-2xl font-serif mb-3 flex items-center gap-3"><Rocket className="w-5 h-5 text-text-muted" /> 2. Construction</h3>
                 <p className="text-text-secondary">
-                  Sur la base du blueprint validé ensemble, nos ingénieurs développent
-                  la solution complète: sourcing des LLMs, conception des workflows
-                  d'automatisation (Make/n8n) et création des interfaces si nécessaire.
+                  Sur la base du plan d'action validé ensemble, nos ingénieurs développent
+                  la solution complète : choix des modèles d'IA, conception des flux
+                  d'automatisation et création des interfaces si nécessaire.
                 </p>
               </div>
             </FadeInUp>
@@ -104,7 +104,7 @@ export default function AboutPage() {
                   et documentons le système pour garantir son évolutivité.
                 </p>
                 <Button>
-                  <Link href="/contact">Parler à un consultant</Link>
+                  <Link href="/contact">Réserver 30 min avec Hadrien</Link>
                 </Button>
               </div>
             </FadeInUp>

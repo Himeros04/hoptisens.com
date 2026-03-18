@@ -9,10 +9,10 @@ export function Temoignages() {
       <Container>
         <FadeInUp className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-serif text-text-primary mb-4">
-            Des Résultats <span className="italic text-accent">Concrets</span> pour les TPE/PME
+            Études de <span className="italic text-accent">cas</span>
           </h2>
           <p className="text-text-secondary text-lg max-w-2xl mx-auto">
-            Découvrez comment nous avons transformé les opérations de nos clients avec des architectures adaptées.
+            Résultats constatés sur des accompagnements récents.
           </p>
         </FadeInUp>
 

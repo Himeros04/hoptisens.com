@@ -18,11 +18,11 @@ export default function SprintPage() {
                 <Badge variant="accent">Offre de lancement</Badge>
               </div>
               <h1 className="text-4xl md:text-6xl font-serif text-text-primary mb-6">
-                Le <span className="italic text-accent">Sprint</span> Automobilisation
+                Le <span className="italic text-accent">Sprint</span> IA
               </h1>
               <p className="text-xl text-text-secondary mb-8">
-                Passez de l'idée floue à un système d'IA opérationnel en seulement
-                deux semaines. Un investissement minimal pour un ROI démontré immédiatement.
+                10 jours pour prouver que ça marche. Un investissement minimal
+                pour un premier ROI chiffré et démontré.
               </p>
               <div className="flex gap-4">
                 <a href="https://calendly.com/hoptisens/hoptisens-call" target="_blank" rel="noopener noreferrer" className="inline-block">
@@ -33,8 +33,8 @@ export default function SprintPage() {
               </div>
             </FadeInUp>
             <FadeInUp delay={0.2} className="relative">
-              <div className="text-[var(--color-accent)] text-sm font-medium animate-pulse mb-3 text-center bg-accent/5 py-1.5 rounded-xl border border-accent/10">
-                Valable pour les 7 prochains clients
+              <div className="text-[var(--color-accent)] text-sm font-medium mb-3 text-center bg-accent/5 py-1.5 rounded-xl border border-accent/10">
+                Tarif garanti — Offre de lancement
               </div>
               <div className="aspect-square bg-accent/5 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blur-3xl w-[120%] h-[120%] -z-10"></div>
               <Card className="p-8 border-accent/20">

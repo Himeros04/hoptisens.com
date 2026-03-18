@@ -8,7 +8,7 @@ import { useState, useRef, useEffect, useMemo } from 'react';
 import { MessageSquare, X, Send, AlertCircle } from 'lucide-react';
 
 const WELCOME_MESSAGE =
-  "Bonjour ! Je suis Lucio, l'assistant IA d'Hoptisens.\nJe suis là pour comprendre vos besoins en automatisation et vous orienter vers la meilleure solution.\n\nPour commencer : quel est le secteur d'activité de votre entreprise et votre rôle ?";
+  "En 2 minutes, je vous indique quel type d'IA peut vous faire gagner du temps.\nJe suis Lucio, l'assistant Hoptisens.\n\nQuel est votre secteur d'activité ?";
 
 const STORAGE_KEY = 'hoptisens_chat_messages';
 

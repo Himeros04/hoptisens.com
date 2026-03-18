@@ -45,10 +45,10 @@ Cependant, **plusieurs faiblesses freinent la conversion**. Elles sont détaill�
 
 > **Badge :** "Partenaire de la Transformation Numérique des TPE & PME"
 > **H1 :** "Multipliez vos Prospects qualifiés, Divisez vos Coûts gaspillés."
-> **Sous-titre :** "Ne subissez plus l'évolution technologique. Hoptisens construit et déploie des systèmes d'intelligence artificielle sur-mesure (Automatisation, Agents IA, CRM) pour sécuriser vos marges et protéger le temps de vos équipes."
-> **CTA 1 :** "📞 Réserver mon Appel Stratégique" → Calendly
-> **CTA 2 :** "⚡ Remplir le Diagnostic Flash" → /contact
-> **Lien tertiaire :** "Calculer mon gain de temps" → #calculateur
+> **Sous-titre :** "Ne subissez plus l'évolution technologique, intégrez là. Hoptisens construit et déploie des systèmes intelligents sur-mesure (Automatisation, Agents IA, CRM) pour sécuriser vos marges et protéger le temps de vos équipes."
+> **CTA 1 :** "📞 Réserver mon Appel de Découverte" → Calendly
+> **CTA 2 :** "⚡ Remplir le Flash Diagnostic" → /contact
+> **Lien tertiaire :** "Calculer mon ROI" → #calculateur
 
 #### ✅ Points forts
 

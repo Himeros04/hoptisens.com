@@ -5,10 +5,10 @@ import { Counter } from "../ui/Counter";
 import { ArrowRight } from "lucide-react";
 
 const metrics = [
-  { numeric: 80, prefix: "", suffix: "%", label: "De temps de prospection manuel économisé grâce à nos systèmes de données pré-qualifiées." },
-  { numeric: 10, prefix: "", suffix: " Jours", label: "Le temps exact pour cibler 2 processus clés et chiffrer votre ROI lors de notre Sprint." },
-  { numeric: 100, prefix: "", suffix: "%", label: "De l'audit initial déductible de votre phase d'implémentation." },
-  { numeric: 24, prefix: "", suffix: "/7", label: "De qualification de leads grâce à nos agents IA conversationnels." },
+  { numeric: 80, prefix: "", suffix: "%", label: "de prospection manuelle en moins" },
+  { numeric: 10, prefix: "", suffix: " Jours", label: "pour un premier ROI chiffré" },
+  { numeric: 100, prefix: "", suffix: "%", label: "de l'audit déductible de la mission" },
+  { numeric: 24, prefix: "", suffix: "/7", label: "de qualification IA, sans pause" },
 ];
 
 export function Chiffres() {
@@ -17,10 +17,10 @@ export function Chiffres() {
       <Container>
         <FadeInUp className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-serif text-[var(--color-text-primary)] mb-4">
-            Votre nouvelle architecture de croissance
+            Ce que nos clients mesurent déjà
           </h2>
           <p className="text-[var(--color-text-secondary)] text-lg">
-            Nous installons les bases d’une architecture d’entreprise flexible, orientée IA et responsable pour que vous puissiez anticiper ce changement plutôt que de le subir.
+            Moyennes constatées sur nos derniers accompagnements TPE/PME.
           </p>
         </FadeInUp>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 divide-x-0 md:divide-x divide-border">
