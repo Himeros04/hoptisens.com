@@ -18,9 +18,9 @@ Règles de sélection :
 - Pour chaque projet, sélectionne le schemaId le plus approprié depuis la bibliothèque et remplis les labels des nœuds avec les outils réels du visiteur.
 
 Recommande aussi le meilleur point d'entrée :
-- "sprint" si la maturité est Découverte ou Premiers pas
-- "audit" si les douleurs sont multiples et diffuses
-- "formation" si la maturité est Découverte et la taille > 50
+- "sprint" ou "audit" si la maturité est Découverte ou Premiers pas
+- "audit" ou "workshop" si les douleurs sont multiples et diffuses
+- "formation" ou "workshop" si la maturité est Découverte et la taille > 50
 - "rdv_direct" si l'horizon est Urgent
 
 ${PROJECT_CATALOG}`;

@@ -16,7 +16,7 @@ export const PROJECT_CATALOG = `
 | ID | Projet type | Complexité base | Schéma |
 |----|-------------|----------------|--------|
 | agent-email | Agent IA de traitement et réponse aux emails | 6/10 | schema-agent-email |
-| agent-qualification | Agent IA de qualification de leads | 7/10 | schema-agent-leads |
+| agent-qualification | Agent IA de qualification de prospects | 7/10 | schema-agent-leads |
 | agent-support | Agent IA de support client niveau 1 | 6/10 | schema-agent-support |
 | agent-interne | Agent IA interne (assistant métier) | 5/10 | schema-agent-interne |
 | auto-reporting | Automatisation du reporting (Excel → Dashboard) | 4/10 | schema-auto-reporting |
@@ -146,7 +146,7 @@ export const DEPARTMENT_LABELS: Record<string, string> = {
 
 export const PAIN_POINT_LABELS: Record<string, { label: string; description: string }> = {
   prospection_leads: {
-    label: 'Prospection & qualification de leads',
+    label: 'Prospection & qualification de prospects',
     description: 'Recherche manuelle de prospects, tri, relances',
   },
   reponse_clients: {

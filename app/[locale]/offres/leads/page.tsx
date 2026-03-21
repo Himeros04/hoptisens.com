@@ -13,14 +13,14 @@ export default function LeadsPage() {
         <Container className="text-center">
           <FadeInUp>
             <h1 className="text-4xl md:text-6xl font-serif text-text-primary mb-6 max-w-4xl mx-auto">
-              Alimentez votre pipeline, <span className="italic text-accent">automatiquement</span>.
+              Alimentez votre circuit de prospection, <span className="italic text-accent">automatiquement</span>.
             </h1>
             <p className="text-xl text-text-secondary mb-10 max-w-2xl mx-auto">
               Nous construisons des systèmes de prospection sur-mesure combinant
               scraping éthique, qualification IA et outreach multi-canal.
             </p>
             <Button size="lg">
-              <Link href="/contact">Me générer des leads</Link>
+              <Link href="/contact">Me générer des prospects</Link>
             </Button>
           </FadeInUp>
         </Container>

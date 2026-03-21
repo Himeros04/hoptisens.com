@@ -42,7 +42,7 @@
         "other": "Specify your key tools..."
       },
       "painPoints": {
-        "title": "Which processes waste the most of your time?",
+        "title": "Which processes take up most of your time?",
         "subtitle": "Select 1 to 4 pain points, then indicate your #1 priority.",
         "descriptionLabel": "Describe your biggest pain point in one sentence (optional)"
       },
@@ -71,5 +71,173 @@
     },
     "hero_cta": "Start my Diagnostic",
     "sprint_link": "Or start with a free diagnostic"
+  },
+  "Hero": {
+    "multipliez": "Multiply",
+    "vos": "your",
+    "prospects": "qualified prospects",
+    "qualifies": "qualified,",
+    "divisez": "Divide",
+    "vos": "your",
+    "couts": "costs",
+    "gaspilles": "wasted.",
+    "description": "Hoptisens designs and deploys custom AI systems for SMEs: automation, intelligent agents, connected CRM. Your margins are protected, your time is freed.",
+    "cta_diagnostic": "Start my Diagnostic",
+    "cta_call": "Book a call",
+    "cta_calculator": "Calculate my time savings"
+  },
+  "Offres": {
+    "title": "Our solutions for your growth",
+    "subtitle": "From customer acquisition to process automation, each offer meets a concrete need for your SME.",
+    "cta_see_all": "View all our catalog",
+    "items": {
+      "acquisition": {
+        "title": "Acquisition & Prospects",
+        "description": "Your sales team spends more time looking for prospects than closing deals. We automate everything up to the CRM.",
+        "cta": "Audit my Acquisition"
+      },
+      "automation": {
+        "title": "Automation & RPA",
+        "description": "Double data entry destroys your profitability. Your flows execute in real time, without human error.",
+        "cta": "Calculate my Time Savings"
+      },
+      "agents": {
+        "title": "AI Agents",
+        "description": "A virtual assistant trained on your data, available 24/7 for your clients or your teams.",
+        "cta": "Prototype my AI Agent"
+      },
+      "sprint": {
+        "title": "AI Sprint",
+        "description": "10 days to prove it works. Free diagnostic, then proof of concept delivered.",
+        "cta": "Start my Diagnostic",
+        "badge": "Start here"
+      }
+    },
+    "workshop": {
+      "title": "Workshops & AI Training",
+      "description": "From half a day to three days — practical workshops to identify your use cases and leave with a PoC"
+    }
+  },
+  "Sprint": {
+    "badge": "Launch offer — 490€",
+    "badge_old": "990€",
+    "title": "10 days for your first ROI",
+    "subtitle": "A two-step process to technically and financially validate your transition to AI.",
+    "step1_title": "Step 1 - The Diagnostic (Free)",
+    "step1_desc": "Fill out our targeted questionnaire. Our AI analyzes your real data to assess feasibility and your potential ROI.",
+    "step2_title": "Step 2 - The Immersive Sprint (Proof of Concept)",
+    "step2_desc": "For 4 business days, we map your data in immersion and deliver a billed proof of concept.",
+    "guarantee_title": "Trust Guarantee",
+    "guarantee_desc": "Step 1 filters out unfeasible ideas to save you time. Step 2 legally and technically secures your investments.",
+    "cta": "Start my Diagnostic",
+    "bottom_text": "Days to prove it works"
+  },
+  "Chiffres": {
+    "title": "What our clients already measure",
+    "subtitle": "Averages observed on our recent SME support.",
+    "metrics": {
+      "1": "of repetitive tasks eliminated",
+      "2": "Days for a quantified first ROI",
+      "3": "of the audit deductible from the mission",
+      "4": "/7 prospect qualification incoming"
+    },
+    "cta": "Calculate what you would save"
+  },
+  "Temoignages": {
+    "title": "Case studies",
+    "subtitle": "Results observed on recent engagements."
+  },
+  "Contact": {
+    "title": "Start your AI project",
+    "subtitle": "Fill out the form below and we'll analyze your needs within 24h.",
+    "options": {
+      "form": {
+        "title": "You know what you want?",
+        "cta": "Form"
+      },
+      "chat": {
+        "title": "Still exploring?",
+        "cta": "Chat with Lucio"
+      },
+      "video": {
+        "title": "Prefer a video call?",
+        "cta": "Book a slot"
+      }
+    },
+    "direct_title": "Direct Contact",
+    "email_label": "EMAIL",
+    "social_label": "SOCIAL",
+    "response_time": "Our team typically responds within 24 to 48 business hours to schedule a 30-minute discovery call."
+  },
+  "About": {
+    "title": "Our Purpose",
+    "subtitle": "Democratize Artificial Intelligence for SMEs. We believe AI shouldn't be reserved for tech giants. By 2030, every structured company should have its own AI ecosystem to multiply its productivity.",
+    "vision": {
+      "title": "Our Vision",
+      "desc": "Create a world where humans are freed from repetitive tasks to focus on creativity, thanks to ethical and high-performing AI."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "desc": "Support leaders in their transformation by identifying, sourcing and integrating the best AI solutions applicable today."
+    },
+    "strategy": {
+      "title": "Our Strategy",
+      "desc": "Link pragmatism and innovation. Quickly deploy PoCs with direct ROI (AI Sprint) before structuring complex global systems."
+    },
+    "founder_title": "The founder",
+    "founder_name": "Hadrien Peyron",
+    "founder_role": "AI Agents Orchestrator · Hoptisens Founder · Music enthusiast",
+    "founder_bio": "Engineer turned Business Developer, Hadrien spent 7 years running a 60-consultant IT Business Unit within a major consulting firm — learning on the job how to structure, sell and grow a complex services business.",
+    "founder_philosophy": "In 2024, he founded Hoptisens with a conviction: AI must serve operations, not impress investors. His philosophy sums up in three words: Simplify to Amplify.",
+    "founder_quote": "Engineer in mindset, Business Developer in practice. I focus on identifying problems and enjoy imagining solutions to address them.",
+    "linkedin_cta": "View LinkedIn profile",
+    "approach_title": "The Hoptisens Approach",
+    "approach_subtitle": "A proven methodology in 3 major steps, guaranteeing integration and sustainable adoption of new tools.",
+    "steps": {
+      "1": {
+        "title": "1. Diagnostic",
+        "desc": "We dive into your operations to map your processes. Our team identifies bottlenecks and evaluates AI use cases offering the best feasibility/ROI trade-off."
+      },
+      "2": {
+        "title": "2. Construction",
+        "desc": "Based on the action plan validated together, our engineers develop the complete solution: AI model choice, automation flow design and interface creation if needed."
+      },
+      "3": {
+        "title": "3. Transfer & Training",
+        "desc": "A technical solution is useless without adoption. We train your operational teams to master their new tool, and document the system to ensure scalability."
+      }
+    },
+    "cta": "Book 30 min with Hadrien"
+  },
+  "LeadsPage": {
+    "title": "Fill your prospect pipeline, automatically.",
+    "subtitle": "We build custom prospecting systems combining ethical scraping, AI qualification and multi-channel outreach.",
+    "cta": "Generate prospects for me",
+    "features": {
+      "1": {
+        "title": "Augmented Prospector",
+        "desc": "Real-time monitoring of the web, LinkedIn and public databases to identify your targets as soon as a business signal appears."
+      },
+      "2": {
+        "title": "AI Filter",
+        "desc": "An AI agent analyzes each prospect to ensure it perfectly matches your Persona, automatically rejecting false positives."
+      },
+      "3": {
+        "title": "Connected Campaigns",
+        "desc": "Automated push of qualified prospects to your CRM and triggering of personalized email sequences via AI (unique Icebreakers)."
+      }
+    }
+  },
+  "Calculateur": {
+    "title": "Calculate your ROI with AI Agents",
+    "subtitle": "Discover how much time and money you could save with our automation solutions.",
+    "subtitle_2": "Select the solutions that match your needs to see your potential savings.",
+    "results": {
+      "title": "Your ROI estimate",
+      "time_saved": "Time saved per month",
+      "annual_savings": "Annual savings",
+      "cta": "Book a call to get your detailed analysis",
+      "note": "Estimations based on average SME scenarios. Final ROI depends on your specific context."
+    }
   }
 }

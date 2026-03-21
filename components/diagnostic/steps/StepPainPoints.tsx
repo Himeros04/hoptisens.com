@@ -50,7 +50,7 @@ export function StepPainPoints({ data, onChange }: StepPainPointsProps) {
           Quels processus vous font perdre le plus de temps ?
         </h2>
         <p className="text-text-muted text-sm">
-          Sélectionnez 1 à 4 irritants, puis indiquez votre priorité n°1.
+          Sélectionnez 1 à 4 processus, puis indiquez votre priorité n°1.
         </p>
       </div>
 
@@ -113,7 +113,7 @@ export function StepPainPoints({ data, onChange }: StepPainPointsProps) {
       {selected.length > 0 && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <label className="block text-sm font-medium text-text-secondary mb-2">
-            Décrivez en une phrase votre plus grand irritant (optionnel)
+            Décrivez en une phrase votre plus grand processus (optionnel)
           </label>
           <textarea
             placeholder="Ex: Je passe 2h par jour à recopier des données entre mon CRM et mes tableaux Excel..."

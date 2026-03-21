@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -14,6 +14,15 @@ import { StepTools } from "./steps/StepTools";
 import { StepPainPoints } from "./steps/StepPainPoints";
 import { StepMaturity } from "./steps/StepMaturity";
 import type { DiagnosticInput, DiagnosticResult, WizardStep } from "@/lib/diagnostic/types";
+import { ROLE_LABELS, SECTOR_LABELS, PAIN_POINT_LABELS } from "@/lib/diagnostic/catalog";
+
+function generateUUID(): string {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    const r = Math.random() * 16 | 0;
+    const v = c === 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+}
 
 export function DiagnosticWizard() {
   const [step, setStep] = useState<WizardStep>(0);
@@ -21,10 +30,82 @@ export function DiagnosticWizard() {
   const [result, setResult] = useState<DiagnosticResult | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [tempId, setTempId] = useState<string | null>(null);
+  const startTimeRef = useRef<string | null>(null);
+  const isInitializedRef = useRef(false);
 
   const updateData = useCallback((partial: Partial<DiagnosticInput>) => {
     setData((prev) => ({ ...prev, ...partial }));
   }, []);
+
+  const saveToAirtable = useCallback(async (currentStep: WizardStep, isFinal: boolean = false) => {
+    if (!tempId || currentStep < 1) return;
+
+    const payload: Record<string, unknown> = {
+      tempId,
+      currentStep: Number(currentStep),
+    };
+
+    if (currentStep >= 1) {
+      if (data.role) payload.role = ROLE_LABELS[data.role] || data.role;
+      if (data.roleOther) payload.roleOther = data.roleOther;
+      if (data.sector) payload.sector = SECTOR_LABELS[data.sector] || data.sector;
+      if (data.sectorOther) payload.sectorOther = data.sectorOther;
+    }
+
+    if (currentStep >= 2) {
+      if (data.companySize) payload.companySize = data.companySize;
+      if (data.department) payload.department = data.department;
+    }
+
+    if (currentStep >= 3) {
+      if (data.tools && data.tools.length > 0) payload.tools = data.tools;
+      if (data.toolsOther) payload.toolsOther = data.toolsOther;
+    }
+
+    if (currentStep >= 4) {
+      if (data.painPoints && data.painPoints.length > 0) {
+        payload.painPoints = data.painPoints.map(pp => PAIN_POINT_LABELS[pp]?.label || pp);
+      }
+      if (data.priorityPainPoint) {
+        payload.priorityPainPoint = PAIN_POINT_LABELS[data.priorityPainPoint]?.label || data.priorityPainPoint;
+      }
+      if (data.painPointDescription) payload.painPointDescription = data.painPointDescription;
+    }
+
+    if (currentStep >= 5) {
+      if (data.maturity) payload.maturity = data.maturity;
+      if (data.timeHorizon) payload.timeHorizon = data.timeHorizon;
+    }
+
+    if (isFinal) {
+      const endTime = new Date().toISOString();
+      payload.status = 'Terminé';
+      payload.endTime = endTime;
+      
+      if (startTimeRef.current) {
+        const start = new Date(startTimeRef.current).getTime();
+        const end = new Date(endTime).getTime();
+        payload.durationSeconds = Math.round((end - start) / 1000);
+      }
+    }
+
+    try {
+      await fetch('/api/diagnostics', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+    } catch (err) {
+      console.warn('Failed to save to Airtable:', err);
+    }
+  }, [tempId, data]);
+
+  useEffect(() => {
+    if (step >= 1 && step <= 5 && tempId && isInitializedRef.current) {
+      saveToAirtable(step, step === 5);
+    }
+  }, [step, tempId, saveToAirtable]);
 
   const canGoNext = (): boolean => {
     switch (step) {
@@ -37,7 +118,38 @@ export function DiagnosticWizard() {
     }
   };
 
-  const goNext = () => {
+  const goNext = async () => {
+    if (step === 0) {
+      const newTempId = generateUUID();
+      const startTime = new Date().toISOString();
+      setTempId(newTempId);
+      startTimeRef.current = startTime;
+
+      const initialData: Record<string, unknown> = {
+        tempId: newTempId,
+        currentStep: 1,
+        startTime,
+        status: 'En cours',
+      };
+
+      if (data.role) initialData.role = ROLE_LABELS[data.role as string] || data.role;
+      if (data.roleOther) initialData.roleOther = data.roleOther;
+      if (data.sector) initialData.sector = SECTOR_LABELS[data.sector as string] || data.sector;
+      if (data.sectorOther) initialData.sectorOther = data.sectorOther;
+
+      try {
+        await fetch('/api/diagnostics', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(initialData),
+        });
+      } catch (err) {
+        console.warn('Failed to create diagnostic in Airtable:', err);
+      }
+
+      isInitializedRef.current = true;
+    }
+
     if (step === 5) {
       submitDiagnostic();
       return;
@@ -52,7 +164,7 @@ export function DiagnosticWizard() {
   const submitDiagnostic = async () => {
     setIsLoading(true);
     setError(null);
-    setStep(0); // Will show loading screen
+    setStep(0);
 
     try {
       const res = await fetch("/api/diagnostic", {
@@ -68,9 +180,13 @@ export function DiagnosticWizard() {
 
       const diagnosticResult: DiagnosticResult = await res.json();
       setResult(diagnosticResult);
+
+      if (tempId) {
+        await saveToAirtable(5, true);
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : "Une erreur est survenue");
-      setStep(5); // Go back to last step
+      setStep(5);
     } finally {
       setIsLoading(false);
     }
@@ -82,6 +198,9 @@ export function DiagnosticWizard() {
     setResult(null);
     setError(null);
     setIsLoading(false);
+    setTempId(null);
+    startTimeRef.current = null;
+    isInitializedRef.current = false;
   };
 
   // Loading state

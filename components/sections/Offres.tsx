@@ -10,7 +10,7 @@ type RouteHref = "/" | "/a-propos" | "/offres" | "/contact";
 
 const offres = [
   {
-    title: "Acquisition & Leads",
+    title: "Acquisition & Prospects",
     description: "Vos commerciaux passent plus de temps à chercher des prospects qu'à closer. On automatise tout jusqu'au CRM.",
     icon: Users,
     href: "/contact",

@@ -31,7 +31,7 @@ export function LeadsSchema() {
         {/* Output Node */}
         <g>
           <rect x="360" y="120" width="110" height="60" rx="12" fill="var(--color-bg)" stroke="var(--color-accent)" strokeWidth="2" />
-          <text x="415" y="145" textAnchor="middle" fill="var(--color-text-primary)" fontSize="12" fontWeight="600" className="font-sans">Lead Qualifié</text>
+          <text x="415" y="145" textAnchor="middle" fill="var(--color-text-primary)" fontSize="12" fontWeight="600" className="font-sans">Prospect Qualifié</text>
           <circle cx="415" cy="165" r="8" fill="var(--color-accent)" />
           <text x="415" y="169" textAnchor="middle" fill="white" fontSize="10" className="font-sans">✓</text>
         </g>

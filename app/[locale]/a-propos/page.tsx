@@ -50,7 +50,7 @@ export default function AboutPage() {
                 <Sparkles className="text-accent w-10 h-10 mb-6" />
                 <h3 className="text-xl font-serif mb-4">Notre Stratégie</h3>
                 <p className="text-text-secondary">
-                  Lier pragmatisme et innovation. Déployer rapidement des POC à ROI direct 
+                  Lier pragmatisme et innovation. Déployer rapidement des preuves de concept à ROI direct 
                   (Sprint IA) avant de structurer des systèmes globaux complexes.
                 </p>
               </Card>

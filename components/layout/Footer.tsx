@@ -22,7 +22,7 @@ export function Footer() {
           <div className="flex flex-col gap-4">
             <h4 className="font-semibold text-[var(--color-text-primary)]">{t("offres")}</h4>
             <ul className="flex flex-col gap-3 text-sm text-[var(--color-text-secondary)]">
-              <li><Link href="/offres" className="hover:text-[var(--color-accent)] transition-colors">Acquisition & Leads</Link></li>
+              <li><Link href="/offres" className="hover:text-[var(--color-accent)] transition-colors">Acquisition & Prospects</Link></li>
               <li><Link href="/offres" className="hover:text-[var(--color-accent)] transition-colors">Automatisation & RPA</Link></li>
               <li><Link href="/offres" className="hover:text-[var(--color-accent)] transition-colors">Agents IA</Link></li>
               <li><Link href="/offres" className="hover:text-[var(--color-accent)] transition-colors">Sprint IA</Link></li>

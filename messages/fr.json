@@ -43,8 +43,8 @@
       },
       "painPoints": {
         "title": "Quels processus vous font perdre le plus de temps ?",
-        "subtitle": "Sélectionnez 1 à 4 irritants, puis indiquez votre priorité n°1.",
-        "descriptionLabel": "Décrivez en une phrase votre plus grand irritant (optionnel)"
+        "subtitle": "Sélectionnez 1 à 4 processus, puis indiquez votre priorité n°1.",
+        "descriptionLabel": "Décrivez en une phrase votre plus grand processus (optionnel)"
       },
       "maturity": {
         "title": "Où en êtes-vous avec l'IA et l'automatisation ?",
