@@ -16,12 +16,12 @@ export const PROJECT_CATALOG = `
 | ID | Projet type | Complexité base | Schéma |
 |----|-------------|----------------|--------|
 | agent-email | Agent IA de traitement et réponse aux emails | 6/10 | schema-agent-email |
-| agent-qualification | Agent IA de qualification de leads | 7/10 | schema-agent-leads |
+| agent-qualification | Agent IA de qualification de prospects | 7/10 | schema-agent-leads |
 | agent-support | Agent IA de support client niveau 1 | 6/10 | schema-agent-support |
 | agent-interne | Agent IA interne (assistant métier) | 5/10 | schema-agent-interne |
 | auto-reporting | Automatisation du reporting (Excel → Dashboard) | 4/10 | schema-auto-reporting |
 | auto-facturation | Automatisation facturation et relances | 5/10 | schema-auto-facturation |
-| auto-onboarding | Automatisation onboarding client/collaborateur | 5/10 | schema-auto-onboarding |
+| auto-onboarding | Automatisation intégration client/collaborateur | 5/10 | schema-auto-onboarding |
 | crm-semi-auto | CRM semi-automatisé | 7/10 | schema-crm |
 | interconnexion | Câblage logiciel (interconnexion d'outils) | 5/10 | schema-interconnexion |
 
@@ -40,7 +40,7 @@ export const PROJECT_CATALOG = `
 |----|-------------|----------------|--------|
 | formation-fondamentaux | Atelier "Les Fondamentaux de l'IA" | 2/10 | schema-formation |
 | formation-assistants | Formation "Créer ses propres assistants IA" | 3/10 | schema-formation |
-| agent-formateur | Agent formateur interne (onboarding IA) | 5/10 | schema-agent-interne |
+| agent-formateur | Agent formateur interne (intégration IA) | 5/10 | schema-agent-interne |
 
 SCHÉMAS DISPONIBLES ET LEURS NŒUDS :
 - schema-agent-email : source, agent, db, output, reply

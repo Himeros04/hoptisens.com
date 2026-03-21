@@ -28,7 +28,7 @@ const offers = [
     title: "Automatisation & RPA",
     shortTitle: "Automatisation & RPA",
     icon: Workflow,
-    description: "Libérez vos équipes des tâches répétitives à faible valeur ajoutée. Nous connectons vos outils pour créer des flux de travail sans couture.",
+    description: "Libérez vos équipes des tâches répétitives à faible valeur ajoutée. Nous connectons vos outils pour créer des processus fluides et efficaces.",
     bullets: ["Synchronisation de données multi-sources", "Traitement automatique de documents", "Relances et suivis automatiques"],
     cta: "Chiffrer mon Gain de Temps",
     href: "/contact",
