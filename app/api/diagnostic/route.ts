@@ -9,7 +9,7 @@ const google = createGoogleGenerativeAI({
   apiKey: process.env.GEMINI_API_KEY || '',
 });
 
-export const maxDuration = 15;
+export const maxDuration = 10;
 
 // Simple in-memory rate limiting
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
@@ -28,7 +28,6 @@ function checkRateLimit(ip: string): boolean {
 
 export async function POST(req: Request) {
   try {
-    // Rate limiting
     const ip = req.headers.get('x-forwarded-for') ?? req.headers.get('x-real-ip') ?? 'unknown';
     if (!checkRateLimit(ip)) {
       return Response.json(
@@ -39,7 +38,6 @@ export async function POST(req: Request) {
 
     const body = await req.json();
 
-    // Validate input
     const parsed = DiagnosticInputSchema.safeParse(body);
     if (!parsed.success) {
       return Response.json(
@@ -49,31 +47,41 @@ export async function POST(req: Request) {
     }
 
     const input: DiagnosticInput = parsed.data;
-
     let result: DiagnosticResult;
 
     try {
       const { system, user } = buildPrompt(input);
 
-      const { object } = await generateObject({
-        model: google('gemini-2.5-flash'),
-        schema: DiagnosticResultSchema,
-        system,
-        prompt: user,
-        temperature: 0.7,
-      });
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 8000);
 
-      result = object;
-    } catch (aiError) {
-      console.error('AI generation failed, using fallback:', aiError);
+      try {
+        const { object } = await generateObject({
+          model: google('gemini-2.5-flash'),
+          schema: DiagnosticResultSchema,
+          system,
+          prompt: user,
+          temperature: 0.7,
+          abortSignal: controller.signal,
+        });
+        clearTimeout(timer);
+        result = object;
+      } catch (aiError) {
+        clearTimeout(timer);
+        console.error('AI generation failed, using fallback:', aiError instanceof Error ? aiError.message : aiError);
+        result = getFallbackResult(input);
+      }
+    } catch (outerError) {
+      console.error('Diagnostic processing error:', outerError instanceof Error ? outerError.message : outerError);
       result = getFallbackResult(input);
     }
 
     return Response.json(result);
   } catch (error) {
-    console.error('Diagnostic API error:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    console.error('Diagnostic API error:', errorMessage);
     return Response.json(
-      { error: 'Erreur interne du serveur' },
+      { error: 'Erreur interne du serveur', details: errorMessage },
       { status: 500 }
     );
   }

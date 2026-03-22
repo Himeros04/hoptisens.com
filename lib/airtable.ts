@@ -87,7 +87,7 @@ export async function updateLead(recordId: string, data: Partial<ProspectData>) 
   }
 }
 
-// === DIAGNOSTICS TABLE ===
+// === DIAGNOSTICS TABLE =====================================================
 
 interface DiagnosticFields {
   [key: string]: string | number | boolean | readonly string[] | undefined;
@@ -191,8 +191,8 @@ export async function updateDiagnostic(tempId: string, data: Partial<DiagnosticD
     if (data.painPoints && data.painPoints.length > 0) fields['Processus'] = data.painPoints.join(', ');
     if (data.priorityPainPoint) fields['Processus prioritaire'] = data.priorityPainPoint;
     if (data.painPointDescription) fields['Description processus'] = data.painPointDescription;
-    if (data.maturity) (fields as Record<string, unknown>)['Maturité IA'] = data.maturity;
-    if (data.timeHorizon) (fields as Record<string, unknown>)['Horizon temporel'] = data.timeHorizon;
+    if (data.maturity) fields['Maturité IA'] = data.maturity;
+    if (data.timeHorizon) fields['Horizon temporel'] = data.timeHorizon;
     if (data.email) fields['Email'] = data.email;
     if (data.firstName) fields['Prénom'] = data.firstName;
     if (data.company) fields['Entreprise'] = data.company;

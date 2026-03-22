@@ -102,8 +102,8 @@ export function DiagnosticWizard() {
   }, [tempId, data]);
 
   useEffect(() => {
-    if (step >= 1 && step <= 5 && tempId && isInitializedRef.current) {
-      saveToAirtable(step, step === 5);
+    if (step >= 1 && step <= 4 && tempId && isInitializedRef.current) {
+      saveToAirtable(step, false);
     }
   }, [step, tempId, saveToAirtable]);
 
@@ -174,18 +174,30 @@ export function DiagnosticWizard() {
       });
 
       if (!res.ok) {
-        const err = await res.json().catch(() => ({}));
-        throw new Error(err.error || "Erreur lors du diagnostic");
+        let errorMessage = "Erreur lors du diagnostic";
+        try {
+          const err = await res.json();
+          errorMessage = err.error || err.details || errorMessage;
+        } catch {
+          errorMessage = `Erreur serveur (${res.status})`;
+        }
+        throw new Error(errorMessage);
       }
 
       const diagnosticResult: DiagnosticResult = await res.json();
+
+      if (!diagnosticResult.summary || !diagnosticResult.projects?.length) {
+        throw new Error("Réponse incomplète du serveur");
+      }
+
       setResult(diagnosticResult);
 
       if (tempId) {
-        await saveToAirtable(5, true);
+        saveToAirtable(5, true);
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Une erreur est survenue");
+      const message = err instanceof Error ? err.message : "Une erreur est survenue";
+      setError(message);
       setStep(5);
     } finally {
       setIsLoading(false);
@@ -247,8 +259,14 @@ export function DiagnosticWizard() {
       <ProgressBar currentStep={step} />
 
       {error && (
-        <div className="mb-6 p-4 rounded-xl bg-warning/10 border border-warning/20 text-warning text-sm">
-          {error}
+        <div className="mb-6 p-4 rounded-xl bg-warning/10 border border-warning/20 text-warning text-sm flex items-center justify-between gap-4">
+          <span>{error}</span>
+          <button
+            onClick={submitDiagnostic}
+            className="shrink-0 px-3 py-1.5 rounded-lg bg-warning/20 hover:bg-warning/30 text-xs font-medium transition-colors cursor-pointer"
+          >
+            Réessayer
+          </button>
         </div>
       )}
 

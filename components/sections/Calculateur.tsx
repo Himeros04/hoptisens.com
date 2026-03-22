@@ -209,7 +209,7 @@ export function Calculateur() {
             Basé sur des études McKinsey, UiPath & Botmind
           </Badge>
           <h2 className="text-3xl md:text-5xl font-serif text-[var(--color-text-primary)] mb-4">
-            Calculez votre ROI avec les Agents IA
+            Calculez vos GAINS (temps -{">"} argent) avec les Agents IA
           </h2>
           <p className="text-[var(--color-text-secondary)] text-lg">
             Sélectionnez les agents adaptés à votre activité et estimez les
