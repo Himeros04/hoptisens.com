@@ -239,5 +239,12 @@
       "cta": "Book a call to get your detailed analysis",
       "note": "Estimations based on average SME scenarios. Final ROI depends on your specific context."
     }
+  },
+  "CookieConsent": {
+    "message": "This site uses cookies to ensure proper operation and improve your experience. No advertising cookies are used.",
+    "accept": "Accept",
+    "refuse": "Refuse",
+    "policyLink": "Privacy Policy",
+    "manage": "Manage my cookies"
   }
 }

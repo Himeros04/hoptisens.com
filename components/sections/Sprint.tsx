@@ -2,9 +2,8 @@ import { Section } from "../ui/Section";
 import { Container } from "../ui/Container";
 import { FadeInUp } from "../ui/FadeInUp";
 import { Button } from "../ui/Button";
-import { Card } from "../ui/Card";
-import { Badge } from "../ui/Badge";
-import { Zap, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { SprintSchema } from "../visuals/OfferSchemas";
 import { Link } from "@/lib/routing";
 
 export function Sprint() {
@@ -41,37 +40,21 @@ export function Sprint() {
                 <div><span className="font-semibold text-white">Garantie Confiance</span> : L'étape 1 filtre les idées irréalisables pour vous faire gagner du temps. L'étape 2 sécurise fonctionnellement et techniquement vos investissements.</div>
               </li>
             </ul>
-            <div className="flex gap-4">
+            <div className="flex items-center gap-4">
                <Link href="/contact" className="inline-block">
                  <Button size="lg" className="bg-accent text-white hover:bg-white hover:text-accent border-none shadow-none">
                    🚀 Lancer mon sprint IA
                  </Button>
                </Link>
+               <Link href="/offres/sprint" className="text-white/80 hover:text-white text-sm font-medium flex items-center gap-1 transition-colors">
+                 En savoir plus <ArrowRight className="w-4 h-4" />
+               </Link>
              </div>
           </FadeInUp>
           
            <FadeInUp className="order-first lg:order-last">
-             <div className="p-8 border border-accent/40 bg-accent-soft/30 rounded-3xl">
-               <div className="flex flex-col h-full">
-                 <div className="mb-6 flex items-center justify-between">
-                   <div className="p-3 rounded-xl inline-flex bg-accent text-white">
-                     <Zap className="w-6 h-6" />
-                   </div>
-                   <Badge variant="accent">Commencez ici</Badge>
-                 </div>
-
-                 <h3 className="text-2xl font-serif text-text-primary mb-3">
-                   Sprint IA
-                 </h3>
-
-                 <p className="text-text-secondary flex-grow mb-6">
-                   10 jours pour prouver que ça marche. Diagnostic offert, puis preuve de concept livrée.
-                 </p>
-
-<Link href="/offres/sprint" className="inline-flex items-center text-sm font-medium text-text-primary group-hover:text-accent transition-colors mt-auto">
-  En savoir plus <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-</Link>
-               </div>
+             <div className="bg-white rounded-3xl p-6 shadow-lg border border-border/30">
+               <SprintSchema />
              </div>
            </FadeInUp>
         </div>

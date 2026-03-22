@@ -333,7 +333,7 @@ export function WorkshopSchema() {
 
 export function SprintSchema() {
   return (
-    <div className="w-full h-full flex items-center justify-center p-4 bg-surface/50 rounded-2xl border border-border">
+    <div className="w-full h-full flex items-center justify-center p-4">
       <svg viewBox="0 0 600 400" className="w-full h-full" fill="none" aria-hidden="true" focusable="false">
         {/* Timeline Arrow Background */}
         <path d="M 80 120 L 520 120" stroke="var(--color-border)" strokeWidth="4" strokeLinecap="round" opacity="0.5" />
@@ -358,9 +358,9 @@ export function SprintSchema() {
 
           {/* text Details */}
           <text x="0" y="55" textAnchor="middle" fill="var(--color-text-primary)" fontSize="13" fontWeight="bold">2. SPRINT IMMERSIF</text>
-          <text x="0" y="73" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="11">4 JOURS OUVRÉS</text>
+          <text x="0" y="73" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="11">10 JOURS OUVRÉS</text>
         </g>
-
+    
         {/* --- Séparateur --- */}
         <line x1="60" y1="240" x2="540" y2="240" stroke="var(--color-border)" strokeWidth="1" opacity="0.3" />
 

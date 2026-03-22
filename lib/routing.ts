@@ -29,6 +29,14 @@ export const routing = defineRouting({
     '/diagnostic': {
       fr: '/diagnostic',
       en: '/diagnostic'
+    },
+    '/mentions-legales': {
+      fr: '/mentions-legales',
+      en: '/legal-notice'
+    },
+    '/politique-confidentialite': {
+      fr: '/politique-confidentialite',
+      en: '/privacy-policy'
     }
   }
 });

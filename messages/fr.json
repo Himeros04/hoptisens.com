@@ -71,5 +71,12 @@
     },
     "hero_cta": "Commencer mon Diagnostic",
     "sprint_link": "Ou commencez par un diagnostic gratuit"
+  },
+  "CookieConsent": {
+    "message": "Ce site utilise des cookies pour assurer son bon fonctionnement et améliorer votre expérience. Aucun cookie publicitaire n'est déposé.",
+    "accept": "Accepter",
+    "refuse": "Refuser",
+    "policyLink": "Politique de confidentialité",
+    "manage": "Gérer mes cookies"
   }
 }

@@ -2,9 +2,11 @@ import { Link } from "@/lib/routing";
 import { useTranslations } from "next-intl";
 import { Container } from "../ui/Container";
 import { Logo } from "../ui/Logo";
+import { ManageCookiesButton } from "./ManageCookiesButton";
 
 export function Footer() {
   const t = useTranslations("Navigation");
+  const tc = useTranslations("CookieConsent");
   
   return (
     <footer className="bg-[var(--color-surface)] border-t border-[var(--color-border)] py-16 md:py-24">
@@ -36,8 +38,9 @@ export function Footer() {
             <ul className="flex flex-col gap-3 text-sm text-[var(--color-text-secondary)]">
               <li><Link href="/a-propos" className="hover:text-[var(--color-accent)] transition-colors">{t("apropos")}</Link></li>
               <li><Link href="/contact" className="hover:text-[var(--color-accent)] transition-colors">{t("contact")}</Link></li>
-              <li><Link href="/" className="hover:text-[var(--color-accent)] transition-colors">{t("legals")}</Link></li>
-              <li><Link href="/" className="hover:text-[var(--color-accent)] transition-colors">{t("rgpd")}</Link></li>
+              <li><Link href="/mentions-legales" className="hover:text-[var(--color-accent)] transition-colors">{t("legals")}</Link></li>
+              <li><Link href="/politique-confidentialite" className="hover:text-[var(--color-accent)] transition-colors">{t("rgpd")}</Link></li>
+              <li><ManageCookiesButton label={tc("manage")} /></li>
             </ul>
           </div>
 

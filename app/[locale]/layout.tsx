@@ -7,6 +7,7 @@ import { getMessages } from 'next-intl/server'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { ChatAgent } from '@/components/agent/ChatAgent'
+import { CookieBanner } from '@/components/layout/CookieBanner'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -52,6 +53,7 @@ export default async function RootLayout({
           </main>
           <Footer />
           <ChatAgent />
+          <CookieBanner />
         </NextIntlClientProvider>
       </body>
     </html>
