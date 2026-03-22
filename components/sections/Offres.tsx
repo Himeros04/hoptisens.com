@@ -13,8 +13,8 @@ const offres = [
     title: "Acquisition & Prospects",
     description: "Vos commerciaux passent plus de temps à chercher des prospects qu'à closer. On automatise tout jusqu'au CRM.",
     icon: Users,
-    href: "/contact",
-    cta: "Auditer mon Acquisition"
+    href: "/offres/leads",
+    cta: "En savoir plus"
   },
   {
     title: "Automatisation & RPA",
@@ -34,8 +34,8 @@ const offres = [
     title: "Sprint IA",
     description: "10 jours pour prouver que ça marche. Diagnostic offert, puis preuve de concept livrée.",
     icon: Zap,
-    href: "/contact",
-    cta: "Commencer mon Diagnostic",
+    href: "/offres/sprint",
+    cta: "En savoir plus",
     highlight: true
   }
 ];

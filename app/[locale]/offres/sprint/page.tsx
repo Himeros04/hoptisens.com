@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Link } from "@/lib/routing";
-import { CheckCircle2, Clock, Map, Target } from "lucide-react";
+import { CheckCircle2, Clock, Map, Target, ArrowRight } from "lucide-react";
 
 export default function SprintPage() {
   return (
@@ -22,7 +22,7 @@ export default function SprintPage() {
               </h1>
               <p className="text-xl text-text-secondary mb-8">
                 10 jours pour prouver que ça marche. Un investissement minimal
-                pour un premier ROI chiffré et démontré.
+                pour un premier ROI chiffré.
               </p>
               <div className="flex gap-4">
                 <a href="https://calendly.com/hoptisens/hoptisens-call" target="_blank" rel="noopener noreferrer" className="inline-block">
@@ -90,7 +90,18 @@ export default function SprintPage() {
             </FadeInUp>
           </div>
         </Container>
-      </Section>
-    </main>
-  );
-}
+       </Section>
+       
+       {/* Back to offers link */}
+       <Section className="mb-20">
+         <Container>
+           <FadeInUp className="text-center">
+             <Link href="/offres" className="inline-flex items-center text-accent font-medium hover:text-accent-hover transition-colors">
+               Retour à toutes les offres <ArrowRight className="ml-2 w-4 h-4" />
+             </Link>
+           </FadeInUp>
+         </Container>
+       </Section>
+     </main>
+   );
+ }

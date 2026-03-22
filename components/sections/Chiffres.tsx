@@ -7,8 +7,7 @@ import { ArrowRight } from "lucide-react";
 const metrics = [
   { numeric: 30, prefix: "> ", suffix: "%", label: "de tâches répétitives en moins" },
   { numeric: 30, prefix: "", suffix: " Jours", label: "pour un premier ROI chiffré" },
-  { numeric: 100, prefix: "", suffix: "%", label: "de l'audit déductible de la mission" },
-  { numeric: 24, prefix: "", suffix: "/7", label: " qualification de prospect entrant" },
+  { numeric: 24, prefix: "", suffix: "/7", label: " Support client & qualification de prospect" },
 ];
 
 export function Chiffres() {
@@ -23,7 +22,7 @@ export function Chiffres() {
             Moyennes constatées sur nos derniers accompagnements TPE/PME.
           </p>
         </FadeInUp>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 divide-x-0 md:divide-x divide-border">
+        <div className="grid grid-cols-3 gap-8 divide-x-0 divide-border">
           {metrics.map((metric, index) => (
             <FadeInUp key={index} delay={index * 0.1} className="text-center px-4">
               <div className="text-4xl md:text-5xl font-serif text-[var(--color-accent)] mb-2">

@@ -40,7 +40,7 @@ export function Hero() {
       
       <Container className="text-center relative z-10">
         <FadeInUp>
-          <Badge variant="accent" className="mb-6">L'IA opérationnelle pour les PME de 10 à 300 personnes</Badge>
+          <Badge variant="accent" className="mb-6">L'IA opérationnelle pour les PME </Badge>
           
           <motion.h1 
             initial="hidden"
@@ -67,11 +67,12 @@ export function Hero() {
             transition={{ delay: 0.6, duration: 0.6 }}
             className="text-lg md:text-xl text-[var(--color-text-secondary)] max-w-2xl mx-auto mb-10"
           >
-            Hoptisens conçoit et déploie des systèmes IA sur-mesure pour les PME : automatisation, agents intelligents, CRM connecté. Vos marges sont protégées, votre temps est libéré.
+            Hoptisens conçoit et déploie des systèmes IA sur-mesure : automatisation, agents intelligents, CRM connecté. Vos marges sont protégées, votre temps est libéré.
           </motion.p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/diagnostic" className="w-full sm:w-auto">
-              <Button size="lg" className="w-full">⚡ Commencer mon Diagnostic</Button>
+              <Button size="lg" className="w-full">⚡ Mon Flash-Diag en 3min
+              </Button>
             </Link>
             <a href="https://calendly.com/hoptisens/hoptisens-call" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button variant="secondary" size="lg" className="w-full">📞 Réserver un appel</Button>

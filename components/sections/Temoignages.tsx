@@ -21,14 +21,21 @@ export function Temoignages() {
             {
               title: "PME Services B2B",
               context: "25 collaborateurs",
-              action: "Mise en place d'un filtre IA d'intention",
-              result: "Réduction de 70% du temps de qualification manuel, augmentation du taux de clôture des rendez-vous fournis aux commerciaux."
+              action: "Mise en place d'un assistant IA pour qualifier les prospects",
+              result: "Réduction de 70% du temps de qualification et de suivi, augmentation du taux de conversion."
+
             },
             {
-              title: "Cabinet de Conseil",
-              context: "12 collaborateurs",
+              title: "TPE Organisation d'évènements",
+              context: "6 collaborateurs",
               action: "Déploiement d'un CRM semi-automatisé via Telegram",
-              result: "Suppression totale des erreurs de saisie terrain et synchronisation instantanée avec les bases de données Supabase."
+              result: "Interface centralisée (telegram) pour gérer un CRM synchronisé avec différents outils de suivi (Notion, Excel, Drive, Dashboard de pilotage). 30% de temps gagné au niveau de la saisie et de l'accès aux informations"
+            },
+            {
+              title: "Société de conseil IT - ESN",
+              context: "60 collaborateurs",
+              action: "Déploiement d'un systeme de matching inteligent entre les Besoins et les Candidats.",
+              result: "Interface centralisée pour consulter instantannément le vivier de candidat pertinent vis à vis du besoin client. Outil devenu indispensable pour l'efficience des équipes commerciales et de recrutement."
             }
           ].map((item, index) => (
             <FadeInUp key={index}>

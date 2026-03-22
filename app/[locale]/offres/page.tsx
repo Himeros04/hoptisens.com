@@ -6,23 +6,23 @@ import { Container } from "@/components/ui/Container";
 import { FadeInUp } from "@/components/ui/FadeInUp";
 import { Button } from "@/components/ui/Button";
 import { Link } from "@/lib/routing";
-import { Brain, Zap, Workflow, Users, CheckCircle2, GraduationCap } from "lucide-react";
+import { Brain, Zap, Workflow, Users, CheckCircle2, GraduationCap, ArrowRight } from "lucide-react";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { motion, AnimatePresence } from "framer-motion";
 import { LeadsSchema, AutomatisationSchema, AgentsSchema, SprintSchema, WorkshopSchema } from "@/components/visuals/OfferSchemas";
 
 const offers = [
-  {
+{
     id: "leads",
-    title: "Acquisition & Leads",
-    shortTitle: "Acquisition & Leads",
+    title: "Acquisition et Prospect",
+    shortTitle: "Acquisition et Prospect",
     icon: Users,
     description: "Ne perdez plus de temps à chercher des prospects. Nos systèmes scrutent le web et qualifient automatiquement les entreprises qui correspondent à votre client idéal.",
     bullets: ["Filtre d'intention d'achat", "Qualification automatique par Agent IA", "Synchro automatique avec votre CRM"],
     cta: "Auditer mon Acquisition",
-    href: "/contact",
+    href: "/offres/leads",
     illustration: LeadsSchema
-  },
+},
   {
     id: "automatisation",
     title: "Automatisation & RPA",
@@ -46,17 +46,17 @@ const offers = [
     isExternal: true,
     illustration: AgentsSchema
   },
-  {
+{
     id: "sprint",
     title: "Sprint IA",
     shortTitle: "Sprint IA",
     icon: Zap,
     description: "10 jours pour prouver que ça marche. Diagnostic offert, puis preuve de concept livrée — votre investissement est sécurisé.",
-    bullets: ["Diagnostic basé sur vos données réelles (offert)", "Sprint immersif 4 jours (preuve de concept)", "Garantie anti-risque"],
-    cta: "Commencer mon Diagnostic",
-    href: "/contact",
+    bullets: ["Diagnostic basé sur vos données réelles (offert)", "Sprint immersif (preuve de concept)", "Garantie anti-risque"],
+    cta: "🚀 Lancer mon Sprint IA",
+    href: "/offres/sprint",
     illustration: SprintSchema
-  },
+},
   {
     id: "workshops",
     title: "Workshops & Ateliers",
@@ -169,19 +169,25 @@ export default function OffresPage() {
                             </li>
                           ))}
                         </ul>
-                        {offer.isExternal ? (
-                          <a href={offer.href} target="_blank" rel="noopener noreferrer" className="inline-block">
-                            <Button size="lg" className="bg-accent text-white hover:bg-white hover:text-accent border-none shadow-none">
-                              {offer.cta}
-                            </Button>
-                          </a>
-                        ) : (
-                          <Link href={offer.href as any} className="inline-block">
-                            <Button size="lg" className="bg-accent text-white hover:bg-white hover:text-accent border-none shadow-none">
-                              {offer.cta}
-                            </Button>
-                          </Link>
-                        )}
+                         {offer.isExternal ? (
+                           <a href={offer.href} target="_blank" rel="noopener noreferrer" className="inline-block">
+                             <Button size="lg" className="bg-accent text-white hover:bg-white hover:text-accent border-none shadow-none">
+                               {offer.cta}
+                             </Button>
+                           </a>
+                         ) : (
+                           <Link href={offer.href as any} className="inline-block">
+                             <Button size="lg" className="bg-accent text-white hover:bg-white hover:text-accent border-none shadow-none">
+                               {offer.cta}
+                             </Button>
+                           </Link>
+                         )}
+                         {/* Additional "En savoir plus" link for specific offers */}
+                         {!offer.isExternal && (offer.id === "sprint" || offer.id === "leads") && (
+                           <Link href={offer.id === "sprint" ? "/offres/sprint" : "/offres/leads"} className="ml-4 inline-flex items-center text-sm font-medium text-text-primary group-hover:text-accent transition-colors">
+                             En savoir plus <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                           </Link>
+                         )}
                       </div>
                       <div className="bg-surface rounded-3xl border border-border flex items-center justify-center aspect-video shadow-xl overflow-hidden">
                         <offer.illustration />
